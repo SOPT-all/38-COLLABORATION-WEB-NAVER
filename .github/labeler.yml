@@ -7,31 +7,31 @@ enable:
 labels:
   '✨ Feature':
     include:
-      - '\bfeat\b'
+      - '\bFEAT\b'
   '🐞BUG':
     include:
-      - '\bfix\b'
+      - '\bFIX\b'
   '🔨 Refactor':
     include:
-      - '\brefactor\b'
+      - '\bREFACTOR\b'
   '📬 API':
     include:
-      - '\bapi\b'
+      - '\bAPI\b'
   '📃 Docs':
     include:
-      - '\bdocs\b'
+      - '\bDOCS\b'
   '🌏 Deploy':
     include:
-      - '\bdeploy\b'
+      - '\bDEVELOP\b'
   '🎨 Style':
     include:
-      - '\bstyle\b'
+      - '\bSTYLE\b'
   '💻 CrossBrowsing':
     include:
-      - '\bcrossbrowsing\b'
+      - '\bCROSSBROWSING\b'
   '✅ Test':
     include:
-      - '\btest\b'
+      - '\bTEST\b'
   '⚙ Setting':
     include:
-      - '\bsetting\b'
+      - '\bSETTING\b'
