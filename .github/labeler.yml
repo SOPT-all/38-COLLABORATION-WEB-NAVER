@@ -3,12 +3,6 @@ enable:
   issues: false
   prs: true
 
-# 레이블을 성공적으로 붙이고 PR에 보낼 코멘트
-comments:
-  prs: |
-    Labeler has applied labels based on your PR title or description.
-    Please review the labels and make any necessary adjustments.
-
 # 레이블 규칙
 labels:
   '✨ Feature':
