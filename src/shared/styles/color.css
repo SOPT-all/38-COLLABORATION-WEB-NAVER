@@ -1,4 +1,6 @@
 @theme {
+  --color-*: initial;
+
   --color-green-100: #f1fff5;
   --color-green-200: #d7fbe1;
   --color-green-400: #00e260;
