@@ -1,9 +1,18 @@
 name: Chromatic
 
 on:
+  push:
+    branches:
+      - main
+      - develop
   pull_request:
     branches:
+      - main
       - develop
+
+permissions:
+  contents: read
+  pull-requests: write
 
 jobs:
   chromatic:
@@ -30,6 +39,24 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Publish to Chromatic
-        run: pnpm chromatic --exit-zero-on-changes
-        env:
-          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+        id: chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          exitZeroOnChanges: true
+
+      - name: Get current time
+        id: current-time
+        uses: josStorer/get-current-time@v2
+        with:
+          format: 'YYYY년 MM월 DD일 HH시 mm분 ss초'
+          utcOffset: '+09:00'
+
+      - name: Comment Storybook URL
+        if: github.event_name == 'pull_request'
+        uses: thollander/actions-comment-pull-request@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          message: |
+            💄 Storybook preview URL: ${{ steps.chromatic.outputs.storybookUrl }}
+            🕖 Update time: ${{ steps.current-time.outputs.formattedTime }}
