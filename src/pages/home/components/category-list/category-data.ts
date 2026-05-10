@@ -1,4 +1,4 @@
-import imgEvent from '../../../../shared/assets/images/img-event.png';
+import imgEvent from '@/shared/assets/images/img-event.png';
 
 export interface Category {
   categoryId: number;

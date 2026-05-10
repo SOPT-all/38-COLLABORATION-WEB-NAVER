@@ -1,4 +1,4 @@
-import type {Category} from './category-data';
+import type {Category} from '@/pages/home/components/category-list/category-data';
 
 interface CategoryItemProps {
   category: Category;

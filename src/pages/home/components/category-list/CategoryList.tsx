@@ -1,5 +1,9 @@
-import type {Category, CategoryResponseData} from './category-data';
-import {CategoryItem} from './CategoryItem';
+import {CategoryItem} from '@/pages/home/components/category-list/CategoryItem';
+import type {
+  Category,
+  CategoryResponseData,
+} from '@/pages/home/components/category-list/category-data';
+import {IcSvgChevronUp} from '@/shared/icons';
 
 const COLLAPSED_CATEGORY_COUNT = 10;
 
@@ -40,12 +44,10 @@ export const CategoryList = ({
         disabled={!hasExpandableCategories}
         onClick={handleExpandButtonClick}>
         전체 카테고리 더보기
-        <span
+        <IcSvgChevronUp
           aria-hidden='true'
-          className={`h-[8px] w-[8px] rotate-45 border-gray-900 ${
-            categoryData.isExpanded
-              ? 'mt-[4px] border-t border-l'
-              : 'mb-[4px] border-r border-b'
+          className={`h-[24px] w-[24px] transition-transform ${
+            categoryData.isExpanded ? '' : 'rotate-180'
           }`}
         />
       </button>
