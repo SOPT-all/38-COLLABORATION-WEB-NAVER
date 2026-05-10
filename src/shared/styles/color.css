@@ -1,0 +1,30 @@
+@theme {
+  --color-*: initial;
+
+  --color-green-100: #f1fff5;
+  --color-green-200: #d7fbe1;
+  --color-green-400: #00e260;
+  --color-green-600: #1aab52;
+
+  --color-gray-300: #f4f5f7;
+  --color-gray-500: #e6e8e8;
+  --color-gray-700: #9f9f9f;
+  --color-gray-800: #757575;
+  --color-gray-900: #3f3f3f;
+
+  --color-black: #010101;
+  --color-semi-black: #2a2a2a;
+
+  --color-navy: #404049;
+
+  --color-white: #ffffff;
+
+  --color-red-700: #feeaed;
+  --color-red-800: #f3bcc5;
+  --color-red-900: #d40022;
+
+  --color-blue-800: #f7f9fd;
+  --color-blue-900: #2e79ff;
+
+  --color-purple: #8856fd;
+}
