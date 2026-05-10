@@ -1,6 +1,6 @@
 # enable labeler on issues, prs, or both.
 enable:
-  issues: false
+  issues: true
   prs: true
 
 # 레이블 규칙
