@@ -22,6 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.env
+.env.local
+
+*storybook.log
+storybook-static
 
 # AI Docs
 AGENTS.md
