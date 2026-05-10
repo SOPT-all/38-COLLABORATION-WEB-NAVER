@@ -1,0 +1,23 @@
+// (auto-generated) Do not edit manually.
+// Run `pnpm build:icons` to regenerate.
+
+export {default as IcSvgComponent1} from './ic-component1';
+export {default as IcSvgArrowLeft} from './ic-arrow-left';
+export {default as IcSvgCart} from './ic-cart';
+export {default as IcSvgCheckLg} from './ic-check-lg';
+export {default as IcSvgCheckSm} from './ic-check-sm';
+export {default as IcSvgChevronDownSm} from './ic-chevron-down-sm';
+export {default as IcSvgChevronRight} from './ic-chevron-right';
+export {default as IcSvgChevronRightSm} from './ic-chevron-right-sm';
+export {default as IcSvgChevronUp} from './ic-chevron-up';
+export {default as IcSvgClose} from './ic-close';
+export {default as IcSvgCloseSm} from './ic-close-sm';
+export {default as IcSvgDelivery} from './ic-delivery';
+export {default as IcSvgMap} from './ic-map';
+export {default as IcSvgMenu} from './ic-menu';
+export {default as IcSvgMinus} from './ic-minus';
+export {default as IcSvgNotice} from './ic-notice';
+export {default as IcSvgPlus} from './ic-plus';
+export {default as IcSvgQuestion} from './ic-question';
+export {default as IcSvgSearch} from './ic-search';
+export {default as IcSvgStar} from './ic-star';

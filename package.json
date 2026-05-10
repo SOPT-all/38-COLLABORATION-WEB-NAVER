@@ -14,12 +14,16 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "chromatic"
+    "chromatic": "chromatic",
+    "build:icons": "tsx scripts/build-icons.ts"
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "@tanstack/react-query": "^5.90.17",
+    "axios": "^1.16.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
+    "react-router-dom": "^7.15.0",
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
@@ -27,6 +31,7 @@
     "@chromatic-com/storybook": "^5.1.2",
     "@eslint/js": "^10.0.1",
     "@rolldown/plugin-babel": "^0.2.3",
+    "@svgr/cli": "^8.1.0",
     "@tailwindcss/vite": "^4.2.4",
     "@storybook/addon-a11y": "^10.3.6",
     "@storybook/addon-docs": "^10.3.6",
@@ -56,10 +61,12 @@
     "prettier-plugin-tailwindcss": "^0.8.0",
     "tailwindcss": "^4.2.4",
     "storybook": "^10.3.6",
+    "tsx": "^4.21.0",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.58.2",
     "vite": "^8.0.10",
-    "vitest": "^4.1.5"
+    "vitest": "^4.1.5",
+    "vite-plugin-svgr": "^5.2.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
