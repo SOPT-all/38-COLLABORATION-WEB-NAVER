@@ -1,29 +1,46 @@
 import {createBrowserRouter, Navigate} from 'react-router-dom';
 
-import {CartPage} from '@/pages/cart/CartPage';
-import {HomePage} from '@/pages/home/HomePage';
-import {OrderSheetPage} from '@/pages/order-sheet/OrderSheetPage';
-import {ProductDetailPage} from '@/pages/product/ProductDetailPage';
+import {ROUTES} from '@/shared/constants/routes';
 
 export const router = createBrowserRouter([
   {
-    path: '/',
-    element: <Navigate to='/home' replace />,
+    path: ROUTES.ROOT,
+    element: <Navigate to={ROUTES.HOME} replace />,
   },
   {
-    path: '/home',
-    element: <HomePage />,
+    path: ROUTES.HOME,
+    lazy: async () => {
+      const {HomePage} = await import('@/pages/home/HomePage');
+      return {Component: HomePage};
+    },
   },
   {
-    path: '/:id',
-    element: <ProductDetailPage />,
+    path: ROUTES.PRODUCT_DETAIL,
+    lazy: async () => {
+      const {ProductDetailPage} = await import(
+        '@/pages/product/ProductDetailPage'
+      );
+      return {Component: ProductDetailPage};
+    },
   },
   {
-    path: '/cart',
-    element: <CartPage />,
+    path: ROUTES.CART,
+    lazy: async () => {
+      const {CartPage} = await import('@/pages/cart/CartPage');
+      return {Component: CartPage};
+    },
   },
   {
-    path: '/ordersheet',
-    element: <OrderSheetPage />,
+    path: ROUTES.ORDER_SHEET,
+    lazy: async () => {
+      const {OrderSheetPage} = await import(
+        '@/pages/order-sheet/OrderSheetPage'
+      );
+      return {Component: OrderSheetPage};
+    },
+  },
+  {
+    path: '*',
+    element: <Navigate to={ROUTES.HOME} replace />,
   },
 ]);
