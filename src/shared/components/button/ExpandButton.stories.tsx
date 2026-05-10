@@ -1,5 +1,5 @@
+import {ExpandButton} from '@/shared/components/button/ExpandButton';
 import type {Meta, StoryObj} from '@storybook/react-vite';
-import {ExpandButton} from './ExpandButton';
 
 const meta = {
   title: 'Shared/Button/ExpandButton',
