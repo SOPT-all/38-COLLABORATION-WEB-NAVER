@@ -4,11 +4,10 @@ import {QueryProvider} from './providers/QueryProvider';
 
 function App() {
   return (
-    <RouterProvider router={router}>
-      <QueryProvider>
-        <h1>Hello Team Naver</h1>
-      </QueryProvider>
-    </RouterProvider>
+    <QueryProvider>
+      <RouterProvider router={router} />
+      <h1>Hello Team Naver</h1>
+    </QueryProvider>
   );
 }
 
