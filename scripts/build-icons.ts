@@ -20,8 +20,8 @@ function toSnakeCaseFileName(name: string): string {
     .split(/[^a-zA-Z0-9]/)
     .filter(Boolean)
     .map((s) => s.toLowerCase())
-    .join('_');
-  return `ic_${snakeName}.tsx`;
+    .join('-');
+  return `ic-${snakeName}.tsx`;
 }
 
 function getIconName(name: string): string {
