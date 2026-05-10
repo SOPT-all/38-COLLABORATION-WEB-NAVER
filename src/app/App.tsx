@@ -1,5 +1,9 @@
+import {RouterProvider} from 'react-router-dom';
+
+import {router} from '@/app/router/router';
+
 function App() {
-  return <h1>Hello Team Naver</h1>;
+  return <RouterProvider router={router} />;
 }
 
 export default App;
