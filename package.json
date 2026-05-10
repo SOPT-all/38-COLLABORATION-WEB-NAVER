@@ -14,6 +14,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.100.9",
+    "axios": "^1.16.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5"
   },
@@ -46,5 +48,6 @@
       "prettier --write"
     ],
     "*.{json,css,md,html,yml,yaml}": "prettier --write"
-  }
+  },
+  "packageManager": "pnpm@10.26.1+sha512.664074abc367d2c9324fdc18037097ce0a8f126034160f709928e9e9f95d98714347044e5c3164d65bd5da6c59c6be362b107546292a8eecb7999196e5ce58fa"
 }
