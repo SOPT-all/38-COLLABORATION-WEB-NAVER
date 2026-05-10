@@ -1,5 +1,5 @@
-import closeIcon from '@/shared/assets/icons/ic-close.svg';
 import {Header} from '@/shared/components/header';
+import {IcSvgClose} from '@/shared/icons';
 
 interface OrderSheetHeaderProps {
   onCloseClick?: () => void;
@@ -18,7 +18,7 @@ export const OrderSheetHeader = ({onCloseClick}: OrderSheetHeaderProps) => {
 
       <Header.Right>
         <Header.IconButton label='닫기' onClick={onCloseClick}>
-          <img src={closeIcon} alt='' className='h-[24px] w-[24px]' />
+          <IcSvgClose aria-hidden='true' className='h-[24px] w-[24px]' />
         </Header.IconButton>
       </Header.Right>
     </Header>

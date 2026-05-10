@@ -1,8 +1,6 @@
 import type {ButtonHTMLAttributes, HTMLAttributes, ReactNode} from 'react';
 
-import arrowLeftIcon from '@/shared/assets/icons/ic-arrow_left.svg';
-import cartIcon from '@/shared/assets/icons/ic-cart.svg';
-import subtractNIcon from '@/shared/assets/icons/ic-subtract-n.svg';
+import {IcSvgArrowLeft, IcSvgCart, IcSvgSubtractN} from '@/shared/icons';
 import {cn} from '@/shared/utils/cn';
 
 type HeaderRootProps = HTMLAttributes<HTMLElement>;
@@ -146,7 +144,7 @@ export const HeaderIconButton = ({
       type={type}
       aria-label={label}
       className={cn(
-        'relative flex h-[24px] w-[24px] shrink-0 items-center justify-center text-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900',
+        'relative flex h-[24px] w-[24px] shrink-0 cursor-pointer items-center justify-center text-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900 disabled:cursor-not-allowed',
         className
       )}
       {...props}>
@@ -160,7 +158,7 @@ export const HeaderBackButton = (
 ) => {
   return (
     <HeaderIconButton label='뒤로가기' {...props}>
-      <img src={arrowLeftIcon} alt='' className='h-[24px] w-[24px]' />
+      <IcSvgArrowLeft aria-hidden='true' className='h-[24px] w-[24px]' />
     </HeaderIconButton>
   );
 };
@@ -175,7 +173,7 @@ export const HeaderCartButton = ({
 
   return (
     <HeaderIconButton label='장바구니' className={className} {...props}>
-      <img src={cartIcon} alt='' className='h-[24px] w-[24px]' />
+      <IcSvgCart aria-hidden='true' className='h-[24px] w-[24px]' />
       {badgeText && (
         <span className='text-caption-10r absolute top-[-4px] right-[-4px] flex h-[16px] w-[16px] items-center justify-center rounded-full bg-red-900 text-white'>
           {badgeText}
@@ -195,7 +193,7 @@ export const HeaderTextButton = ({
     <button
       type={type}
       className={cn(
-        'text-caption-12sb text-semi-black flex h-[27px] shrink-0 items-center justify-center rounded-[4px] border border-gray-500 px-[8px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900',
+        'text-caption-12sb text-semi-black flex h-[27px] shrink-0 cursor-pointer items-center justify-center rounded-[4px] border border-gray-500 px-[8px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900 disabled:cursor-not-allowed',
         className
       )}
       {...props}>
@@ -216,7 +214,7 @@ export const HeaderNPayLogo = ({
       )}
       aria-label='N pay'
       {...props}>
-      <img src={subtractNIcon} alt='' className='h-[22px] w-[22px]' />
+      <IcSvgSubtractN aria-hidden='true' className='h-[22px] w-[22px]' />
       <span>pay</span>
     </div>
   );

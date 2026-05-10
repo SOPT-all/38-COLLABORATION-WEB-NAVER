@@ -1,6 +1,5 @@
-import menuIcon from '@/shared/assets/icons/ic-menu.svg';
-import searchIcon from '@/shared/assets/icons/ic-search.svg';
 import {Header} from '@/shared/components/header';
+import {IcSvgMenu, IcSvgSearch} from '@/shared/icons';
 
 interface ProductHeaderProps {
   storeName: string;
@@ -28,11 +27,11 @@ export const ProductHeader = ({
 
       <Header.Right>
         <Header.IconButton label='검색' onClick={onSearchClick}>
-          <img src={searchIcon} alt='' className='h-[24px] w-[24px]' />
+          <IcSvgSearch aria-hidden='true' className='h-[24px] w-[24px]' />
         </Header.IconButton>
         <Header.CartButton count={cartCount} onClick={onCartClick} />
         <Header.IconButton label='메뉴' onClick={onMenuClick}>
-          <img src={menuIcon} alt='' className='h-[24px] w-[24px]' />
+          <IcSvgMenu aria-hidden='true' className='h-[24px] w-[24px]' />
         </Header.IconButton>
       </Header.Right>
     </Header>

@@ -1,5 +1,5 @@
-import searchIcon from '@/shared/assets/icons/ic-search.svg';
 import {Header} from '@/shared/components/header';
+import {IcSvgSearch} from '@/shared/icons';
 
 interface HomeHeaderProps {
   onBackClick?: () => void;
@@ -21,7 +21,7 @@ export const HomeHeader = ({
 
       <Header.Right>
         <Header.IconButton label='검색' onClick={onSearchClick}>
-          <img src={searchIcon} alt='' className='h-[24px] w-[24px]' />
+          <IcSvgSearch aria-hidden='true' className='h-[24px] w-[24px]' />
         </Header.IconButton>
         <Header.CartButton onClick={onCartClick} />
       </Header.Right>
