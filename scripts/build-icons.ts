@@ -82,7 +82,7 @@ async function main() {
         /^(import type \{ SVGProps \} from 'react';\r?\n)/m
       );
       if (importMatch) {
-        if (!content.startsWith(importMatch[0] + '\n')) {
+        if (!content.startsWith(`${importMatch[0]}\n`)) {
           content = content.replace(importMatch[0], `${importMatch[0]}\n`);
         }
       }
