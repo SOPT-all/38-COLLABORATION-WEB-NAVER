@@ -1,5 +1,5 @@
 name: PR labeler
-on: 
+on:
   issues:
     types: [opened, edited, milestoned]
   pull_request_target:
@@ -11,13 +11,12 @@ permissions:
   pull-requests: write
 
 jobs:
-
   labeler:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check Labels
-      id: labeler
-      uses: jimschubert/labeler-action@v2
-      with:
-        github-token: ${{secrets.GITHUB_TOKEN}}
+      - name: Check Labels
+        id: labeler
+        uses: jimschubert/labeler-action@v2
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
