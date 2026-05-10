@@ -26,7 +26,10 @@ export const ExpandButton = ({
         width={24}
         height={24}
         color='var(--color-gray-900)'
-        className={cn('transition-transform duration-200', isExpanded && 'rotate-180')}
+        className={cn(
+          'transition-transform duration-200',
+          isExpanded && 'rotate-180'
+        )}
       />
     </button>
   );
