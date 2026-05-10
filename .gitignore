@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# AI Docs
+AGENTS.md
+skills
+docs
+recipes
+examples
+templates
+*.spec.md
