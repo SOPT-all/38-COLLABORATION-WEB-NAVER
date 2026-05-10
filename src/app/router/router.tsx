@@ -1,5 +1,6 @@
 import {createBrowserRouter, Navigate} from 'react-router-dom';
 
+import {HomePage} from '@/pages/home/HomePage';
 import {ROUTES} from '@/shared/constants/routes';
 
 export const router = createBrowserRouter([
@@ -9,17 +10,13 @@ export const router = createBrowserRouter([
   },
   {
     path: ROUTES.HOME,
-    lazy: async () => {
-      const {HomePage} = await import('@/pages/home/HomePage');
-      return {Component: HomePage};
-    },
+    element: <HomePage />,
   },
   {
     path: ROUTES.PRODUCT_DETAIL,
     lazy: async () => {
-      const {ProductDetailPage} = await import(
-        '@/pages/product/ProductDetailPage'
-      );
+      const {ProductDetailPage} =
+        await import('@/pages/product/ProductDetailPage');
       return {Component: ProductDetailPage};
     },
   },
@@ -33,9 +30,8 @@ export const router = createBrowserRouter([
   {
     path: ROUTES.ORDER_SHEET,
     lazy: async () => {
-      const {OrderSheetPage} = await import(
-        '@/pages/order-sheet/OrderSheetPage'
-      );
+      const {OrderSheetPage} =
+        await import('@/pages/order-sheet/OrderSheetPage');
       return {Component: OrderSheetPage};
     },
   },
