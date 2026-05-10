@@ -1,7 +1,7 @@
 import type {ComponentPropsWithoutRef} from 'react';
 
-import {cn} from '../../../../shared/utils/cn';
-import searchIcon from '../../../../shared/assets/icons/ic-search.svg';
+import {IcSvgSearch} from '@/shared/icons';
+import {cn} from '@/shared/utils/cn';
 
 interface SearchBarProps extends Omit<
   ComponentPropsWithoutRef<'form'>,
@@ -59,8 +59,8 @@ export const SearchBar = ({
         type='submit'
         aria-label='검색'
         disabled={disabled}
-        className='flex h-[24px] w-[24px] shrink-0 items-center justify-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900 disabled:cursor-not-allowed'>
-        <img src={searchIcon} alt='' className='h-[24px] w-[24px]' />
+        className='flex h-[24px] w-[24px] shrink-0 cursor-pointer items-center justify-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900 disabled:cursor-not-allowed'>
+        <IcSvgSearch aria-hidden='true' className='h-[24px] w-[24px]' />
       </button>
     </form>
   );
