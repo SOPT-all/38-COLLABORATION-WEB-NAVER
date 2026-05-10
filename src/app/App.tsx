@@ -1,5 +1,11 @@
+import {QueryProvider} from './providers/QueryProvider';
+
 function App() {
-  return <h1>Hello Team Naver</h1>;
+  return (
+    <QueryProvider>
+      <h1>Hello Team Naver</h1>
+    </QueryProvider>
+  );
 }
 
 export default App;
