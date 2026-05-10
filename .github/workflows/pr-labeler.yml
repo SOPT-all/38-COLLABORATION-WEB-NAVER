@@ -18,6 +18,7 @@ jobs:
       - name: Check Labels
         id: labeler
         uses: jimschubert/labeler-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           config_path: .github/labeler.yml
