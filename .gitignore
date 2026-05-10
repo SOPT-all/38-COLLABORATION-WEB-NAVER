@@ -25,3 +25,12 @@ dist-ssr
 
 *storybook.log
 storybook-static
+
+# AI Docs
+AGENTS.md
+skills
+docs
+recipes
+examples
+templates
+*.spec.md
