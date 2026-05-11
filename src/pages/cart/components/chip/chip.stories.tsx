@@ -11,6 +11,9 @@ const StatefulChip = () => {
 const meta = {
   title: 'Cart/Chip',
   component: StatefulChip,
+  parameters: {
+    layout: 'fullscreen',
+  },
 } satisfies Meta<typeof StatefulChip>;
 
 export default meta;
