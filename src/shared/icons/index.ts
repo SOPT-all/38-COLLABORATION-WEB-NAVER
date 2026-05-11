@@ -2,6 +2,7 @@
 // Run `pnpm build:icons` to regenerate.
 
 export {default as IcSvgComponent1} from './ic-component1';
+export {default as IcSvgComponent2} from './ic-component2';
 export {default as IcSvgArrowLeft} from './ic-arrow-left';
 export {default as IcSvgCart} from './ic-cart';
 export {default as IcSvgCheckLg} from './ic-check-lg';
@@ -21,4 +22,3 @@ export {default as IcSvgPlus} from './ic-plus';
 export {default as IcSvgQuestion} from './ic-question';
 export {default as IcSvgSearch} from './ic-search';
 export {default as IcSvgStar} from './ic-star';
-export {default as IcSvgSubtractN} from './ic-subtract-n';
