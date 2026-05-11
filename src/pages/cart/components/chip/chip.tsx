@@ -13,7 +13,7 @@ const variantStyles = {
   unselected: 'border-b-2 border-gray-500 text-gray-900',
 };
 
-const Chip = ({selectedTab, onChange}: ChipProps) => {
+export const Chip = ({selectedTab, onChange}: ChipProps) => {
   return (
     <div className='text-body-14b flex'>
       <button
@@ -43,5 +43,3 @@ const Chip = ({selectedTab, onChange}: ChipProps) => {
     </div>
   );
 };
-
-export default Chip;
