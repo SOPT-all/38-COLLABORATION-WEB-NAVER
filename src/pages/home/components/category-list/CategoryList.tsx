@@ -3,15 +3,15 @@ import type {
   Category,
   CategoryResponseData,
 } from '@/pages/home/components/category-list/category-data';
-import {IcSvgChevronUp} from '@/shared/icons';
+import {ExpandButton} from '@/shared/components/button/ExpandButton';
 
 const COLLAPSED_CATEGORY_COUNT = 10;
 
-interface CategoryListProps {
+type CategoryListProps = {
   categoryData: CategoryResponseData;
   onCategoryClick?: (category: Category) => void;
   onExpandChange?: (isExpanded: boolean) => void;
-}
+};
 
 export const CategoryList = ({
   categoryData,
@@ -37,20 +37,13 @@ export const CategoryList = ({
         ))}
       </ul>
 
-      <button
-        type='button'
-        className='text-caption-12sb mt-[34px] flex h-[38px] w-full cursor-pointer items-center justify-center gap-[4px] rounded-[8px] border border-gray-500 text-gray-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900 disabled:cursor-not-allowed'
-        aria-expanded={categoryData.isExpanded}
+      <ExpandButton
+        isExpanded={categoryData.isExpanded}
+        className='mt-[34px] h-[38px] w-full gap-[4px] rounded-[8px] py-0'
         disabled={!hasExpandableCategories}
         onClick={handleExpandButtonClick}>
         전체 카테고리 더보기
-        <IcSvgChevronUp
-          aria-hidden='true'
-          className={`h-[24px] w-[24px] transition-transform ${
-            categoryData.isExpanded ? '' : 'rotate-180'
-          }`}
-        />
-      </button>
+      </ExpandButton>
     </section>
   );
 };

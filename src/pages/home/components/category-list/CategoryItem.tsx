@@ -1,9 +1,9 @@
 import type {Category} from '@/pages/home/components/category-list/category-data';
 
-interface CategoryItemProps {
+type CategoryItemProps = {
   category: Category;
   onClick?: (category: Category) => void;
-}
+};
 
 export const CategoryItem = ({category, onClick}: CategoryItemProps) => {
   const {name, iconUrl} = category;
