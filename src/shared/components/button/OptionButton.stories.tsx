@@ -2,9 +2,8 @@ import {OptionButton} from '@/shared/components/button/OptionButton';
 import type {Meta, StoryObj} from '@storybook/react-vite';
 
 const meta = {
-  title: 'Shared/Button/OptionButton',
+  title: 'Components/Button/OptionButton',
   component: OptionButton,
-  tags: ['autodocs'],
   args: {
     children: '옵션 변경',
   },

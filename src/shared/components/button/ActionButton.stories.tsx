@@ -2,9 +2,8 @@ import {ActionButton} from '@/shared/components/button/ActionButton';
 import type {Meta, StoryObj} from '@storybook/react-vite';
 
 const meta = {
-  title: 'Shared/Button/ActionButton',
+  title: 'Components/Button/ActionButton',
   component: ActionButton,
-  tags: ['autodocs'],
   args: {
     children: '변경',
   },
