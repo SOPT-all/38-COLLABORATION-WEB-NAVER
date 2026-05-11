@@ -1,6 +1,10 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {useState} from 'react';
 import {Tap} from '@/pages/cart/components/tap/Tap';
+import {
+  KURLY_DELIVERY_LABEL,
+  NORMAL_DELIVERY_LABEL,
+} from '@/pages/cart/constants/CartConstants';
 
 const meta = {
   id: 'cart-chip',
@@ -17,8 +21,10 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    normalCount: 1,
-    kurlyCount: 0,
+    items: [
+      {value: 'normal', label: NORMAL_DELIVERY_LABEL, count: 1},
+      {value: 'kurly', label: KURLY_DELIVERY_LABEL, count: 0},
+    ],
     selectedTab: 'normal',
     onChange: () => undefined,
   },

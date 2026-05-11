@@ -1,14 +1,15 @@
-import {
-  KURLY_DELIVERY_LABEL,
-  NORMAL_DELIVERY_LABEL,
-} from '@/pages/cart/constants/CartConstants';
 import {cn} from '@/shared/utils/cn';
 
 type DeliveryTab = 'normal' | 'kurly';
 
+type TabItem = {
+  value: DeliveryTab;
+  label: string;
+  count: number;
+};
+
 type TapProps = {
-  normalCount: number;
-  kurlyCount: number;
+  items: TabItem[];
   selectedTab: DeliveryTab;
   onChange: (tab: DeliveryTab) => void;
 };
@@ -19,40 +20,25 @@ const variantStyles = {
   unselected: 'border-b-2 border-gray-500 text-gray-900',
 };
 
-export const Tap = ({
-  selectedTab,
-  onChange,
-  normalCount,
-  kurlyCount,
-}: TapProps) => {
+export const Tap = ({items, selectedTab, onChange}: TapProps) => {
   return (
     <div className='text-body-14b flex' role='tablist'>
-      <button
-        className={cn(
-          variantStyles.base,
-          selectedTab === 'normal'
-            ? variantStyles.selected
-            : variantStyles.unselected
-        )}
-        type='button'
-        role='tab'
-        aria-selected={selectedTab === 'normal'}
-        onClick={() => onChange('normal')}>
-        {NORMAL_DELIVERY_LABEL} {normalCount}
-      </button>
-      <button
-        className={cn(
-          variantStyles.base,
-          selectedTab === 'kurly'
-            ? variantStyles.selected
-            : variantStyles.unselected
-        )}
-        type='button'
-        role='tab'
-        aria-selected={selectedTab === 'kurly'}
-        onClick={() => onChange('kurly')}>
-        {KURLY_DELIVERY_LABEL} {kurlyCount}
-      </button>
+      {items.map((item) => (
+        <button
+          key={item.value}
+          className={cn(
+            variantStyles.base,
+            selectedTab === item.value
+              ? variantStyles.selected
+              : variantStyles.unselected
+          )}
+          type='button'
+          role='tab'
+          aria-selected={selectedTab === item.value}
+          onClick={() => onChange(item.value)}>
+          {item.label} {item.count}
+        </button>
+      ))}
     </div>
   );
 };
