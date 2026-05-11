@@ -1,6 +1,6 @@
-import type { ComponentPropsWithoutRef } from 'react';
+import type {ComponentPropsWithoutRef} from 'react';
 
-import { cn } from '@/shared/utils/cn';
+import {cn} from '@/shared/utils/cn';
 
 type OrderCardLayoutVariant =
   | 'cartStore'
@@ -29,7 +29,7 @@ export function OrderCardLayout({
   return (
     <section
       className={cn(
-        'w-full max-w-[34.3rem] rounded-[1.2rem] bg-white',
+        'w-full max-w-[34.3rem] rounded-[1.2rem] border-2 bg-white',
         orderCardLayoutVariants[variant],
         className
       )}

@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import type {Meta, StoryObj} from '@storybook/react-vite';
 
-import { OrderCardLayout } from '@/shared/components/cards/OrderCardLayout';
+import {OrderCardLayout} from '@/shared/components/cards/OrderCardLayout';
 
 const meta = {
   title: 'Components/Card/OrderCardLayout',
