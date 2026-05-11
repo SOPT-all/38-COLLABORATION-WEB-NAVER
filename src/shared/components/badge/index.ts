@@ -1,1 +1,0 @@
-export {DeliveryBadge} from '@/shared/components/badge/DeliveryBadge';
