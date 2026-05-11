@@ -54,3 +54,7 @@ body {
   min-height: 100dvh;
   margin: 0 auto;
 }
+
+button {
+  cursor: pointer;
+}
