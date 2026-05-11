@@ -1,29 +1,9 @@
-import type {ComponentPropsWithoutRef, ReactNode} from 'react';
+import type { ComponentPropsWithoutRef } from 'react';
 
-import {cn} from '@/shared/utils/cn';
+import { CartCardLayout } from '@/shared/components/cards/CartCardLayout';
 
-type OrderStoreCardProps = ComponentPropsWithoutRef<'article'> & {
-  header?: ReactNode;
-  headerAction?: ReactNode;
-  footer?: ReactNode;
-  showHeaderCheck?: boolean;
-  showLeadingCheck?: boolean;
-};
+type OrderStoreCardProps = ComponentPropsWithoutRef<typeof CartCardLayout>;
 
-export function OrderStoreCard({
-  className,
-  children,
-  ...props
-}: OrderStoreCardProps) {
-
-  return (
-    <article
-      className={cn(
-        'w-full max-w-[34.3rem] rounded-[1.2rem] bg-white p-[1.1rem] border-2',
-        className
-      )}
-      {...props}>
-      {children}
-    </article>
-  );
+export function OrderStoreCard(props: OrderStoreCardProps) {
+  return <CartCardLayout variant='store' {...props} />;
 }

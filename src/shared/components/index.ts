@@ -3,8 +3,5 @@ export {
   OrderStoreCard,
 } from '@/shared/components/cards/OrderStoreCard';
 export {
-  OrderPriceSummaryCard,
-  OrderPriceSummaryCardDivider,
-  OrderPriceSummaryCardRow,
-  OrderPriceSummaryCardRows,
+  OrderPriceSummaryCard
 } from '@/shared/components/cards/OrderPriceSummaryCard';
