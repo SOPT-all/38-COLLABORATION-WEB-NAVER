@@ -22,12 +22,15 @@ PR 작성 요청 시 `.github/pull_request_template.md` 템플릿을 기반으�
 
 1. **템플릿 로드**: `.github/pull_request_template.md`를 먼저 읽는다.
 2. **컨텍스트 추출**: `git log develop..HEAD`와 현재 작업 내용을 분석한다.
-3. **내용 매핑**:
+3. **제목 생성**: `[머릿말] 한글 내용` 형식으로 작성한다.
+   - 머릿말은 변경 사항의 성격에 가장 적합한 것을 대문자로 선택한다 (`FEAT`, `FIX`, `REFACTOR`, `STYLE`, `DOCS`, `CHORE`)
+   - 예시: `[FEAT] 장바구니 공통 카드 컴포넌트 추가`
+4. **내용 매핑**:
    - **ISSUE**: 브랜치명·커밋의 이슈 번호를 기반으로 `close #번호` 기입
    - **What is this PR?**: 비즈니스 로직 중심의 상세 설명 작성
    - **Test Checklist**: 작업 완료 항목을 체크리스트로 구성
    - **Screenshot**: `src/pages/` 또는 `src/shared/components/` 변경 시 이미지 영역 확보
-4. **출력**: GitHub에 즉시 붙여넣을 수 있는 마크다운 형태로 제공한다.
+5. **출력**: GitHub에 즉시 붙여넣을 수 있는 마크다운 형태로 제공한다.
 
 ## 3. 코드 접근성(A11y) 검사 스킬
 
