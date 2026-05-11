@@ -5,7 +5,8 @@ import { cn } from '@/shared/utils/cn';
 type OrderCardLayoutVariant =
   | 'cartStore'
   | 'cartPriceSummary'
-  | 'paymentPoint';
+  | 'paymentPoint'
+  | 'paymentMethod';
 
 type OrderCardLayoutProps = ComponentPropsWithoutRef<'section'> & {
   variant: OrderCardLayoutVariant;
@@ -15,6 +16,7 @@ const orderCardLayoutVariants: Record<OrderCardLayoutVariant, string> = {
   cartStore: 'p-[1.1rem]',
   cartPriceSummary: 'pt-[1.8rem] pr-[1.3rem] pb-[1.4rem] pl-[1.2rem]',
   paymentPoint: 'p-[1.6rem]',
+  paymentMethod: 'p-[1.6rem]',
 };
 
 export function OrderCardLayout({

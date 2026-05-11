@@ -34,3 +34,10 @@ export const PaymentPoint: Story = {
     className: 'h-[8rem]',
   },
 };
+
+export const PaymentMethod: Story = {
+  args: {
+    variant: 'paymentMethod',
+    className: 'h-[8rem]',
+  },
+};
