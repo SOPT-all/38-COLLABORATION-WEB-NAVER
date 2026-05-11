@@ -1,8 +1,14 @@
+import {
+  KURLY_DELIVERY_LABEL,
+  NORMAL_DELIVERY_LABEL,
+} from '@/pages/cart/constants/CartConstants';
 import {cn} from '@/shared/utils/cn';
 
 type DeliveryTab = 'normal' | 'kurly';
 
-type ChipProps = {
+type TapProps = {
+  normalCount: number;
+  kurlyCount: number;
   selectedTab: DeliveryTab;
   onChange: (tab: DeliveryTab) => void;
 };
@@ -13,9 +19,14 @@ const variantStyles = {
   unselected: 'border-b-2 border-gray-500 text-gray-900',
 };
 
-export const Chip = ({selectedTab, onChange}: ChipProps) => {
+export const Tap = ({
+  selectedTab,
+  onChange,
+  normalCount,
+  kurlyCount,
+}: TapProps) => {
   return (
-    <div className='text-body-14b flex'>
+    <div className='text-body-14b flex' role='tablist'>
       <button
         className={cn(
           variantStyles.base,
@@ -24,9 +35,10 @@ export const Chip = ({selectedTab, onChange}: ChipProps) => {
             : variantStyles.unselected
         )}
         type='button'
+        role='tab'
         aria-selected={selectedTab === 'normal'}
         onClick={() => onChange('normal')}>
-        일반배송 1
+        {NORMAL_DELIVERY_LABEL} {normalCount}
       </button>
       <button
         className={cn(
@@ -36,9 +48,10 @@ export const Chip = ({selectedTab, onChange}: ChipProps) => {
             : variantStyles.unselected
         )}
         type='button'
+        role='tab'
         aria-selected={selectedTab === 'kurly'}
         onClick={() => onChange('kurly')}>
-        컬리N마트 · 지금배달 0
+        {KURLY_DELIVERY_LABEL} {kurlyCount}
       </button>
     </div>
   );
