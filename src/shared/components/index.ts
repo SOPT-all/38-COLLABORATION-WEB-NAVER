@@ -7,5 +7,5 @@ export {
   OrderPriceSummaryCard,
   OrderPriceSummaryCardDivider,
   OrderPriceSummaryCardRow,
-  OrderPriceSummaryCardRows
+  OrderPriceSummaryCardRows,
 } from '@/shared/components/cards/OrderPriceSummaryCard';
