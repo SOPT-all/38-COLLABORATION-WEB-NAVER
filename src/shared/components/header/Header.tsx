@@ -126,7 +126,10 @@ export const HeaderStoreTitle = ({
       className={cn('flex min-w-0 items-center gap-[8px]', className)}
       {...props}>
       <span className='text-body-16m shrink-0 text-gray-900'>{prefix}</span>
-      <span aria-hidden='true' className='h-[12px] w-px shrink-0 bg-gray-500' />
+      <span
+        aria-hidden='true'
+        className='h-[12px] w-[1px] shrink-0 bg-gray-500'
+      />
       <span className='text-title-18sb truncate text-black'>{children}</span>
     </div>
   );
@@ -144,7 +147,7 @@ export const HeaderIconButton = ({
       type={type}
       aria-label={label}
       className={cn(
-        'relative flex h-[24px] w-[24px] shrink-0 cursor-pointer items-center justify-center text-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900 disabled:cursor-not-allowed',
+        'relative flex h-[24px] w-[24px] shrink-0 items-center justify-center text-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900',
         className
       )}
       {...props}>
@@ -193,7 +196,7 @@ export const HeaderTextButton = ({
     <button
       type={type}
       className={cn(
-        'text-caption-12sb text-semi-black flex h-[27px] shrink-0 cursor-pointer items-center justify-center rounded-[4px] border border-gray-500 px-[8px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900 disabled:cursor-not-allowed',
+        'text-caption-12sb text-semi-black flex h-[27px] shrink-0 items-center justify-center rounded-[4px] border border-gray-500 px-[8px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900',
         className
       )}
       {...props}>
