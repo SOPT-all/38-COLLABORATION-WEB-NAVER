@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {useState} from 'react';
-import Chip from './chip';
+import Chip from './Chip';
 
 const StatefulChip = () => {
   const [selectedTab, setSelectedTab] = useState<'normal' | 'kurly'>('normal');
