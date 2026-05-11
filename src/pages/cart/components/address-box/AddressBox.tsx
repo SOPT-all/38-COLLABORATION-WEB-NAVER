@@ -1,3 +1,5 @@
+import {CHANGE_ADDRESS} from '@/pages/cart/constants/CartConstants';
+import {ActionButton} from '@/shared/components/button/ActionButton';
 import {IcSvgMap} from '@/shared/icons';
 
 type AddressBoxProps = {
@@ -7,12 +9,14 @@ type AddressBoxProps = {
 
 export const AddressBox = ({address, onChangeAddress}: AddressBoxProps) => {
   return (
-    <div>
-      <div>
-        <IcSvgMap width={24} height={24} />
-        <p>{address}</p>
+    <div className='text-caption-12m flex justify-between border-b-2 border-gray-500 px-4 py-2'>
+      <div className='flex items-center gap-1'>
+        <IcSvgMap width={24} height={24} color='var(--color-green-600' />
+        <p className='text'>{address}</p>
       </div>
-      <button onClick={onChangeAddress}>공컴머지하면바꾸자</button>
+      <ActionButton variant='sm' onClick={onChangeAddress}>
+        {CHANGE_ADDRESS}
+      </ActionButton>
     </div>
   );
 };
