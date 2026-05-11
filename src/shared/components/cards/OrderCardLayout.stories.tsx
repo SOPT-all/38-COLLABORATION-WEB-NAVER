@@ -27,3 +27,10 @@ export const CartPriceSummary: Story = {
     className: 'h-[15rem]',
   },
 };
+
+export const PaymentPoint: Story = {
+  args: {
+    variant: 'paymentPoint',
+    className: 'h-[8rem]',
+  },
+};

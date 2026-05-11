@@ -2,7 +2,10 @@ import type { ComponentPropsWithoutRef } from 'react';
 
 import { cn } from '@/shared/utils/cn';
 
-type OrderCardLayoutVariant = 'cartStore' | 'cartPriceSummary';
+type OrderCardLayoutVariant =
+  | 'cartStore'
+  | 'cartPriceSummary'
+  | 'paymentPoint';
 
 type OrderCardLayoutProps = ComponentPropsWithoutRef<'section'> & {
   variant: OrderCardLayoutVariant;
@@ -11,6 +14,7 @@ type OrderCardLayoutProps = ComponentPropsWithoutRef<'section'> & {
 const orderCardLayoutVariants: Record<OrderCardLayoutVariant, string> = {
   cartStore: 'p-[1.1rem]',
   cartPriceSummary: 'pt-[1.8rem] pr-[1.3rem] pb-[1.4rem] pl-[1.2rem]',
+  paymentPoint: 'p-[1.6rem]',
 };
 
 export function OrderCardLayout({
@@ -21,7 +25,7 @@ export function OrderCardLayout({
   return (
     <section
       className={cn(
-        'w-full max-w-[34.3rem] rounded-[1.2rem] border-2 bg-white',
+        'w-full max-w-[34.3rem] rounded-[1.2rem] bg-white',
         orderCardLayoutVariants[variant],
         className
       )}
