@@ -26,6 +26,7 @@ export const ExpandButton = ({
         width={24}
         height={24}
         color='var(--color-gray-900)'
+        aria-hidden='true'
         className={cn(
           'transition-transform duration-200',
           isExpanded && 'rotate-180'
