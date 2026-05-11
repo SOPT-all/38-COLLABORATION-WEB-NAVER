@@ -1,6 +1,6 @@
-import type { ComponentPropsWithoutRef } from 'react';
+import type {ComponentPropsWithoutRef} from 'react';
 
-import { CartCardLayout } from '@/shared/components/cards/CartCardLayout';
+import {CartCardLayout} from '@/shared/components/cards/CartCardLayout';
 
 type OrderStoreCardProps = ComponentPropsWithoutRef<typeof CartCardLayout>;
 

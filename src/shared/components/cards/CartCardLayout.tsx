@@ -1,6 +1,6 @@
-import type { ComponentPropsWithoutRef } from 'react';
+import type {ComponentPropsWithoutRef} from 'react';
 
-import { cn } from '@/shared/utils/cn';
+import {cn} from '@/shared/utils/cn';
 
 type OrderCardVariant = 'store' | 'priceSummary';
 

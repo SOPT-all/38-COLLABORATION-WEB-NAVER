@@ -1,8 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import type {Meta, StoryObj} from '@storybook/react-vite';
 
-import {
-  OrderStoreCard,
-} from '@/shared/components/cards/OrderStoreCard';
+import {OrderStoreCard} from '@/shared/components/cards/OrderStoreCard';
 
 const meta = {
   title: 'Shared/Card/OrderStoreCard',
