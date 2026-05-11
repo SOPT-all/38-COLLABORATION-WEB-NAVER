@@ -2,7 +2,10 @@ import {IcSvgChevronRight} from '@/shared/icons';
 
 export const DeliveryBanner = () => {
   return (
-    <div className='flex items-center justify-between border-y border-gray-500 bg-blue-800 px-1.75 py-3'>
+    <section
+      aria-label='당일배송 안내'
+      className='flex items-center justify-between border-y border-gray-500 bg-blue-800 px-1.75 py-3'
+    >
       <div className='flex gap-1.25'>
         <span className='text-caption-10r rounded-[3px] bg-blue-900 px-2 py-0.75 text-white'>
           당일배송
@@ -13,7 +16,7 @@ export const DeliveryBanner = () => {
         </p>
       </div>
       {/** 클릭 O 인터렉션 X */}
-      <button type='button'>
+      <button type='button' aria-label='당일배송 상세 보기'>
         <IcSvgChevronRight
           aria-hidden='true'
           width={24}
@@ -21,6 +24,6 @@ export const DeliveryBanner = () => {
           color='var(--color-gray-900)'
         />
       </button>
-    </div>
+    </section>
   );
 };
