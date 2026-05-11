@@ -4,8 +4,7 @@ export const DeliveryBanner = () => {
   return (
     <section
       aria-label='당일배송 안내'
-      className='flex items-center justify-between border-y border-gray-500 bg-blue-800 px-1.75 py-3'
-    >
+      className='flex items-center justify-between border-y border-gray-500 bg-blue-800 px-1.75 py-3'>
       <div className='flex gap-1.25'>
         <span className='text-caption-10r rounded-[3px] bg-blue-900 px-2 py-0.75 text-white'>
           당일배송

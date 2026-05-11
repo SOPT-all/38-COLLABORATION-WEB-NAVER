@@ -40,8 +40,7 @@ export const SpecialDealTimer = () => {
   return (
     <section
       aria-labelledby='special-deal-heading'
-      className='flex flex-col items-center gap-6 px-4 py-3'
-    >
+      className='flex flex-col items-center gap-6 px-4 py-3'>
       <div className='flex flex-col items-center gap-0.75'>
         <img src={homeClock} alt='' width={35} height={35} />
 
@@ -50,7 +49,7 @@ export const SpecialDealTimer = () => {
             <h2 id='special-deal-heading' className='order-2 text-red-900'>
               보장 특가
             </h2>
-            <p className='order-1 text-semi-black'>{getFormattedDate(now)}</p>
+            <p className='text-semi-black order-1'>{getFormattedDate(now)}</p>
           </div>
           <p className='text-body-14m text-semi-black'>
             기간 한정 서프라이즈 딜!
@@ -61,24 +60,31 @@ export const SpecialDealTimer = () => {
       <div
         role='timer'
         aria-label={`${pad(remaining.hours)}시간 ${pad(remaining.minutes)}분 ${pad(remaining.seconds)}초 남음`}
-        className='flex flex-col items-center gap-1'
-      >
+        className='flex flex-col items-center gap-1'>
         <div aria-hidden='true' className='flex items-center gap-2.5'>
           <NumberBox value={pad(remaining.hours)} />
-          <span className='text-title-18sb text-red-900' aria-hidden='true'>:</span>
+          <span className='text-title-18sb text-red-900' aria-hidden='true'>
+            :
+          </span>
           <NumberBox value={pad(remaining.minutes)} />
-          <span className='text-title-18sb text-red-900' aria-hidden='true'>:</span>
+          <span className='text-title-18sb text-red-900' aria-hidden='true'>
+            :
+          </span>
           <NumberBox value={pad(remaining.seconds)} />
         </div>
         <div aria-hidden='true' className='flex items-center gap-2.5'>
           <span className='text-caption-12m text-semi-black w-[4.6rem] text-center'>
             시간
           </span>
-          <span className='text-title-18sb invisible' aria-hidden='true'>:</span>
+          <span className='text-title-18sb invisible' aria-hidden='true'>
+            :
+          </span>
           <span className='text-caption-12m text-semi-black w-[4.6rem] text-center'>
             분
           </span>
-          <span className='text-title-18sb invisible' aria-hidden='true'>:</span>
+          <span className='text-title-18sb invisible' aria-hidden='true'>
+            :
+          </span>
           <span className='text-caption-12m text-semi-black w-[4.6rem] text-center'>
             초
           </span>
