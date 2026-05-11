@@ -4,6 +4,7 @@ import {QueryProvider} from '@/app/providers/QueryProvider.tsx';
 import '../src/shared/styles/global.css';
 
 const preview: Preview = {
+  tags: ['autodocs'],
   decorators: [
     (Story) => createElement(QueryProvider, null, createElement(Story)),
   ],
@@ -14,8 +15,6 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
-
-    tags: ['autodocs'],
   },
 };
 
