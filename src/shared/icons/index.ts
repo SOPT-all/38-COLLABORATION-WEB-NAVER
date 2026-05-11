@@ -4,6 +4,8 @@
 export {default as IcSvgComponent1} from './ic-component1';
 export {default as IcSvgArrowLeft} from './ic-arrow-left';
 export {default as IcSvgCart} from './ic-cart';
+export {default as IcSvgCheckboxOff} from './ic-checkbox-off';
+export {default as IcSvgCheckboxOn} from './ic-checkbox-on';
 export {default as IcSvgCheckLg} from './ic-check-lg';
 export {default as IcSvgCheckSm} from './ic-check-sm';
 export {default as IcSvgChevronDownSm} from './ic-chevron-down-sm';
