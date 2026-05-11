@@ -1,9 +1,9 @@
 import type {ComponentPropsWithoutRef} from 'react';
 
-import {CartCardLayout} from '@/shared/components/cards/CartCardLayout';
+import {OrderCardLayout} from '@/shared/components/cards/OrderCardLayout';
 
-type OrderStoreCardProps = ComponentPropsWithoutRef<typeof CartCardLayout>;
+type OrderStoreCardProps = ComponentPropsWithoutRef<typeof OrderCardLayout>;
 
 export function OrderStoreCard(props: OrderStoreCardProps) {
-  return <CartCardLayout variant='store' {...props} />;
+  return <OrderCardLayout variant='store' {...props} />;
 }

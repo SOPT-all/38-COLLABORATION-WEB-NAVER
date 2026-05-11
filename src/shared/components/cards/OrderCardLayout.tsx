@@ -13,7 +13,7 @@ const orderCardVariants: Record<OrderCardVariant, string> = {
   priceSummary: 'pt-[1.8rem] pr-[1.3rem] pb-[1.4rem] pl-[1.2rem]',
 };
 
-export function CartCardLayout({
+export function OrderCardLayout({
   className,
   variant = 'store',
   ...props
