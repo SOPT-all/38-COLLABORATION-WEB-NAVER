@@ -2,7 +2,7 @@ import type {Meta, StoryObj} from '@storybook/react-vite';
 import {SpecialDealTimer} from '@/pages/home/components/deal-timer/SpecialDealTimer';
 
 const meta = {
-  title: 'Components/SpecialDealTimer',
+  title: 'Home/SpecialDealTimer',
   component: SpecialDealTimer,
   parameters: {
     layout: 'centered',
