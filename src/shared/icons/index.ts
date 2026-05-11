@@ -21,3 +21,4 @@ export {default as IcSvgPlus} from './ic-plus';
 export {default as IcSvgQuestion} from './ic-question';
 export {default as IcSvgSearch} from './ic-search';
 export {default as IcSvgStar} from './ic-star';
+export {default as IcSvgSubtractN} from './ic-subtract-n';
