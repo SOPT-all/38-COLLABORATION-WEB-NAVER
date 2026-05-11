@@ -5,14 +5,7 @@ const IcSvgComponent1 = (props: SVGProps<SVGSVGElement>) => (
     fill='none'
     viewBox='0 0 24 24'
     {...props}>
-    <rect
-      width={17}
-      height={17}
-      x={3.5}
-      y={3.5}
-      fill='currentColor'
-      rx={3.5}
-    />
+    <rect width={17} height={17} x={3.5} y={3.5} fill='currentColor' rx={3.5} />
     <rect
       width={17}
       height={17}
