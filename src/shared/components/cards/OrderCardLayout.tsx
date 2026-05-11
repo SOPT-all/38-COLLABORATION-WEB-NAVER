@@ -29,7 +29,7 @@ export function OrderCardLayout({
   return (
     <section
       className={cn(
-        'w-full max-w-[34.3rem] rounded-[1.2rem] border-2 bg-white',
+        'w-full max-w-[34.3rem] rounded-[1.2rem] bg-white',
         orderCardLayoutVariants[variant],
         className
       )}
