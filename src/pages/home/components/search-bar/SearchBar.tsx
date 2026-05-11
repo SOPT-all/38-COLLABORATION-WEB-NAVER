@@ -3,10 +3,10 @@ import type {ComponentPropsWithoutRef} from 'react';
 import {IcSvgSearch} from '@/shared/icons';
 import {cn} from '@/shared/utils/cn';
 
-interface SearchBarProps extends Omit<
+type SearchBarProps = Omit<
   ComponentPropsWithoutRef<'form'>,
   'onChange' | 'onSubmit'
-> {
+> & {
   value?: string;
   defaultValue?: string;
   placeholder?: string;
@@ -14,7 +14,7 @@ interface SearchBarProps extends Omit<
   inputName?: string;
   onValueChange?: (value: string) => void;
   onSearch?: (keyword: string) => void;
-}
+};
 
 export const SearchBar = ({
   value,

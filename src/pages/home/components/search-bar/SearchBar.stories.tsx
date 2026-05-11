@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {fn} from 'storybook/test';
 
-import {SearchBar} from './SearchBar';
+import {SearchBar} from '@/pages/home/components/search-bar/SearchBar.tsx';
 
 const meta = {
   title: 'Home/SearchBar',
