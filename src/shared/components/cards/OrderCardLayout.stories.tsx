@@ -41,3 +41,10 @@ export const PaymentMethod: Story = {
     className: 'h-[8rem]',
   },
 };
+
+export const PaymentAgreement: Story = {
+  args: {
+    variant: 'paymentAgreement',
+    className: 'h-[10rem]',
+  },
+};
