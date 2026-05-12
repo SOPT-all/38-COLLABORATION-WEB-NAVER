@@ -14,12 +14,9 @@ export const DeliveryBadge = ({
   arrivalDate = '4.25.(토)',
   ...props
 }: DeliveryBadgeProps) => {
-  const ariaLabel =
-    props['aria-label'] ?? `내일배송 · ${arrivalPrefix} ${arrivalDate} 도착`;
 
   return (
     <div
-      aria-label={ariaLabel}
       className={cn(
         'flex h-12 w-[26.1rem] items-center gap-[0.4rem] rounded-lg border border-green-600 bg-green-100 px-[0.4rem] text-black',
         className
