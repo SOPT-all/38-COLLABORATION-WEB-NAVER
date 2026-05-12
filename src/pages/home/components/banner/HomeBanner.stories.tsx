@@ -15,6 +15,9 @@ const meta = {
       </div>
     ),
   ],
+  args: {
+    href: '#',
+  },
 } satisfies Meta<typeof HomeBanner>;
 
 export default meta;
