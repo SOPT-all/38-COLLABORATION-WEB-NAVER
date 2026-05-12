@@ -1,3 +1,5 @@
+import {useState} from 'react';
+
 import {ProductMembershipBadge} from './ProductMembershipBadge';
 
 type ProductImageSectionProps = {
@@ -11,16 +13,21 @@ export const ProductImageSection = ({
   productName,
   membershipText,
 }: ProductImageSectionProps) => {
+  const [hasImageError, setHasImageError] = useState(false);
+
   return (
-    <section className='relative aspect-square w-full overflow-hidden bg-gray-300'>
-      <img
-        src={imageUrl}
-        alt={productName}
-        className='size-full object-cover'
-      />
+    <div className='relative aspect-square w-full overflow-hidden bg-gray-300'>
+      {!hasImageError && (
+        <img
+          src={imageUrl}
+          alt={productName}
+          className='size-full object-cover'
+          onError={() => setHasImageError(true)}
+        />
+      )}
       <div className='absolute bottom-[1.2rem] left-[1.6rem]'>
         <ProductMembershipBadge text={membershipText} />
       </div>
-    </section>
+    </div>
   );
 };
