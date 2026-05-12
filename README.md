@@ -22,7 +22,7 @@
        <img width="460" height="460" alt="194193856" src="https://github.com/user-attachments/assets/63ec771c-fc0e-461e-b384-971c97f939ff" alt="김민아"/>
       </a>
       <br />
-      <a href="https://github.com/choyeon2e"><strong>👑 김민아</strong></a>
+      <a href="https://github.com/kimminna"><strong>👑 김민아</strong></a>
       <br />
     </td>
     <td align="center" width="200">
