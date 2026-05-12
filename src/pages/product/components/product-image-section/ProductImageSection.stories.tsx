@@ -1,7 +1,8 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 
+import {PRODUCT_IMAGE_MOCK} from '@/pages/product/mocks/product-image-data';
+
 import {ProductImageSection} from './ProductImageSection';
-import {PRODUCT_IMAGE_MOCK} from './product-image-data';
 
 const meta = {
   title: 'Product/ProductImageSection',
