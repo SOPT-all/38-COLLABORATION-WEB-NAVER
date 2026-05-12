@@ -1,7 +1,6 @@
 // (auto-generated) Do not edit manually.
 // Run `pnpm build:icons` to regenerate.
 
-export {default as IcSvgComponent1} from './ic-component1';
 export {default as IcSvgArrowLeft} from './ic-arrow-left';
 export {default as IcSvgCart} from './ic-cart';
 export {default as IcSvgCheckboxOff} from './ic-checkbox-off';
