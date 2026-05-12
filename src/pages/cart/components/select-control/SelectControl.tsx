@@ -3,7 +3,12 @@ import {
   SELECT_ALL_LABEL,
 } from '@/pages/cart/constants/CartConstants';
 import {ActionButton} from '@/shared/components/button/ActionButton';
-import {IcSvgCloseSm, IcSvgComponent1, IcSvgComponent2} from '@/shared/icons';
+import {
+  IcSvgCheckboxChecked,
+  IcSvgCheckboxUnChecked,
+  IcSvgChevronDownSm,
+  IcSvgCloseSm,
+} from '@/shared/icons';
 
 type SelectControlProps = {
   checked: boolean;
@@ -25,22 +30,23 @@ export const SelectControl = ({
           aria-pressed={checked}
           onClick={onToggleAll}>
           {checked ? (
-            <IcSvgComponent1
+            <IcSvgCheckboxChecked
               width={24}
               height={24}
               className='text-green-600'
               aria-hidden
             />
           ) : (
-            <IcSvgComponent2
+            <IcSvgCheckboxUnChecked
               width={24}
               height={24}
               className='text-green-600'
               aria-hidden
             />
           )}
+          <IcSvgChevronDownSm />
+          <p className='text-body-16b'>{SELECT_ALL_LABEL}</p>
         </button>
-        <p className='text-body-16b'>{SELECT_ALL_LABEL}</p>
       </div>
       <ActionButton
         variant='m'

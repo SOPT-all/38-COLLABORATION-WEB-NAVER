@@ -1,5 +1,5 @@
 import type {SVGProps} from 'react';
-const IcSvgComponent2 = (props: SVGProps<SVGSVGElement>) => (
+const IcSvgCheckboxUnChecked = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
     fill='none'
@@ -15,4 +15,4 @@ const IcSvgComponent2 = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-export default IcSvgComponent2;
+export default IcSvgCheckboxUnChecked;
