@@ -2,11 +2,11 @@ import {getFormattedDate} from '@/pages/home/utils/formatDate';
 import {useEffect, useState} from 'react';
 import homeClock from '@/shared/assets/images/home-clock.png';
 
-const getRemainingTime = () => {
-  const now = new Date();
-  const endOfDay = new Date(now);
+const getRemainingTime = (currentTime: Date) => {
+  const endOfDay = new Date(currentTime);
   endOfDay.setHours(23, 59, 59, 999);
-  const diffMs = endOfDay.getTime() - now.getTime() + 1;
+
+  const diffMs = endOfDay.getTime() - currentTime.getTime() + 1;
 
   return {
     hours: Math.floor(diffMs / (1000 * 60 * 60)),
@@ -24,18 +24,17 @@ const NumberBox = ({value}: {value: string}) => (
 );
 
 export const SpecialDealTimer = () => {
-  const [now, setNow] = useState(() => new Date());
-  const [remaining, setRemaining] = useState(getRemainingTime);
+  const [currentTime, setCurrentTime] = useState(() => new Date());
 
   useEffect(() => {
-    const tick = () => {
-      setNow(new Date());
-      setRemaining(getRemainingTime());
-    };
+    const id = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
 
-    const id = setInterval(tick, 1000);
     return () => clearInterval(id);
   }, []);
+
+  const remaining = getRemainingTime(currentTime);
 
   return (
     <section
@@ -49,7 +48,9 @@ export const SpecialDealTimer = () => {
             <h2 id='special-deal-heading' className='order-2 text-red-900'>
               보장 특가
             </h2>
-            <p className='text-semi-black order-1'>{getFormattedDate(now)}</p>
+            <p className='text-semi-black order-1'>
+              {getFormattedDate(currentTime)}
+            </p>
           </div>
           <p className='text-body-14m text-semi-black'>
             기간 한정 서프라이즈 딜!
