@@ -6,7 +6,6 @@ function App() {
   return (
     <QueryProvider>
       <RouterProvider router={router} />
-      <h1>Hello Team Naver</h1>
     </QueryProvider>
   );
 }
