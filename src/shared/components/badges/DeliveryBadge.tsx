@@ -8,12 +8,12 @@ type DeliveryBadgeProps = ComponentPropsWithoutRef<'div'> & {
   arrivalDate?: string;
 };
 
-export function DeliveryBadge({
+export const DeliveryBadge = ({
   className,
   arrivalPrefix = '내일',
   arrivalDate = '4.25.(토)',
   ...props
-}: DeliveryBadgeProps) {
+}: DeliveryBadgeProps) => {
   const ariaLabel =
     props['aria-label'] ?? `내일배송 · ${arrivalPrefix} ${arrivalDate} 도착`;
 

@@ -21,11 +21,11 @@ const orderCardLayoutVariants: Record<OrderCardLayoutVariant, string> = {
   paymentAgreement: 'p-[1.6rem]',
 };
 
-export function OrderCardLayout({
+export const OrderCardLayout = ({
   className,
   variant,
   ...props
-}: OrderCardLayoutProps) {
+}: OrderCardLayoutProps) => {
   return (
     <section
       className={cn(
