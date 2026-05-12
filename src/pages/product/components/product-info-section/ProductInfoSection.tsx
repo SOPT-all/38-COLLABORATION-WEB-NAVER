@@ -3,7 +3,7 @@ import deliveryIcon from '@/shared/assets/svg/ic_delivery.svg';
 import starIcon from '@/shared/assets/svg/ic_star.svg';
 import {IcSvgNotice} from '@/shared/icons';
 
-import {ProductCouponButton} from './ProductCouponButton';
+import {ProductCouponButton} from '@/pages/product/components/product-info-section/ProductCouponButton';
 
 type ProductInfoSectionProps = {
   productName: string;
