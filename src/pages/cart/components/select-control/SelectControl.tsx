@@ -6,7 +6,6 @@ import {ActionButton} from '@/shared/components/button/ActionButton';
 import {
   IcSvgCheckboxChecked,
   IcSvgCheckboxUnChecked,
-  IcSvgChevronDownSm,
   IcSvgCloseSm,
 } from '@/shared/icons';
 
@@ -44,7 +43,6 @@ export const SelectControl = ({
               aria-hidden
             />
           )}
-          <IcSvgChevronDownSm />
           <p className='text-body-16b'>{SELECT_ALL_LABEL}</p>
         </button>
       </div>
