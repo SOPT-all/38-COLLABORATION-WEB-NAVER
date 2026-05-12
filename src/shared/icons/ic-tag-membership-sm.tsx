@@ -7,7 +7,7 @@ const IcSvgTagMembershipSm = (props: SVGProps<SVGSVGElement>) => (
     viewBox='0 0 47 14'
     {...props}>
     <g clipPath='url(#tag-membership-sm_svg__a)'>
-      <path fill='currentColor' d='M0 0h47v14H0z' />
+      <path fill='#none' d='M0 0h47v14H0z' />
       <path
         fill='url(#tag-membership-sm_svg__b)'
         d='M.088 1.228h47v12.208h-47z'
