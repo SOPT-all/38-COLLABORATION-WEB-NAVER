@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 
-import {PointUsageField} from '@/pages/payment/components/PointUsageField';
+import {PointUsageField} from '@/pages/payment/components/point-usage-field/PointUsageField';
 
 const meta = {
   title: 'Payment/PointUsageField',
