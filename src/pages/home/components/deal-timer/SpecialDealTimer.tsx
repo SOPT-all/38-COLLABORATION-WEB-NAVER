@@ -2,6 +2,10 @@ import {getFormattedDate} from '@/pages/home/utils/formatDate';
 import {useEffect, useState} from 'react';
 import homeClock from '@/shared/assets/images/home-clock.png';
 
+const MS_PER_SECOND = 1000;
+const MS_PER_MINUTE = MS_PER_SECOND * 60;
+const MS_PER_HOUR = MS_PER_MINUTE * 60;
+
 const getRemainingTime = (currentTime: Date) => {
   const endOfDay = new Date(currentTime);
   endOfDay.setHours(23, 59, 59, 999);
@@ -9,9 +13,9 @@ const getRemainingTime = (currentTime: Date) => {
   const diffMs = endOfDay.getTime() - currentTime.getTime() + 1;
 
   return {
-    hours: Math.floor(diffMs / (1000 * 60 * 60)),
-    minutes: Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60)),
-    seconds: Math.floor((diffMs % (1000 * 60)) / 1000),
+    hours: Math.floor(diffMs / MS_PER_HOUR),
+    minutes: Math.floor((diffMs % MS_PER_HOUR) / MS_PER_MINUTE),
+    seconds: Math.floor((diffMs % MS_PER_MINUTE) / MS_PER_SECOND),
   };
 };
 
@@ -29,7 +33,7 @@ export const SpecialDealTimer = () => {
   useEffect(() => {
     const id = setInterval(() => {
       setCurrentTime(new Date());
-    }, 1000);
+    }, MS_PER_SECOND);
 
     return () => clearInterval(id);
   }, []);
