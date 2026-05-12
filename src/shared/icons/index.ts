@@ -1,8 +1,11 @@
 // (auto-generated) Do not edit manually.
 // Run `pnpm build:icons` to regenerate.
 
+export {default as IcSvgComponent1} from './ic-component1';
 export {default as IcSvgArrowLeft} from './ic-arrow-left';
 export {default as IcSvgCart} from './ic-cart';
+export {default as IcSvgCheckboxOff} from './ic-checkbox-off';
+export {default as IcSvgCheckboxOn} from './ic-checkbox-on';
 export {default as IcSvgCheckLg} from './ic-check-lg';
 export {default as IcSvgCheckSm} from './ic-check-sm';
 export {default as IcSvgCheckboxChecked} from './ic-checkbox-checked';
@@ -22,3 +25,6 @@ export {default as IcSvgPlus} from './ic-plus';
 export {default as IcSvgQuestion} from './ic-question';
 export {default as IcSvgSearch} from './ic-search';
 export {default as IcSvgStar} from './ic-star';
+export {default as IcSvgTagDelivery} from './ic-tag-delivery';
+export {default as IcSvgTagPay} from './ic-tag-pay';
+export {default as IcSvgSubtractN} from './ic-subtract-n';

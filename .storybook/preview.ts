@@ -1,10 +1,9 @@
 import type {Preview} from '@storybook/react-vite';
 import {createElement} from 'react';
-import {QueryProvider} from '@/app/providers/QueryProvider.tsx';
+import {QueryProvider} from '../src/app/providers/QueryProvider';
 import '../src/shared/styles/global.css';
 
 const preview: Preview = {
-  tags: ['autodocs'],
   decorators: [
     (Story) => createElement(QueryProvider, null, createElement(Story)),
   ],
