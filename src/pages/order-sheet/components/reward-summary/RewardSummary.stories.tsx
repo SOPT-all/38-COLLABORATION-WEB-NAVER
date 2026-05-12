@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 
-import {RewardSummary} from './RewardSummary';
+import {RewardSummary} from '@/pages/order-sheet/components/reward-summary/RewardSummary';
 
 const meta = {
   title: 'OrderSheet/RewardSummary',
