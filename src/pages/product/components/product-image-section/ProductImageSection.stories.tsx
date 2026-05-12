@@ -12,8 +12,10 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <div className='w-[37.5rem] bg-white'>
-        <Story />
+      <div className='flex min-h-screen items-center justify-center'>
+        <div className='w-[37.5rem] bg-white'>
+          <Story />
+        </div>
       </div>
     ),
   ],
