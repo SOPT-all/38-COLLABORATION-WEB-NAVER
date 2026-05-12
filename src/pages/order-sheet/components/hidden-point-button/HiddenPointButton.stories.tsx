@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 
-import {HiddenPointButton} from '@/pages/payment/components/hidden-point-button/HiddenPointButton';
+import {HiddenPointButton} from '@/pages/order-sheet/components/hidden-point-button/HiddenPointButton';
 
 const meta = {
   title: 'Payment/HiddenPointButton',
