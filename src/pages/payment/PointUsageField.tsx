@@ -6,11 +6,11 @@ type PointUsageFieldProps = {
   onClickUseAll?: () => void;
 };
 
-export function PointUsageField({
+export const PointUsageField = ({
   point = 0,
   className,
   onClickUseAll,
-}: PointUsageFieldProps) {
+}: PointUsageFieldProps) => {
   return (
     <div className={cn('flex w-[315px] items-center gap-[10px]', className)}>
       <div className='flex h-[42px] w-[229px] shrink-0 items-center justify-between rounded-[6px] border border-gray-500 px-[14px] py-[9px]'>
