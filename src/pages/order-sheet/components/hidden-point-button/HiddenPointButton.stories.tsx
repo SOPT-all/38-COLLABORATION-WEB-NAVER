@@ -3,7 +3,7 @@ import type {Meta, StoryObj} from '@storybook/react-vite';
 import {HiddenPointButton} from '@/pages/order-sheet/components/hidden-point-button/HiddenPointButton';
 
 const meta = {
-  title: 'Payment/HiddenPointButton',
+  title: 'OrderSheet/HiddenPointButton',
   component: HiddenPointButton,
   parameters: {
     layout: 'centered',

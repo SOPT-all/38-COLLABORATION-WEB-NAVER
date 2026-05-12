@@ -3,7 +3,7 @@ import type {Meta, StoryObj} from '@storybook/react-vite';
 import {PointUsageField} from '@/pages/order-sheet/components/point-usage-field/PointUsageField';
 
 const meta = {
-  title: 'Payment/PointUsageField',
+  title: 'OrderSheet/PointUsageField',
   component: PointUsageField,
   parameters: {
     layout: 'centered',
