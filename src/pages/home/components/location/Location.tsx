@@ -3,7 +3,7 @@ import type {ComponentPropsWithoutRef} from 'react';
 import {IcSvgMap} from '@/shared/icons';
 import {cn} from '@/shared/utils/cn';
 
-type LocationProps = Omit<ComponentPropsWithoutRef<'section'>, 'children'> & {
+type LocationProps = Omit<ComponentPropsWithoutRef<'div'>, 'children'> & {
   recipientName?: string;
   address?: string;
   deliveryStandard?: string;
@@ -21,7 +21,7 @@ export const Location = ({
   ...props
 }: LocationProps) => {
   return (
-    <section
+    <div
       aria-label='배송 위치'
       className={cn(
         'flex h-[58px] w-full items-center gap-[6px] bg-white px-[20px]',
@@ -45,6 +45,6 @@ export const Location = ({
         onClick={onChangeClick}>
         {changeLabel}
       </button>
-    </section>
+    </div>
   );
 };
