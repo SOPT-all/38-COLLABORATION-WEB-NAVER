@@ -7,7 +7,7 @@ export const API_ENDPOINTS = {
   },
   HOME: {
     RECOMMENDATIONS: '/api/home/recommendations',
-    CATEGORIES: '/api/home/categories',
+    CATEGORIES: (expand: boolean) => `/api/home/categories?expand=${expand}`,
     PROMOTIONS: '/api/home/promotions',
   },
 } as const;

@@ -7,7 +7,7 @@ export const QUERY_KEYS = {
   },
   HOME: {
     RECOMMENDATIONS: ['home', 'recommendations'] as const,
-    CATEGORIES: ['home', 'categories'] as const,
+    CATEGORIES: (expand: boolean) => ['home', 'categories', expand] as const,
     PROMOTIONS: ['home', 'promotions'] as const,
   },
 } as const;
