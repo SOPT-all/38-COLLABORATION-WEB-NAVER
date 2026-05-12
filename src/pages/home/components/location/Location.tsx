@@ -41,7 +41,7 @@ export const Location = ({
 
       <button
         type='button'
-        className='text-caption-12m shrink-0 cursor-pointer text-gray-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900'
+        className='text-caption-12m shrink-0 text-gray-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900'
         onClick={onChangeClick}>
         {changeLabel}
       </button>
