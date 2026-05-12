@@ -12,6 +12,7 @@ export {default as IcSvgChevronRightSm} from './ic-chevron-right-sm';
 export {default as IcSvgChevronUp} from './ic-chevron-up';
 export {default as IcSvgClose} from './ic-close';
 export {default as IcSvgCloseSm} from './ic-close-sm';
+export {default as IcSvgCoupon} from './ic-coupon';
 export {default as IcSvgDelivery} from './ic-delivery';
 export {default as IcSvgMap} from './ic-map';
 export {default as IcSvgMenu} from './ic-menu';
