@@ -1,0 +1,50 @@
+import {IcSvgQuestion} from '@/shared/icons';
+import {cn} from '@/shared/utils/cn';
+
+type RewardSummaryProps = {
+  totalAmount: number;
+  items: {
+    label: string;
+    amount: number;
+  }[];
+  className?: string;
+};
+
+export const RewardSummary = ({
+  totalAmount,
+  items,
+  className,
+}: RewardSummaryProps) => {
+  return (
+    <section className={cn('flex w-[315px] flex-col gap-[6px]', className)}>
+      <div className='flex w-full items-center justify-between'>
+        <div className='flex items-center gap-[4px]'>
+          <h3 className='text-body-16b text-navy'>구매적립</h3>
+          <IcSvgQuestion width={24} height={24} />
+        </div>
+
+        <span className='text-body-16b text-navy'>
+          총 {totalAmount.toLocaleString()}원
+        </span>
+      </div>
+
+      <div className='flex w-full items-center gap-[8px]'>
+        <div className='h-[49px] w-[4px] shrink-0 bg-gray-500' />
+
+        <div className='flex w-[303px] flex-col gap-[4px]'>
+          {items.map((item) => (
+            <div
+              key={item.label}
+              className='flex w-full items-start justify-between'>
+              <span className='text-body-14m text-gray-800'>{item.label}</span>
+
+              <span className='text-body-14m text-gray-800'>
+                {item.amount.toLocaleString()}원
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
