@@ -6,11 +6,11 @@ type ProductImageSectionProps = {
   membershipText: string;
 };
 
-export function ProductImageSection({
+export const ProductImageSection = ({
   imageUrl,
   productName,
   membershipText,
-}: ProductImageSectionProps) {
+}: ProductImageSectionProps) => {
   return (
     <section className='relative aspect-square w-full overflow-hidden bg-gray-300'>
       <img
@@ -23,4 +23,4 @@ export function ProductImageSection({
       </div>
     </section>
   );
-}
+};

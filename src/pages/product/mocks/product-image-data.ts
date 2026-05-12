@@ -1,4 +1,4 @@
-import imageDetail from '@/shared/assets/images/image_detail.png';
+import imageDetail from '@/shared/assets/images/image-detail.png';
 
 export const PRODUCT_IMAGE_MOCK = {
   imageUrl: imageDetail,

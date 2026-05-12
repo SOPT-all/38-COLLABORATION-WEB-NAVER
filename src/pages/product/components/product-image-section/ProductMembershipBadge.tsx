@@ -2,7 +2,7 @@ type ProductMembershipBadgeProps = {
   text: string;
 };
 
-export function ProductMembershipBadge({text}: ProductMembershipBadgeProps) {
+export const ProductMembershipBadge = ({text}: ProductMembershipBadgeProps) => {
   return (
     <div className='text-caption-12sb flex h-[2.2rem] w-[15.2rem] items-center gap-[0.2rem] rounded-[2.3rem] bg-gray-800 p-[0.2rem] text-white'>
       <span className='size-[1.8rem] shrink-0 rounded-full bg-red-700' />
@@ -11,4 +11,4 @@ export function ProductMembershipBadge({text}: ProductMembershipBadgeProps) {
       </span>
     </div>
   );
-}
+};
