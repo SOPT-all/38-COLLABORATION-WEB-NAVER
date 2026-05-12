@@ -9,9 +9,9 @@ type ProductCardProps = {
   imageSrc: string;
   imageAlt: string;
   name: string;
-  originalPrice: string;
-  discountRate: string;
-  price: string;
+  originalPrice: number;
+  discountRate: number;
+  discountedPrice: number;
   badge?: ProductCardBadgeVariant;
   className?: string;
 };
@@ -33,13 +33,21 @@ const getContentGapClass = (badge?: ProductCardBadgeVariant) => {
   return badge ? 'gap-[3px]' : 'gap-[4px]';
 };
 
+const formatPrice = (price: number) => {
+  return `${price.toLocaleString('ko-KR')}원`;
+};
+
+const formatDiscountRate = (discountRate: number) => {
+  return `${discountRate}%`;
+};
+
 export const ProductCard = ({
   imageSrc,
   imageAlt,
   name,
   originalPrice,
   discountRate,
-  price,
+  discountedPrice,
   badge,
   className,
 }: ProductCardProps) => {
@@ -77,15 +85,17 @@ export const ProductCard = ({
             </p>
 
             <del className='text-caption-10r text-gray-700'>
-              {originalPrice}
+              {formatPrice(originalPrice)}
             </del>
           </div>
 
           <div className='flex items-center gap-[2px] whitespace-nowrap'>
             <span className='text-caption-13sb text-red-900'>
-              {discountRate}
+              {formatDiscountRate(discountRate)}
             </span>
-            <strong className='text-body-14sb text-semi-black'>{price}</strong>
+            <strong className='text-body-14sb text-semi-black'>
+              {formatPrice(discountedPrice)}
+            </strong>
           </div>
         </div>
 
