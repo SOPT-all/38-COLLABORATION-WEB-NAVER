@@ -2,7 +2,7 @@ import type {ComponentPropsWithoutRef} from 'react';
 
 import {IcSvgTagDelivery} from '@/shared/icons';
 import {cn} from '@/shared/utils/cn';
-import { getDeliveryDateInfo } from '@/shared/utils/formatDeliveryDate';
+import {getDeliveryDateInfo} from '@/shared/utils/formatDeliveryDate';
 
 type DeliveryBadgeProps = ComponentPropsWithoutRef<'div'> & {
   arrivalPrefix?: string;
@@ -30,10 +30,14 @@ export const DeliveryBadge = ({
       />
       <span className='text-body-14b leading-none'>·</span>
       <span className='flex shrink-0 items-center gap-[0.4rem] leading-none whitespace-nowrap'>
-        <span className='text-caption-12m'>{arrivalPrefix ?? deliveryDateInfo.arrivalPrefix}</span>
-        <span className='text-caption-12sb text-green-600'>{arrivalDate ?? deliveryDateInfo.arrivalDate}</span>
+        <span className='text-caption-12m'>
+          {arrivalPrefix ?? deliveryDateInfo.arrivalPrefix}
+        </span>
+        <span className='text-caption-12sb text-green-600'>
+          {arrivalDate ?? deliveryDateInfo.arrivalDate}
+        </span>
         <span className='text-caption-12m'>도착</span>
       </span>
     </div>
   );
-}
+};
