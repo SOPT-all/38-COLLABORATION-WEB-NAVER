@@ -2,7 +2,7 @@ import {type AxiosInstance} from 'axios';
 import {type z} from 'zod';
 
 import {publicInstance} from '@/shared/api/axios';
-import {createApiSuccessSchema} from '@/shared/api/reponse-schemas';
+import {createApiSuccessSchema} from '@/shared/api/response-schemas';
 
 export const http = {
   get: async <T>(
