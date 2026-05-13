@@ -8,22 +8,28 @@ import {cn} from '@/shared/utils/cn';
 import {RewardSummary} from '@/pages/order-sheet/components/reward-summary/RewardSummary';
 import {REVIEW_REWARD_LIMIT_NOTICE} from '@/pages/order-sheet/constants/OrderSheetConstants';
 
+export type RewardItem = {
+  label: string;
+  amount: number;
+};
+
+export type RewardInfo = {
+  purchaseRewardAmount: number;
+  reviewRewardAmount: number;
+  membershipBenefitAmount: number;
+};
+
 type RewardInfoCardProps = {
+  rewardItems: RewardItem[];
+  rewardInfo: RewardInfo;
   className?: string;
 };
 
-const MOCK_REWARD_ITEMS = [
-  {label: '기본적립', amount: 289},
-  {label: '네이버페이 머니 결제적립', amount: 433},
-];
-
-const MOCK_REWARD_INFO = {
-  purchaseRewardAmount: 722,
-  reviewRewardAmount: 750,
-  membershipBenefitAmount: 1156,
-};
-
-export const RewardInfoCard = ({className}: RewardInfoCardProps) => {
+export const RewardInfoCard = ({
+  rewardItems,
+  rewardInfo,
+  className,
+}: RewardInfoCardProps) => {
   return (
     <article
       className={cn(
@@ -34,8 +40,8 @@ export const RewardInfoCard = ({className}: RewardInfoCardProps) => {
         <div className='flex w-full flex-col gap-[20px]'>
           <div className='flex w-full flex-col gap-[16px]'>
             <RewardSummary
-              totalAmount={MOCK_REWARD_INFO.purchaseRewardAmount}
-              items={MOCK_REWARD_ITEMS}
+              totalAmount={rewardInfo.purchaseRewardAmount}
+              items={rewardItems}
             />
 
             <section className='flex w-full flex-col gap-[6px]'>
@@ -50,7 +56,7 @@ export const RewardInfoCard = ({className}: RewardInfoCardProps) => {
                 </div>
 
                 <span className='text-body-16b text-green-600'>
-                  최대 {MOCK_REWARD_INFO.reviewRewardAmount.toLocaleString()}원
+                  최대 {rewardInfo.reviewRewardAmount.toLocaleString()}원
                 </span>
               </div>
 
@@ -77,7 +83,7 @@ export const RewardInfoCard = ({className}: RewardInfoCardProps) => {
           </div>
 
           <span className='text-body-14b text-green-600'>
-            +{MOCK_REWARD_INFO.membershipBenefitAmount.toLocaleString()}원
+            +{rewardInfo.membershipBenefitAmount.toLocaleString()}원
           </span>
         </button>
       </div>
