@@ -20,7 +20,12 @@ export const RewardSummary = ({
       <div className='flex w-full items-center justify-between'>
         <div className='flex items-center gap-[4px]'>
           <h3 className='text-body-16b text-navy'>구매적립</h3>
-          <IcSvgQuestion aria-hidden width={24} height={24} className='text-gray-700' />
+          <IcSvgQuestion
+            aria-hidden
+            width={24}
+            height={24}
+            className='text-gray-700'
+          />
         </div>
 
         <span className='text-body-16b text-navy'>
