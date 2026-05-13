@@ -23,7 +23,7 @@ export const PointUsageField = ({
 
   return (
     <div className={cn('flex w-full items-center gap-[10px]', className)}>
-      <label className='flex h-[42px] w-[229px] shrink-0 items-center justify-between rounded-[6px] border border-gray-500 px-[14px] py-[9px]'>
+      <label className='flex flex-1 h-[42px] shrink-0 items-center justify-between rounded-[6px] border border-gray-500 px-[14px] py-[9px]'>
         <span className='text-body-14m shrink-0 text-gray-800'>사용</span>
 
         <div className='flex min-w-0 flex-1 items-center justify-end'>
