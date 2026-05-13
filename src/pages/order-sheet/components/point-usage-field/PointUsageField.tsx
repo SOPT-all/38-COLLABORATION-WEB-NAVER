@@ -3,14 +3,14 @@ import type {ChangeEvent} from 'react';
 import {cn} from '@/shared/utils/cn';
 
 type PointUsageFieldProps = {
-  point?: number;
+  point: number;
   className?: string;
   onChangePoint?: (point: number) => void;
   onClickUseAll?: () => void;
 };
 
 export const PointUsageField = ({
-  point = 0,
+  point,
   className,
   onChangePoint,
   onClickUseAll,
