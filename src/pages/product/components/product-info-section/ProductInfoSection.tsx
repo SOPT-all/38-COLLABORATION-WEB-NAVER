@@ -47,10 +47,12 @@ export const ProductInfoSection = ({
   return (
     <section className='w-full bg-white px-[1.6rem]'>
       <div className='flex w-full flex-col gap-[0.8rem]'>
-        <p className='text-body-16m line-clamp-2 leading-[100%] tracking-[0px] text-black'>
+        {/* 상품명 */}
+        <p className='text-body-16m line-clamp-2 leading-[180%] tracking-[0px] text-black'>
           {product.productName}
         </p>
 
+        {/* 리뷰 요약 */}
         <div className='flex h-[2.4rem] w-[27.2rem] items-center gap-[0.6rem]'>
           <button
             type='button'
@@ -78,6 +80,7 @@ export const ProductInfoSection = ({
           </button>
         </div>
 
+        {/* 가격 및 쿠폰 정보 */}
         <div className='flex min-h-[7.1rem] w-full items-end justify-between'>
           <div className='flex flex-col'>
             <div className='flex h-[1.9rem] w-[8.4rem] items-center gap-[0.2rem] whitespace-nowrap'>
@@ -124,6 +127,8 @@ export const ProductInfoSection = ({
             />
           )}
         </div>
+
+        {/* 배송 정보 */}
         <div className='flex h-[2.4rem] items-center gap-[0.4rem]'>
           <IcSvgDelivery aria-hidden='true' className='h-[2.4rem] w-[2.4rem]' />
           <span className='text-caption-12m h-[1.4rem] w-[4.2rem] leading-[100%] tracking-[0px] text-gray-900'>
