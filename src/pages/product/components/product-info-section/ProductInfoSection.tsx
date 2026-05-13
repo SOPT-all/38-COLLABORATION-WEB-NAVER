@@ -28,25 +28,17 @@ type ProductDetailData = {
 
 type ProductInfoSectionProps = {
   product: ProductDetailData;
+  onReviewClick?: () => void;
+  onMemberPriceClick?: () => void;
+  onCouponClick?: () => void;
 };
 
-const PRODUCT_OPTION_START_PATTERN = ' (유 ';
-
-const getProductNameLines = (productName: string) => {
-  const optionStartIndex = productName.indexOf(PRODUCT_OPTION_START_PATTERN);
-
-  if (optionStartIndex === -1) {
-    return [productName, ''];
-  }
-
-  return [
-    productName.slice(0, optionStartIndex),
-    productName.slice(optionStartIndex + 1),
-  ];
-};
-
-export const ProductInfoSection = ({product}: ProductInfoSectionProps) => {
-  const [productName, optionName] = getProductNameLines(product.productName);
+export const ProductInfoSection = ({
+  product,
+  onReviewClick,
+  onMemberPriceClick,
+  onCouponClick,
+}: ProductInfoSectionProps) => {
   const deliveryFeeText = product.delivery.isFreeDelivery
     ? '무료배송'
     : '배송비 별도';
@@ -55,16 +47,16 @@ export const ProductInfoSection = ({product}: ProductInfoSectionProps) => {
   return (
     <section className='w-full bg-white px-[1.6rem]'>
       <div className='flex w-full flex-col gap-[0.8rem]'>
-        <p className='text-body-16m h-[1.9rem] leading-[100%] tracking-[0px] text-black'>
-          {productName}
-        </p>
-        <p className='text-body-16m h-[1.9rem] leading-[100%] tracking-[0px] text-black'>
-          {optionName}
+        <p className='text-body-16m line-clamp-2 leading-[100%] tracking-[0px] text-black'>
+          {product.productName}
         </p>
 
         <div className='flex h-[2.4rem] w-[27.2rem] items-center gap-[0.6rem]'>
-          <IcSvgStar aria-hidden='true' className='h-[2.4rem] w-[2.4rem]' />
-          <span className='flex cursor-pointer items-center gap-[0.6rem]'>
+          <button
+            type='button'
+            className='flex items-center gap-[0.6rem]'
+            onClick={onReviewClick}>
+            <IcSvgStar aria-hidden='true' className='h-[2.4rem] w-[2.4rem]' />
             <span className='text-body-14sb text-semi-black flex h-[1.7rem] w-[2.8rem] items-center leading-[100%] tracking-[0px]'>
               {product.reviewScore}
             </span>
@@ -76,11 +68,14 @@ export const ProductInfoSection = ({product}: ProductInfoSectionProps) => {
               />
               <span>)</span>
             </span>
-          </span>
+          </button>
           <span className='h-[1.2rem] w-px shrink-0 bg-gray-500' />
-          <span className='text-caption-12m h-[1.4rem] w-[8rem] shrink-0 cursor-pointer leading-[100%] tracking-[0px] whitespace-nowrap text-gray-900'>
+          <button
+            type='button'
+            className='text-caption-12m h-[1.4rem] w-[8rem] shrink-0 leading-[100%] tracking-[0px] whitespace-nowrap text-gray-900'
+            onClick={onReviewClick}>
             {product.reviewCount.toLocaleString()}건 리뷰
-          </span>
+          </button>
         </div>
 
         <div className='flex min-h-[7.1rem] w-full items-end justify-between'>
@@ -109,7 +104,8 @@ export const ProductInfoSection = ({product}: ProductInfoSectionProps) => {
               <button
                 type='button'
                 className='flex h-[2.4rem] items-center'
-                aria-label='나의 할인가 자세히 보기'>
+                aria-label='나의 할인가 자세히 보기'
+                onClick={onMemberPriceClick}>
                 <span className='text-body-16m h-[1.9rem] leading-[100%] tracking-[0px] text-red-900'>
                   나의 할인가
                 </span>
@@ -124,6 +120,7 @@ export const ProductInfoSection = ({product}: ProductInfoSectionProps) => {
             <ProductCouponButton
               dDay={`D-${product.couponDday}`}
               label='쿠폰 받기'
+              onClick={onCouponClick}
             />
           )}
         </div>
