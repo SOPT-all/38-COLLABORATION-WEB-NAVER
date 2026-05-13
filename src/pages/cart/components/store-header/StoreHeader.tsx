@@ -12,7 +12,7 @@ type StoreHeaderProps = {
   onCouponClick: () => void;
 };
 
-const StoreHeader = ({
+export const StoreHeader = ({
   storeName,
   checked,
   onToggleStore,
@@ -52,5 +52,3 @@ const StoreHeader = ({
     </section>
   );
 };
-
-export default StoreHeader;
