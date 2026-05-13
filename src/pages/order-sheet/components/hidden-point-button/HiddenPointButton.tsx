@@ -2,13 +2,13 @@ import {IcSvgChevronRightSm} from '@/shared/icons';
 import {cn} from '@/shared/utils/cn';
 
 type HiddenPointButtonProps = {
-  point?: number | null;
+  point: number | null;
   className?: string;
   onClick?: () => void;
 };
 
 export const HiddenPointButton = ({
-  point = null,
+  point,
   className,
   onClick,
 }: HiddenPointButtonProps) => {
