@@ -1,7 +1,6 @@
 import type {
-  ApiResponse,
   RecommendationItem,
-  RecommendationResponseData,
+  RecommendationResponse,
 } from '@/pages/home/api/types';
 import cookieImage from '@/shared/assets/images/img-product-cookie.png';
 import mochiImage from '@/shared/assets/images/img-product-mochi.png';
@@ -40,15 +39,14 @@ const MOCK_RECOMMENDATION_ITEMS: RecommendationItem[] = [
   },
 ];
 
-export const getMockRecommendationResponse =
-  (): ApiResponse<RecommendationResponseData> => {
-    return {
-      success: true,
-      status: 200,
-      message: '요청이 성공했습니다.',
-      data: {
-        title: '렛솝님의 최근 관심사와 비슷한 아이템',
-        items: MOCK_RECOMMENDATION_ITEMS,
-      },
-    };
+export const getMockRecommendationResponse = (): RecommendationResponse => {
+  return {
+    success: true,
+    status: 200,
+    message: '요청이 성공했습니다.',
+    data: {
+      title: '렛솝님의 최근 관심사와 비슷한 아이템',
+      items: MOCK_RECOMMENDATION_ITEMS,
+    },
   };
+};

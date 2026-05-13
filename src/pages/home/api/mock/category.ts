@@ -1,8 +1,4 @@
-import type {
-  ApiResponse,
-  Category,
-  CategoryResponseData,
-} from '@/pages/home/api/types';
+import type {Category, CategoryResponse} from '@/pages/home/api/types';
 import imgEvent from '@/shared/assets/images/img-event.png';
 
 const MOCK_CATEGORIES: Category[] = [
@@ -133,9 +129,7 @@ const MOCK_CATEGORIES: Category[] = [
   },
 ];
 
-export const getMockCategoryResponse = (
-  expand = false
-): ApiResponse<CategoryResponseData> => {
+export const getMockCategoryResponse = (expand = false): CategoryResponse => {
   return {
     success: true,
     status: 200,

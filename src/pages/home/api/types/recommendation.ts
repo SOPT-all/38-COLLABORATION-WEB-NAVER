@@ -1,15 +1,31 @@
-export interface RecommendationItem {
-  itemId: number;
-  name: string;
-  imageUrl: string;
-  imageAlt: string;
-  originalPrice: number;
-  discountRate: number;
-  discountedPrice: number;
-  isTomorrowDelivery: boolean;
-}
+import {z} from 'zod';
 
-export interface RecommendationResponseData {
-  title: string;
-  items: RecommendationItem[];
-}
+import {createApiSuccessSchema} from '@/shared/api/response-schemas';
+
+export const recommendationItemSchema = z.object({
+  itemId: z.number(),
+  name: z.string(),
+  imageUrl: z.string(),
+  imageAlt: z.string(),
+  originalPrice: z.number(),
+  discountRate: z.number(),
+  discountedPrice: z.number(),
+  isTomorrowDelivery: z.boolean(),
+});
+
+export const recommendationResponseDataSchema = z.object({
+  title: z.string(),
+  items: z.array(recommendationItemSchema),
+});
+
+export const recommendationResponseSchema = createApiSuccessSchema(
+  recommendationResponseDataSchema
+);
+
+export type RecommendationItem = z.infer<typeof recommendationItemSchema>;
+export type RecommendationResponseData = z.infer<
+  typeof recommendationResponseDataSchema
+>;
+export type RecommendationResponse = z.infer<
+  typeof recommendationResponseSchema
+>;
