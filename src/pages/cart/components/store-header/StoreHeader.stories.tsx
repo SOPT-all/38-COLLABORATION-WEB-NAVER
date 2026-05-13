@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {useState} from 'react';
-import StoreHeader from '@/pages/cart/components/store-header/StoreHeader';
+import {StoreHeader} from '@/pages/cart/components/store-header/StoreHeader';
 
 const meta = {
   title: 'Cart/StoreHeader',
