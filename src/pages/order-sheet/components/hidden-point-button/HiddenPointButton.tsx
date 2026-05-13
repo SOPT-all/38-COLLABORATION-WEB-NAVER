@@ -25,10 +25,10 @@ export const HiddenPointButton = ({
       )}>
       <span className='text-body-14m text-navy'>내 숨은 포인트 찾기</span>
 
-      <span className='text-body-14m text-navy flex items-center'>
+      <div className='text-body-14m text-navy flex items-center'>
         <span>{formatPoint(point)}</span>
         <IcSvgChevronRightSm width={24} height={24} />
-      </span>
+      </div>
     </button>
   );
 };
