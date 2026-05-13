@@ -2,6 +2,7 @@ import {useState} from 'react';
 
 import deliveryTagImage from '@/shared/assets/images/img-tag-delivery.png';
 import {cn} from '@/shared/utils/cn';
+import {formatDiscountRate, formatPrice} from '@/shared/utils/format-product';
 
 type ProductCardBadgeVariant = 'brand-day' | 'plus-sale';
 
@@ -31,14 +32,6 @@ const getCardSizeClass = (badge?: ProductCardBadgeVariant) => {
 
 const getContentGapClass = (badge?: ProductCardBadgeVariant) => {
   return badge ? 'gap-[3px]' : 'gap-[4px]';
-};
-
-const formatPrice = (price: number) => {
-  return `${price.toLocaleString('ko-KR')}원`;
-};
-
-const formatDiscountRate = (discountRate: number) => {
-  return `${discountRate}%`;
 };
 
 export const ProductCard = ({

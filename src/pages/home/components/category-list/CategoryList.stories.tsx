@@ -2,9 +2,9 @@ import type {Meta, StoryObj} from '@storybook/react-vite';
 import {useState} from 'react';
 import {fn} from 'storybook/test';
 
+import {getMockCategoryResponse} from '@/pages/home/api/mock';
 import {CategoryItem} from '@/pages/home/components/category-list/CategoryItem';
 import {CategoryList} from '@/pages/home/components/category-list/CategoryList';
-import {getMockCategoryResponse} from '@/pages/home/components/category-list/category-data';
 
 const meta = {
   title: 'Home/CategoryList',

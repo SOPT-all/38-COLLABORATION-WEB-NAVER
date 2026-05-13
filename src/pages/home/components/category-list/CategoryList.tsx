@@ -1,8 +1,5 @@
 import {CategoryItem} from '@/pages/home/components/category-list/CategoryItem';
-import type {
-  Category,
-  CategoryResponseData,
-} from '@/pages/home/components/category-list/category-data';
+import type {Category, CategoryResponseData} from '@/pages/home/api/types';
 import {ExpandButton} from '@/shared/components/button/ExpandButton';
 
 const COLLAPSED_CATEGORY_COUNT = 10;
