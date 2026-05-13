@@ -46,9 +46,9 @@ export const ProductInfoSection = ({
 
   return (
     <section className='w-full bg-white px-[1.6rem]'>
-      <div className='flex w-full flex-col gap-[0.8rem]'>
+      <div className='flex h-[18.9rem] w-full flex-col gap-[0.8rem]'>
         {/* 상품명 */}
-        <p className='text-body-16m line-clamp-2 leading-[180%] tracking-[0px] text-black'>
+        <p className='text-body-16m line-clamp-2 h-[4.6rem] leading-[160%] tracking-[0px] text-black'>
           {product.productName}
         </p>
 
