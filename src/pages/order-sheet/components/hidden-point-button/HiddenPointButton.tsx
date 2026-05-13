@@ -7,13 +7,14 @@ type HiddenPointButtonProps = {
   onClick?: () => void;
 };
 
+const formatPoint = (point: number | null) =>
+  point === null ? '?원' : `${point.toLocaleString()}원`;
+
 export const HiddenPointButton = ({
   point,
   className,
   onClick,
 }: HiddenPointButtonProps) => {
-  const pointText = point === null ? '?' : point.toLocaleString();
-
   return (
     <button
       type='button'
@@ -25,7 +26,7 @@ export const HiddenPointButton = ({
       <span className='text-body-14m text-navy'>내 숨은 포인트 찾기</span>
 
       <span className='text-body-14m text-navy flex items-center'>
-        <span>{pointText}원</span>
+        <span>{formatPoint(point)}</span>
         <IcSvgChevronRightSm width={24} height={24} />
       </span>
     </button>
