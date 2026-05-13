@@ -1,7 +1,9 @@
-import chevronDownSmIcon from '@/shared/assets/svg/ic_chevron_down_sm.svg';
-import deliveryIcon from '@/shared/assets/svg/ic_delivery.svg';
-import starIcon from '@/shared/assets/svg/ic_star.svg';
-import {IcSvgNotice} from '@/shared/icons';
+import {
+  IcSvgChevronDownSm,
+  IcSvgDelivery,
+  IcSvgNotice,
+  IcSvgStar,
+} from '@/shared/icons';
 
 import {ProductCouponButton} from '@/pages/product/components/product-info-section/ProductCouponButton';
 
@@ -50,7 +52,7 @@ export const ProductInfoSection = ({
         </p>
 
         <div className='flex h-[2.4rem] w-[27.2rem] items-center gap-[0.6rem]'>
-          <img src={starIcon} alt='' className='h-[2.4rem] w-[2.4rem]' />
+          <IcSvgStar aria-hidden='true' className='h-[2.4rem] w-[2.4rem]' />
           <span className='flex cursor-pointer items-center gap-[0.6rem]'>
             <span className='text-body-14sb text-semi-black flex h-[1.7rem] w-[2.8rem] items-center leading-[100%] tracking-[0px]'>
               {review.rating}
@@ -102,9 +104,8 @@ export const ProductInfoSection = ({
                 <span className='text-body-16m h-[1.9rem] leading-[100%] tracking-[0px] text-red-900'>
                   {price.benefitLabel}
                 </span>
-                <img
-                  src={chevronDownSmIcon}
-                  alt=''
+                <IcSvgChevronDownSm
+                  aria-hidden='true'
                   className='h-[2.4rem] w-[2.4rem]'
                 />
               </button>
@@ -113,11 +114,7 @@ export const ProductInfoSection = ({
           <ProductCouponButton dDay={coupon.dDay} label={coupon.label} />
         </div>
         <div className='flex h-[2.4rem] items-center gap-[0.4rem]'>
-          <img
-            src={deliveryIcon}
-            alt='배송아이콘'
-            className='h-[2.4rem] w-[2.4rem]'
-          />
+          <IcSvgDelivery aria-hidden='true' className='h-[2.4rem] w-[2.4rem]' />
           <span className='text-caption-12m h-[1.4rem] w-[4.2rem] leading-[100%] tracking-[0px] text-gray-900'>
             {delivery.feeText}
           </span>
