@@ -8,11 +8,7 @@ import {cn} from '@/shared/utils/cn';
 type ProductDeliveryData = {
   isFreeDelivery: boolean;
   arrivalDate: string;
-  countdownText: string;
-  orderDeadlineLabel: string;
-  arrivalGuaranteeLabel: string;
-  membershipText: string;
-  excludedDeliveryText: string;
+  deadlineAt: string;
 };
 
 type ProductDeliverySectionProps = {
@@ -20,21 +16,27 @@ type ProductDeliverySectionProps = {
 };
 
 type DeliveryTimerInfoProps = {
-  countdownText: string;
-  orderDeadlineLabel: string;
-  arrivalGuaranteeLabel: string;
+  deadlineAt: string;
+  arrivalDate: string;
 };
 
 type DeliveryMembershipInfoProps = {
   membershipText: string;
 };
 
-const getCountdownSeconds = (countdownText: string) => {
-  const [hours = 0, minutes = 0, seconds = 0] = countdownText
-    .split(':')
-    .map(Number);
+const DELIVERY_MEMBERSHIP_TEXT = 'N배송 주문당 1회 무료교환반품';
+const EXCLUDED_DELIVERY_TEXT = '일반배송 전환(선물하기, 합배송 등) 제외';
 
-  return hours * 3600 + minutes * 60 + seconds;
+const getArrivalDayText = (arrivalDate: string) => {
+  const dayMatch = arrivalDate.match(/\(([^)]+)\)/);
+
+  return dayMatch ? `내일(${dayMatch[1]})` : '내일';
+};
+
+const getRemainingSeconds = (deadlineAt: string) => {
+  const remainingMilliseconds = new Date(deadlineAt).getTime() - Date.now();
+
+  return Math.max(Math.floor(remainingMilliseconds / 1000), 0);
 };
 
 const formatCountdownText = (totalSeconds: number) => {
@@ -48,20 +50,16 @@ const formatCountdownText = (totalSeconds: number) => {
 };
 
 const DeliveryTimerInfo = ({
-  countdownText,
-  orderDeadlineLabel,
-  arrivalGuaranteeLabel,
+  deadlineAt,
+  arrivalDate,
 }: DeliveryTimerInfoProps) => {
   const [remainingSeconds, setRemainingSeconds] = useState(() =>
-    getCountdownSeconds(countdownText)
+    getRemainingSeconds(deadlineAt)
   );
   const isDeadlineSoon = remainingSeconds <= 30 * 60;
+  const arrivalDayText = getArrivalDayText(arrivalDate);
 
   useEffect(() => {
-    if (remainingSeconds <= 0) {
-      return;
-    }
-
     const timerId = window.setInterval(() => {
       setRemainingSeconds((previousSeconds) =>
         Math.max(previousSeconds - 1, 0)
@@ -69,14 +67,14 @@ const DeliveryTimerInfo = ({
     }, 1000);
 
     return () => window.clearInterval(timerId);
-  }, [remainingSeconds]);
+  }, []);
 
   return (
-    <p className='text-body-14m text-semi-black h-[1.7rem] w-[22.6rem]'>
+    <p className='text-body-14m text-semi-black h-[1.7rem] w-[22.6rem] whitespace-nowrap'>
       <span className={cn(isDeadlineSoon && 'text-red-900')}>
-        {formatCountdownText(remainingSeconds)} {orderDeadlineLabel}
+        {formatCountdownText(remainingSeconds)} 내 주문 시
       </span>
-      <span className='text-green-600'> {arrivalGuaranteeLabel}</span> 보장
+      <span className='text-green-600'> {arrivalDayText} 도착</span> 보장
     </p>
   );
 };
@@ -91,7 +89,7 @@ const DeliveryMembershipInfo = ({
         alt='N+ 멤버십'
         className='h-[1.5rem] w-[5.7rem] shrink-0'
       />
-      <span className='text-body-14m text-semi-black h-[1.7rem] w-[17.2rem]'>
+      <span className='text-body-14m h-[1.7rem] w-[17.2rem] text-gray-900'>
         {membershipText}
       </span>
       <IcSvgNotice
@@ -120,15 +118,7 @@ const DeliveryDetailButton = () => {
 export const ProductDeliverySection = ({
   delivery,
 }: ProductDeliverySectionProps) => {
-  const {
-    isFreeDelivery,
-    arrivalDate,
-    countdownText,
-    orderDeadlineLabel,
-    arrivalGuaranteeLabel,
-    membershipText,
-    excludedDeliveryText,
-  } = delivery;
+  const {isFreeDelivery, arrivalDate, deadlineAt} = delivery;
 
   return (
     <section className='flex w-full gap-[3.6rem] bg-white p-[1.6rem]'>
@@ -143,20 +133,19 @@ export const ProductDeliverySection = ({
         />
 
         <DeliveryTimerInfo
-          key={countdownText}
-          countdownText={countdownText}
-          orderDeadlineLabel={orderDeadlineLabel}
-          arrivalGuaranteeLabel={arrivalGuaranteeLabel}
+          key={deadlineAt}
+          deadlineAt={deadlineAt}
+          arrivalDate={arrivalDate}
         />
 
-        <p className='text-body-14m text-semi-black'>
+        <p className='text-body-14m h-[1.7rem] w-[26.1rem] text-gray-900'>
           {isFreeDelivery ? '무료배송' : '배송비 별도'}
         </p>
 
-        <DeliveryMembershipInfo membershipText={membershipText} />
+        <DeliveryMembershipInfo membershipText={DELIVERY_MEMBERSHIP_TEXT} />
 
         <p className='text-body-14m h-[1.7rem] w-[26.1rem] text-gray-800'>
-          {excludedDeliveryText}
+          {EXCLUDED_DELIVERY_TEXT}
         </p>
 
         <DeliveryDetailButton />
