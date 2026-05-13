@@ -6,6 +6,7 @@ import {
 import {cn} from '@/shared/utils/cn';
 
 import {RewardSummary} from '@/pages/order-sheet/components/reward-summary/RewardSummary';
+import {REVIEW_REWARD_LIMIT_NOTICE} from '@/pages/order-sheet/constants/OrderSheetConstants';
 
 type RewardInfoCardProps = {
   className?: string;
@@ -54,7 +55,7 @@ export const RewardInfoCard = ({className}: RewardInfoCardProps) => {
               </div>
 
               <p className='text-body-14m text-gray-800'>
-                · 동일상품의 상품/한달리뷰 적립은 각 1회로 제한
+                {REVIEW_REWARD_LIMIT_NOTICE}
               </p>
             </section>
           </div>
