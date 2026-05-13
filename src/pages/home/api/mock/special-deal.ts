@@ -1,4 +1,7 @@
-import type {SpecialDealItem, SpecialDealResponse} from '@/pages/home/api/types';
+import type {
+  SpecialDealItem,
+  SpecialDealResponse,
+} from '@/pages/home/api/types';
 import downyBrandDayImage from '@/shared/assets/images/img-product-downy-brand-day.png';
 import downyPlusSaleImage from '@/shared/assets/images/img-product-downy-plus-sale.png';
 import cookieImage from '@/shared/assets/images/img-product-cookie.png';
