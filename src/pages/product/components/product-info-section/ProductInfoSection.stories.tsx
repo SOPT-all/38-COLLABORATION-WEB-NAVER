@@ -7,12 +7,7 @@ const meta = {
   title: 'Product/ProductInfoSection',
   component: ProductInfoSection,
   args: {
-    productName: PRODUCT_INFO_MOCK.productName,
-    optionName: PRODUCT_INFO_MOCK.optionName,
-    review: PRODUCT_INFO_MOCK.review,
-    price: PRODUCT_INFO_MOCK.price,
-    coupon: PRODUCT_INFO_MOCK.coupon,
-    delivery: PRODUCT_INFO_MOCK.delivery,
+    product: PRODUCT_INFO_MOCK.data,
   },
   parameters: {
     layout: 'centered',

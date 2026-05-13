@@ -7,40 +7,51 @@ import {
 
 import {ProductCouponButton} from '@/pages/product/components/product-info-section/ProductCouponButton';
 
-type ProductInfoSectionProps = {
+type ProductDetailData = {
   productName: string;
-  optionName: string;
-  review: {
-    rating: number;
-    recentRatingLabel: string;
-    recentRating: number;
-    reviewCount: number;
-  };
-  price: {
-    discountRate: number;
-    originalPrice: number;
-    salePrice: number;
-    benefitPrice: number;
-    benefitLabel: string;
-  };
-  coupon: {
-    dDay: string;
-    label: string;
-  };
+  reviewScore: number;
+  recentReviewScore: number;
+  reviewCount: number;
+  discountRate: number;
+  originalPrice: number;
+  salePrice: number;
+  memberPrice: number;
+  couponAvailable: boolean;
+  couponDday: number;
+  unitPrice: number;
+  unitQuantity: number;
+  unit: string;
   delivery: {
-    feeText: string;
-    unitPriceText: string;
+    isFreeDelivery: boolean;
   };
 };
 
-export const ProductInfoSection = ({
-  productName,
-  optionName,
-  review,
-  price,
-  coupon,
-  delivery,
-}: ProductInfoSectionProps) => {
+type ProductInfoSectionProps = {
+  product: ProductDetailData;
+};
+
+const PRODUCT_OPTION_START_PATTERN = ' (유 ';
+
+const getProductNameLines = (productName: string) => {
+  const optionStartIndex = productName.indexOf(PRODUCT_OPTION_START_PATTERN);
+
+  if (optionStartIndex === -1) {
+    return [productName, ''];
+  }
+
+  return [
+    productName.slice(0, optionStartIndex),
+    productName.slice(optionStartIndex + 1),
+  ];
+};
+
+export const ProductInfoSection = ({product}: ProductInfoSectionProps) => {
+  const [productName, optionName] = getProductNameLines(product.productName);
+  const deliveryFeeText = product.delivery.isFreeDelivery
+    ? '무료배송'
+    : '배송비 별도';
+  const unitPriceText = `${product.unitQuantity}${product.unit}당 ${product.unitPrice.toLocaleString()}원`;
+
   return (
     <section className='w-full bg-white px-[1.6rem]'>
       <div className='flex w-full flex-col gap-[0.8rem]'>
@@ -55,12 +66,10 @@ export const ProductInfoSection = ({
           <IcSvgStar aria-hidden='true' className='h-[2.4rem] w-[2.4rem]' />
           <span className='flex cursor-pointer items-center gap-[0.6rem]'>
             <span className='text-body-14sb text-semi-black flex h-[1.7rem] w-[2.8rem] items-center leading-[100%] tracking-[0px]'>
-              {review.rating}
+              {product.reviewScore}
             </span>
             <span className='text-caption-12m flex h-[2.4rem] items-center gap-[0.1rem] leading-[100%] tracking-[0px] whitespace-nowrap text-gray-900'>
-              <span>
-                ({review.recentRatingLabel} {review.recentRating}
-              </span>
+              <span>(최근 6개월 {product.recentReviewScore}</span>
               <IcSvgNotice
                 aria-hidden='true'
                 className='h-[2.4rem] w-[2.4rem] text-gray-700'
@@ -70,7 +79,7 @@ export const ProductInfoSection = ({
           </span>
           <span className='h-[1.2rem] w-px shrink-0 bg-gray-500' />
           <span className='text-caption-12m h-[1.4rem] w-[8rem] shrink-0 cursor-pointer leading-[100%] tracking-[0px] whitespace-nowrap text-gray-900'>
-            {review.reviewCount.toLocaleString()}건 리뷰
+            {product.reviewCount.toLocaleString()}건 리뷰
           </span>
         </div>
 
@@ -78,21 +87,21 @@ export const ProductInfoSection = ({
           <div className='flex flex-col'>
             <div className='flex h-[1.9rem] w-[8.4rem] items-center gap-[0.2rem] whitespace-nowrap'>
               <span className='text-body-16b h-[1.9rem] w-[2.6rem] leading-[100%] tracking-[0px] text-gray-800'>
-                {price.discountRate}%
+                {product.discountRate}%
               </span>
               <span className='text-body-14m h-[1.9rem] leading-[100%] tracking-[0px] text-gray-700'>
-                {price.originalPrice.toLocaleString()}원
+                {product.originalPrice.toLocaleString()}원
               </span>
             </div>
             <span className='text-display-22b h-[2.6rem] w-[7.3rem] leading-[100%] tracking-[0px] whitespace-nowrap text-black'>
-              {price.salePrice.toLocaleString()}
+              {product.salePrice.toLocaleString()}
               <span className='text-body-16r leading-[100%] tracking-[0px] text-black'>
                 원
               </span>
             </span>
             <div className='flex h-[2.3rem] items-center whitespace-nowrap'>
               <span className='text-display-22b h-[2.6rem] leading-[100%] tracking-[0px] text-red-900'>
-                {price.benefitPrice.toLocaleString()}
+                {product.memberPrice.toLocaleString()}
               </span>
               <span className='text-body-16m mr-[0.8rem] h-[1.9rem] leading-[100%] tracking-[0px] text-red-900'>
                 원
@@ -100,9 +109,9 @@ export const ProductInfoSection = ({
               <button
                 type='button'
                 className='flex h-[2.4rem] items-center'
-                aria-label={`${price.benefitLabel} 자세히 보기`}>
+                aria-label='나의 할인가 자세히 보기'>
                 <span className='text-body-16m h-[1.9rem] leading-[100%] tracking-[0px] text-red-900'>
-                  {price.benefitLabel}
+                  나의 할인가
                 </span>
                 <IcSvgChevronDownSm
                   aria-hidden='true'
@@ -111,16 +120,21 @@ export const ProductInfoSection = ({
               </button>
             </div>
           </div>
-          <ProductCouponButton dDay={coupon.dDay} label={coupon.label} />
+          {product.couponAvailable && (
+            <ProductCouponButton
+              dDay={`D-${product.couponDday}`}
+              label='쿠폰 받기'
+            />
+          )}
         </div>
         <div className='flex h-[2.4rem] items-center gap-[0.4rem]'>
           <IcSvgDelivery aria-hidden='true' className='h-[2.4rem] w-[2.4rem]' />
           <span className='text-caption-12m h-[1.4rem] w-[4.2rem] leading-[100%] tracking-[0px] text-gray-900'>
-            {delivery.feeText}
+            {deliveryFeeText}
           </span>
           <span className='h-[1.2rem] w-px bg-gray-500' />
           <span className='text-caption-12m h-[1.4rem] w-[7.2rem] leading-[100%] tracking-[0px] text-gray-900'>
-            {delivery.unitPriceText}
+            {unitPriceText}
           </span>
         </div>
       </div>
