@@ -19,7 +19,7 @@ export const StoreHeader = ({
   onCouponClick,
 }: StoreHeaderProps) => {
   return (
-    <section className='flex justify-between border-b-1 border-gray-900 pb-[12px]'>
+    <section className='flex justify-between border-b border-gray-900 pb-[12px]'>
       <button
         type='button'
         className='flex items-center gap-[1px]'
