@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {useState} from 'react';
-import ProductCard from '@/pages/cart/components/product-card/ProductCard';
+import ProductCard from '@/pages/cart/components/product-card/CartProduct';
 import productImage from '@/shared/assets/images/img-product.png';
 
 const meta = {
