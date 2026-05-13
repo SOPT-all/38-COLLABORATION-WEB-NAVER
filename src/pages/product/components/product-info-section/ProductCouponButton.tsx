@@ -1,3 +1,4 @@
+import {ActionButton} from '@/shared/components/button/ActionButton';
 import couponIcon from '@/shared/assets/svg/ic_coupon.svg';
 
 type ProductCouponButtonProps = {
@@ -12,8 +13,8 @@ export const ProductCouponButton = ({
   onClick,
 }: ProductCouponButtonProps) => {
   return (
-    <button
-      type='button'
+    <ActionButton
+      variant='m'
       className='text-body-14b relative flex h-[3.8rem] w-[9.7rem] items-center justify-center rounded-[0.8rem] border border-red-800 bg-red-700 p-[1rem] text-red-900'
       onClick={onClick}>
       <span className='text-caption-12sb absolute top-[-1.7rem] right-[0.8rem] flex h-[1.9rem] w-[3.6rem] items-center justify-center rounded-[0.4rem] bg-red-900 text-white'>
@@ -26,6 +27,6 @@ export const ProductCouponButton = ({
           {label}
         </span>
       </span>
-    </button>
+    </ActionButton>
   );
 };
