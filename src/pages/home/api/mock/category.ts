@@ -1,23 +1,5 @@
+import type {Category, CategoryResponse} from '@/pages/home/api/types';
 import imgEvent from '@/shared/assets/images/img-event.png';
-
-export interface Category {
-  categoryId: number;
-  name: string;
-  iconUrl: string;
-}
-
-export interface CategoryResponseData {
-  categories: Category[];
-  totalCount: number;
-  isExpanded: boolean;
-}
-
-interface CategoryResponse {
-  success: boolean;
-  status: number;
-  message: string;
-  data: CategoryResponseData;
-}
 
 const MOCK_CATEGORIES: Category[] = [
   {

@@ -43,7 +43,7 @@ export const SpecialDealTimer = () => {
   return (
     <section
       aria-labelledby='special-deal-heading'
-      className='flex flex-col items-center gap-6 px-4 py-3'>
+      className='flex flex-col items-center gap-6 px-4 py-[1.8rem]'>
       <div className='flex flex-col items-center gap-0.75'>
         <img src={homeClock} alt='' width={35} height={35} />
 

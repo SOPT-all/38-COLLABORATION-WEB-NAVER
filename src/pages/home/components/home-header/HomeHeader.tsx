@@ -13,7 +13,7 @@ export const HomeHeader = ({
   onCartClick,
 }: HomeHeaderProps) => {
   return (
-    <Header>
+    <Header className='sticky top-0 z-10 border-b border-gray-500'>
       <Header.Left>
         <Header.BackButton onClick={onBackClick} />
         <Header.Title variant='home'>N배송</Header.Title>
