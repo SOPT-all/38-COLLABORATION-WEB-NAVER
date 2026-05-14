@@ -12,15 +12,12 @@ export const AgreementSection = () => {
           <strong className='text-body-14m font-normal text-green-600'>
             바디랩
           </strong>
-          <button type='button' className='text-navy text-body-14m'>
+          <span className='text-navy text-body-14m'>
             상세보기
-          </button>
+          </span>
         </p>
 
-        <button
-          type='button'
-          className='flex items-center gap-[4px]'
-          aria-label='구매안전 서비스 안내 상세보기'>
+        <div className='flex items-center gap-[4px]'>
           <span className='text-body-14m text-gray-800'>
             구매안전 서비스 안내
           </span>
@@ -30,7 +27,7 @@ export const AgreementSection = () => {
             height={24}
             className='text-gray-700'
           />
-        </button>
+        </div>
       </OrderCardLayout>
     </section>
   );
