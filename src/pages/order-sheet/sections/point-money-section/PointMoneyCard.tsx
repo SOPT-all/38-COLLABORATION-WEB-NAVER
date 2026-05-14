@@ -1,11 +1,13 @@
+import {useState} from 'react';
+
 import {OrderCardLayout} from '@/shared/components';
 import {IcSvgCheckSm, IcSvgQuestion} from '@/shared/icons';
 import {formatPrice} from '@/shared/utils/format-product';
 
 import type {PointMoneyData} from '@/pages/order-sheet/api/types/order-sheet';
 import {POINT_MONEY_SECTION_TEXT} from '@/pages/order-sheet/constants/OrderSheetConstants';
-import { PointUsageField } from '../../components/point-usage-field/PointUsageField';
-import { HiddenPointButton } from '../../components/hidden-point-button/HiddenPointButton';
+import {HiddenPointButton} from '@/pages/order-sheet/components/hidden-point-button/HiddenPointButton';
+import {PointUsageField} from '@/pages/order-sheet/components/point-usage-field/PointUsageField';
 
 const {balance} = POINT_MONEY_SECTION_TEXT;
 
@@ -23,6 +25,16 @@ export const PointMoneyCard = ({
   availableMoney,
   allUseAmount,
 }: PointMoneyBalanceCardProps) => {
+  const [usedPoint, setUsedPoint] = useState(0);
+
+  const handlePointChange = (point: number) => {
+    setUsedPoint(Math.min(point, allUseAmount));
+  };
+
+  const handleUseAllClick = () => {
+    setUsedPoint(allUseAmount);
+  };
+
   return (
     <OrderCardLayout
       variant='paymentPoint'
@@ -76,7 +88,11 @@ export const PointMoneyCard = ({
             </div>
           </dl>
 
-          <PointUsageField point={0} />
+          <PointUsageField
+            point={usedPoint}
+            onChangePoint={handlePointChange}
+            onClickUseAll={handleUseAllClick}
+          />
 
           <div className='flex items-center gap-[6px]'>
             <button
