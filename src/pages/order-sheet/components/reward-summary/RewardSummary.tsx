@@ -1,4 +1,5 @@
 import {IcSvgQuestion} from '@/shared/icons';
+import {formatPrice} from '@/shared/utils/format-product';
 import {cn} from '@/shared/utils/cn';
 
 type RewardSummaryProps = {
@@ -29,7 +30,7 @@ export const RewardSummary = ({
         </div>
 
         <span className='text-body-16b text-navy'>
-          총 {totalAmount.toLocaleString()}원
+          총 {formatPrice(totalAmount)}
         </span>
       </div>
 
@@ -44,7 +45,7 @@ export const RewardSummary = ({
               <span className='text-body-14m text-gray-800'>{item.label}</span>
 
               <span className='text-body-14m text-gray-800'>
-                {item.amount.toLocaleString()}원
+                {formatPrice(item.amount)}
               </span>
             </div>
           ))}
