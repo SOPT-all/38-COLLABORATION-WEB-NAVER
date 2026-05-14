@@ -8,6 +8,12 @@ type OrderPriceSummaryProps = {
   couponDiscountAmount: number;
   deliveryFee: number;
 };
+
+const getDiscountAmount = (amount: number) => Math.abs(amount);
+
+const formatDiscountPrice = (amount: number) =>
+  `-${formatPrice(getDiscountAmount(amount))}`;
+
 export const OrderPriceSummary = ({
   selectedProductsAmount,
   instantDiscountAmount,
@@ -15,9 +21,9 @@ export const OrderPriceSummary = ({
   deliveryFee,
 }: OrderPriceSummaryProps) => {
   const totalAmount =
-    selectedProductsAmount +
-    instantDiscountAmount +
-    couponDiscountAmount +
+    selectedProductsAmount -
+    getDiscountAmount(instantDiscountAmount) -
+    getDiscountAmount(couponDiscountAmount) +
     deliveryFee;
 
   const priceSummaryItems = [
@@ -45,14 +51,17 @@ export const OrderPriceSummary = ({
   return (
     <OrderCardLayout
       variant='cartPriceSummary'
-      className='flex flex-col gap-[8px]'>
-      <p className='text-body-16b'>{ORDER_PRICE_SUMMARY.TITLE}</p>
+      className='flex flex-col gap-[8px]'
+      aria-labelledby='order-price-summary-title'>
+      <h2 id='order-price-summary-title' className='text-body-16b'>
+        {ORDER_PRICE_SUMMARY.TITLE}
+      </h2>
 
       {priceSummaryItems.map(({label, value, isDiscount}) => (
         <div key={label} className='text-body-14m flex justify-between'>
           <span>{label}</span>
           <span className={cn(isDiscount && 'text-red-900')}>
-            {formatPrice(value)}
+            {isDiscount ? formatDiscountPrice(value) : formatPrice(value)}
           </span>
         </div>
       ))}
