@@ -15,7 +15,7 @@ type PointSectionProps = {
   totalPoint?: number;
 };
 
-export const PointSection = ({
+export const RewardPointSection = ({
   totalPoint = MOCK_ORDER_SHEET_RESPONSE_DATA.expectedPoint.totalPoint,
 }: PointSectionProps = {}) => {
   const [isRewardInfoOpen, setIsRewardInfoOpen] = useState(true);
