@@ -20,6 +20,9 @@ export const POINT_MONEY_SECTION_TEXT = {
     priorityUse: '우선사용',
     allUseAmount: '항상 전액사용',
   },
+  validationMessage: {
+    exceedAvailableAmount: '보유 금액 이상 사용은 불가능합니다.',
+  },
 } as const;
 
 export const DEFERRED_PAYMENT_TEXT = {

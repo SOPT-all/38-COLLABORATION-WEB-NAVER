@@ -9,7 +9,7 @@ import {POINT_MONEY_SECTION_TEXT} from '@/pages/order-sheet/constants/OrderSheet
 import {HiddenPointButton} from '@/pages/order-sheet/components/hidden-point-button/HiddenPointButton';
 import {PointUsageField} from '@/pages/order-sheet/components/point-usage-field/PointUsageField';
 
-const {balance} = POINT_MONEY_SECTION_TEXT;
+const {balance, validationMessage} = POINT_MONEY_SECTION_TEXT;
 
 type PointMoneyBalanceCardProps = Pick<
   PointMoneyData,
@@ -26,6 +26,10 @@ export const PointMoneyCard = ({
   const [isAlwaysUseAllChecked, setIsAlwaysUseAllChecked] = useState(false);
 
   const handlePointChange = (point: number) => {
+    if (point > allUseAmount) {
+      window.alert(validationMessage.exceedAvailableAmount);
+    }
+
     setUsedPoint(Math.min(point, allUseAmount));
   };
 
