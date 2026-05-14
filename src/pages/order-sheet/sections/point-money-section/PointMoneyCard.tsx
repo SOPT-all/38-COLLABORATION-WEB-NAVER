@@ -14,7 +14,6 @@ type PointMoneyBalanceCardProps = Pick<
   | 'availableAmount'
   | 'availablePoint'
   | 'availableMoney'
-  | 'hiddenPoint'
   | 'allUseAmount'
 >;
 
@@ -96,7 +95,7 @@ export const PointMoneyCard = ({
           </div>
         </div>
 
-        <HiddenPointButton point={7} className='w-full' />
+        <HiddenPointButton className='w-full' />
       </div>
     </OrderCardLayout>
   );

@@ -9,14 +9,18 @@ import {PointMoneyCard} from '@/pages/order-sheet/sections/point-money-section/P
 
 type PointMoneySectionProps = PointMoneyData;
 
-export const PointMoneySection = ({
-  availableAmount = MOCK_POINT_MONEY_DATA.availableAmount,
-  availablePoint = MOCK_POINT_MONEY_DATA.availablePoint,
-  availableMoney = MOCK_POINT_MONEY_DATA.availableMoney,
-  hiddenPoint = MOCK_POINT_MONEY_DATA.hiddenPoint,
-  allUseAmount = MOCK_POINT_MONEY_DATA.allUseAmount,
-  deferredPaymentAvailableAmount = MOCK_POINT_MONEY_DATA.deferredPaymentAvailableAmount,
-}: Partial<PointMoneySectionProps> = {}) => {
+export const PointMoneySection = (props: Partial<PointMoneySectionProps> = {}) => {
+  const {
+    availableAmount,
+    availablePoint,
+    availableMoney,
+    allUseAmount,
+    deferredPaymentAvailableAmount,
+  } = {
+    ...MOCK_POINT_MONEY_DATA,
+    ...props,
+  };
+
   return (
     <section className='flex flex-col gap-[12px]'>
       <h2 className='flex items-center gap-[4px]'>
@@ -30,7 +34,6 @@ export const PointMoneySection = ({
         availableAmount={availableAmount}
         availablePoint={availablePoint}
         availableMoney={availableMoney}
-        hiddenPoint={hiddenPoint}
         allUseAmount={allUseAmount}
       />
       <DeferredPaymentCard

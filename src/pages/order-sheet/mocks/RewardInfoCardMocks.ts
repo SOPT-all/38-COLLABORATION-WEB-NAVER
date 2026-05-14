@@ -9,11 +9,11 @@ import {PURCHASE_REWARD_LABEL} from '@/pages/order-sheet/constants/OrderSheetCon
 export const MOCK_ORDER_SHEET_RESPONSE_DATA =
   orderSheetResponseDataSchema.parse({
     orderId: 1,
-    availableAmount: 87,
+    availableAmount: 80,
     availablePoint: 80,
     availableMoney: 0,
-    hiddenPoint: 7,
-    allUseAmount: 87,
+    hiddenPoint: 0,
+    allUseAmount: 80,
     deferredPaymentAvailableAmount: 300000,
     expectedPoint: {
       totalPoint: 1472,
