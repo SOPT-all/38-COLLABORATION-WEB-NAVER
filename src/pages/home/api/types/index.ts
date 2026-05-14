@@ -18,3 +18,15 @@ export type {
   RecommendationResponse,
   RecommendationResponseData,
 } from './recommendation';
+export {
+  specialDealItemSchema,
+  specialDealResponseDataSchema,
+  specialDealResponseSchema,
+  specialProductBadgeSchema,
+} from './special-deal';
+export type {
+  SpecialDealItem,
+  SpecialDealResponse,
+  SpecialDealResponseData,
+  SpecialProductBadge,
+} from './special-deal';

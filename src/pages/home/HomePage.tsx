@@ -1,5 +1,14 @@
-import {HomeBanner, HomeHeader, Location} from '@/pages/home/components';
-import {CategorySection, RecommendationSection} from '@/pages/home/sections';
+import {
+  DeliveryBanner,
+  HomeBanner,
+  HomeHeader,
+  Location,
+} from '@/pages/home/components';
+import {
+  CategorySection,
+  RecommendationSection,
+  SpecialDealSection,
+} from '@/pages/home/sections';
 
 export const HomePage = () => {
   return (
@@ -13,6 +22,10 @@ export const HomePage = () => {
 
         <RecommendationSection />
         <CategorySection />
+
+        <DeliveryBanner />
+
+        <SpecialDealSection />
       </main>
     </div>
   );
