@@ -13,7 +13,7 @@ const MOCK_PAYMENT_AGREEMENT = {
   sellerName: '바디랩',
 } as const; // 컴포넌트 pr 머지 후 파일로 분리
 
-export const PaymentAgreementSection = () => {
+export const AgreementSection = () => {
   return (
     <section aria-label={PAYMENT_AGREEMENT_LABEL.section}>
       <OrderCardLayout
