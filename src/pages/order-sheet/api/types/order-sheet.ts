@@ -15,14 +15,18 @@ export const expectedPointSchema = z.object({
   membershipPoint: z.number(),
 });
 
-export const orderSheetResponseDataSchema = z.object({
-  orderId: z.number(),
+export const pointMoneyDataSchema = z.object({
   availableAmount: z.number(),
   availablePoint: z.number(),
   availableMoney: z.number(),
-  hiddenPoint: z.null(),
+  hiddenPoint: z.number(),
   allUseAmount: z.number(),
   deferredPaymentAvailableAmount: z.number(),
+});
+
+export const orderSheetResponseDataSchema = z.object({
+  orderId: z.number(),
+  ...pointMoneyDataSchema.shape,
   expectedPoint: expectedPointSchema,
 });
 
@@ -32,6 +36,7 @@ export const orderSheetResponseSchema = createApiSuccessSchema(
 
 export type PurchasePoint = z.infer<typeof purchasePointSchema>;
 export type ExpectedPoint = z.infer<typeof expectedPointSchema>;
+export type PointMoneyData = z.infer<typeof pointMoneyDataSchema>;
 export type OrderSheetResponseData = z.infer<
   typeof orderSheetResponseDataSchema
 >;
