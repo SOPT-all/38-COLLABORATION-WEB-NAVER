@@ -6,6 +6,7 @@ import {cn} from '@/shared/utils/cn';
 type PointUsageFieldProps = {
   point: number;
   className?: string;
+  isUseAllDisabled?: boolean;
   onChangePoint?: (point: number) => void;
   onClickUseAll?: () => void;
 };
@@ -13,6 +14,7 @@ type PointUsageFieldProps = {
 export const PointUsageField = ({
   point,
   className,
+  isUseAllDisabled = false,
   onChangePoint,
   onClickUseAll,
 }: PointUsageFieldProps) => {
@@ -63,8 +65,14 @@ export const PointUsageField = ({
 
       <button
         type='button'
+        disabled={isUseAllDisabled}
         onClick={onClickUseAll}
-        className='text-body-14b text-semi-black flex h-[42px] w-[76px] shrink-0 items-center justify-center gap-[10px] rounded-[6px] bg-green-200 p-[10px]'>
+        className={cn(
+          'text-body-14b flex h-[42px] w-[76px] shrink-0 items-center justify-center gap-[10px] rounded-[6px] p-[10px]',
+          isUseAllDisabled
+            ? 'bg-[#ababac] text-[#dddee0]'
+            : 'text-semi-black bg-green-200'
+        )}>
         {POINT_USAGE_FIELD_TEXT.useAllButton}
       </button>
     </div>

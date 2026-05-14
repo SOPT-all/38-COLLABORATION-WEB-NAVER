@@ -35,6 +35,8 @@ export const PointMoneyCard = ({
     setUsedPoint(allUseAmount);
   };
 
+  const isUseAllDisabled = usedPoint === allUseAmount;
+
   return (
     <OrderCardLayout
       variant='paymentPoint'
@@ -90,6 +92,7 @@ export const PointMoneyCard = ({
 
           <PointUsageField
             point={usedPoint}
+            isUseAllDisabled={isUseAllDisabled}
             onChangePoint={handlePointChange}
             onClickUseAll={handleUseAllClick}
           />
