@@ -8,7 +8,6 @@ export {default as IcSvgCheckboxOff} from './ic-checkbox-off';
 export {default as IcSvgCheckboxOn} from './ic-checkbox-on';
 export {default as IcSvgCheckboxUnChecked} from './ic-checkbox-un-checked';
 export {default as IcSvgCheckLg} from './ic-check-lg';
-export {default as IcSvgCheckLgChecked} from './ic-check-lg-checked';
 export {default as IcSvgCheckSm} from './ic-check-sm';
 export {default as IcSvgCheckSmChecked} from './ic-check-sm-checked';
 export {default as IcSvgChevronDownSm} from './ic-chevron-down-sm';
