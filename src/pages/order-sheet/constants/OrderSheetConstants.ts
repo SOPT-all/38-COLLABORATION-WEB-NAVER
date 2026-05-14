@@ -6,6 +6,11 @@ export const PURCHASE_REWARD_LABEL = {
   npayMoneyPoint: '네이버페이 머니 결제적립',
 } as const;
 
+export const POINT_SECTION_TEXT = {
+  title: '이번 결제로 적립되는 포인트',
+  maxPrefix: '최대',
+} as const;
+
 export const POINT_MONEY_SECTION_TEXT = {
   title: '포인트 · 머니',
   balance: {
@@ -20,4 +25,22 @@ export const POINT_MONEY_SECTION_TEXT = {
     rewardBadge: '1% 적립',
     description: '지금 구매, 다음 달 납부 (소득공제 30%)',
   },
+} as const;
+
+export const POINT_USAGE_FIELD_TEXT = {
+  label: '사용',
+  inputAriaLabel: '사용 포인트',
+  currencyUnit: '원',
+  useAllButton: '전액사용',
+} as const;
+
+export const HIDDEN_POINT_BUTTON_TEXT = {
+  label: '내 숨은 포인트 찾기',
+  unknownAmount: '?원',
+} as const;
+
+export const REWARD_INFO_CARD_TEXT = {
+  reviewRewardTitle: '리뷰적립',
+  maxPrefix: '최대',
+  membershipBenefitButton: '멤버십이 드리는 구매 감사 혜택받기',
 } as const;
