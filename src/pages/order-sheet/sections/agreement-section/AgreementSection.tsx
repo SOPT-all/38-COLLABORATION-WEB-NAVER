@@ -12,9 +12,7 @@ export const AgreementSection = () => {
           <strong className='text-body-14m font-normal text-green-600'>
             바디랩
           </strong>
-          <span className='text-navy text-body-14m'>
-            상세보기
-          </span>
+          <span className='text-navy text-body-14m'>상세보기</span>
         </p>
 
         <div className='flex items-center gap-[4px]'>

@@ -9,7 +9,9 @@ import {PointMoneyCard} from '@/pages/order-sheet/sections/point-money-section/P
 
 type PointMoneySectionProps = PointMoneyData;
 
-export const PointMoneySection = (props: Partial<PointMoneySectionProps> = {}) => {
+export const PointMoneySection = (
+  props: Partial<PointMoneySectionProps> = {}
+) => {
   const {
     availableAmount,
     availablePoint,

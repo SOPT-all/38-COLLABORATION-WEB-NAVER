@@ -13,10 +13,7 @@ const {balance} = POINT_MONEY_SECTION_TEXT;
 
 type PointMoneyBalanceCardProps = Pick<
   PointMoneyData,
-  | 'availableAmount'
-  | 'availablePoint'
-  | 'availableMoney'
-  | 'allUseAmount'
+  'availableAmount' | 'availablePoint' | 'availableMoney' | 'allUseAmount'
 >;
 
 export const PointMoneyCard = ({
@@ -78,10 +75,7 @@ export const PointMoneyCard = ({
             </div>
 
             <div className='flex w-full items-center gap-[8px]'>
-              <div
-                aria-hidden
-                className='h-[4.9rem] w-[0.4rem] bg-gray-500'
-              />
+              <div aria-hidden className='h-[4.9rem] w-[0.4rem] bg-gray-500' />
 
               <dl className='flex w-full flex-col gap-[4px]'>
                 <div className='flex w-full items-center justify-between'>
