@@ -15,7 +15,7 @@ const IcSvgCheckboxChecked = (props: SVGProps<SVGSVGElement>) => (
       rx={3.5}
     />
     <path
-      fill='white'
+      fill='currentColor'
       d='M16.793 7.647a1 1 0 1 1 1.414 1.414l-6.146 6.146a1.5 1.5 0 0 1-2.121 0l-3.147-3.146a1 1 0 1 1 1.414-1.415L11 13.44z'
     />
   </svg>

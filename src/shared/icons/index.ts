@@ -27,4 +27,5 @@ export {default as IcSvgSearch} from './ic-search';
 export {default as IcSvgStar} from './ic-star';
 export {default as IcSvgSubtractN} from './ic-subtract-n';
 export {default as IcSvgTagDelivery} from './ic-tag-delivery';
+export {default as IcSvgTagMembershipSm} from './ic-tag-membership-sm';
 export {default as IcSvgTagPay} from './ic-tag-pay';
