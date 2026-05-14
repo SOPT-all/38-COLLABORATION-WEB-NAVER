@@ -11,7 +11,7 @@ export const MOCK_ORDER_SHEET_RESPONSE_DATA =
     availableAmount: 87,
     availablePoint: 80,
     availableMoney: 0,
-    hiddenPoint: null,
+    hiddenPoint: 7,
     allUseAmount: 87,
     deferredPaymentAvailableAmount: 300000,
     expectedPoint: {
