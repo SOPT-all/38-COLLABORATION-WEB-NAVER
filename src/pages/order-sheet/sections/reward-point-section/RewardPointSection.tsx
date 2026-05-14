@@ -3,21 +3,24 @@ import {useState} from 'react';
 import {IcSvgChevronDown, IcSvgChevronUp} from '@/shared/icons';
 import {formatPrice} from '@/shared/utils/format-product';
 
-import {RewardInfoCard} from '@/pages/order-sheet/components/reward-info-card/RewardInfoCard';
-import {POINT_SECTION_TEXT} from '@/pages/order-sheet/constants/OrderSheetConstants';
 import {
-  MOCK_ORDER_SHEET_RESPONSE_DATA,
-  MOCK_REWARD_INFO,
-  MOCK_REWARD_ITEMS,
-} from '@/pages/order-sheet/mocks/RewardInfoCardMocks';
+  RewardInfoCard,
+  type RewardInfo,
+  type RewardItem,
+} from '@/pages/order-sheet/components/reward-info-card/RewardInfoCard';
+import {POINT_SECTION_TEXT} from '@/pages/order-sheet/constants/OrderSheetConstants';
 
-type PointSectionProps = {
-  totalPoint?: number;
+type RewardPointSectionProps = {
+  totalPoint: number;
+  rewardItems: RewardItem[];
+  rewardInfo: RewardInfo;
 };
 
 export const RewardPointSection = ({
-  totalPoint = MOCK_ORDER_SHEET_RESPONSE_DATA.expectedPoint.totalPoint,
-}: PointSectionProps = {}) => {
+  totalPoint,
+  rewardItems,
+  rewardInfo,
+}: RewardPointSectionProps) => {
   const [isRewardInfoOpen, setIsRewardInfoOpen] = useState(true);
 
   const handleRewardInfoToggle = () => {
@@ -60,8 +63,8 @@ export const RewardPointSection = ({
 
       {isRewardInfoOpen && (
         <RewardInfoCard
-          rewardItems={MOCK_REWARD_ITEMS}
-          rewardInfo={MOCK_REWARD_INFO}
+          rewardItems={rewardItems}
+          rewardInfo={rewardInfo}
         />
       )}
     </section>

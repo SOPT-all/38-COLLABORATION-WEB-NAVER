@@ -1,6 +1,5 @@
 import {useId, type ChangeEvent, type FocusEvent, type MouseEvent} from 'react';
 
-import {POINT_USAGE_FIELD_TEXT} from '@/pages/order-sheet/constants/OrderSheetConstants';
 import {IcSvgDelete} from '@/shared/icons';
 import {cn} from '@/shared/utils/cn';
 
@@ -42,16 +41,14 @@ export const PointUsageField = ({
       <label
         htmlFor={inputId}
         className='flex h-[42px] flex-1 shrink-0 items-center justify-between rounded-[6px] border border-gray-500 px-[14px] py-[9px]'>
-        <span className='text-body-14m shrink-0 text-gray-800'>
-          {POINT_USAGE_FIELD_TEXT.label}
-        </span>
+        <span className='text-body-14m shrink-0 text-gray-800'>사용</span>
 
         <div className='flex min-w-0 flex-1 items-center justify-end text-green-600'>
           <input
             id={inputId}
             type='text'
             inputMode='numeric'
-            aria-label={POINT_USAGE_FIELD_TEXT.inputAriaLabel}
+            aria-label='사용 포인트'
             value={pointText}
             readOnly={!onChangePoint}
             onChange={handlePointChange}
@@ -62,13 +59,13 @@ export const PointUsageField = ({
           />
 
           <span aria-hidden='true' className='text-body-14b shrink-0'>
-            {POINT_USAGE_FIELD_TEXT.currencyUnit}
+            원
           </span>
 
           {hasPoint && (
             <button
               type='button'
-              aria-label={POINT_USAGE_FIELD_TEXT.clearAriaLabel}
+              aria-label='사용 포인트 삭제'
               onClick={onClearPoint}
               className='ml-[4px] flex h-[24px] w-[24px] shrink-0 items-center justify-center'>
               <IcSvgDelete
@@ -92,7 +89,7 @@ export const PointUsageField = ({
             ? 'bg-[#ababac] text-[#dddee0]'
             : 'text-semi-black bg-green-200'
         )}>
-        {POINT_USAGE_FIELD_TEXT.useAllButton}
+        전액사용
       </button>
     </div>
   );

@@ -28,19 +28,6 @@ export const DEFERRED_PAYMENT_TEXT = {
   description: '지금 구매, 다음 달 납부 (소득공제 30%)',
 } as const;
 
-export const POINT_USAGE_FIELD_TEXT = {
-  label: '사용',
-  inputAriaLabel: '사용 포인트',
-  clearAriaLabel: '사용 포인트 삭제',
-  currencyUnit: '원',
-  useAllButton: '전액사용',
-} as const;
-
-export const HIDDEN_POINT_BUTTON_TEXT = {
-  label: '내 숨은 포인트 찾기',
-  unknownAmount: '?원',
-} as const;
-
 export const REWARD_INFO_CARD_TEXT = {
   reviewRewardTitle: '리뷰적립',
   maxPrefix: '최대',
