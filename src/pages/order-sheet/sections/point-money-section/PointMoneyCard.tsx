@@ -35,6 +35,10 @@ export const PointMoneyCard = ({
     setUsedPoint(allUseAmount);
   };
 
+  const handleClearPoint = () => {
+    setUsedPoint(0);
+  };
+
   const isUseAllDisabled = usedPoint === allUseAmount;
 
   return (
@@ -94,6 +98,7 @@ export const PointMoneyCard = ({
             point={usedPoint}
             isUseAllDisabled={isUseAllDisabled}
             onChangePoint={handlePointChange}
+            onClearPoint={handleClearPoint}
             onClickUseAll={handleUseAllClick}
           />
 

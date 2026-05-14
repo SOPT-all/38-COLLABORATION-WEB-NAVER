@@ -30,6 +30,7 @@ export const POINT_MONEY_SECTION_TEXT = {
 export const POINT_USAGE_FIELD_TEXT = {
   label: '사용',
   inputAriaLabel: '사용 포인트',
+  clearAriaLabel: '사용 포인트 삭제',
   currencyUnit: '원',
   useAllButton: '전액사용',
 } as const;

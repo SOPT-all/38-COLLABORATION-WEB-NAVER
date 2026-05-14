@@ -1,6 +1,7 @@
 import {useId, type ChangeEvent, type FocusEvent, type MouseEvent} from 'react';
 
 import {POINT_USAGE_FIELD_TEXT} from '@/pages/order-sheet/constants/OrderSheetConstants';
+import {IcSvgDelete} from '@/shared/icons';
 import {cn} from '@/shared/utils/cn';
 
 type PointUsageFieldProps = {
@@ -8,6 +9,7 @@ type PointUsageFieldProps = {
   className?: string;
   isUseAllDisabled?: boolean;
   onChangePoint?: (point: number) => void;
+  onClearPoint?: () => void;
   onClickUseAll?: () => void;
 };
 
@@ -16,10 +18,12 @@ export const PointUsageField = ({
   className,
   isUseAllDisabled = false,
   onChangePoint,
+  onClearPoint,
   onClickUseAll,
 }: PointUsageFieldProps) => {
   const inputId = useId();
   const pointText = point.toLocaleString();
+  const hasPoint = point > 0;
 
   const handlePointChange = (event: ChangeEvent<HTMLInputElement>) => {
     const pointValue = Number(event.target.value.replace(/\D/g, ''));
@@ -60,6 +64,21 @@ export const PointUsageField = ({
           <span aria-hidden='true' className='text-body-14b shrink-0'>
             {POINT_USAGE_FIELD_TEXT.currencyUnit}
           </span>
+
+          {hasPoint && (
+            <button
+              type='button'
+              aria-label={POINT_USAGE_FIELD_TEXT.clearAriaLabel}
+              onClick={onClearPoint}
+              className='ml-[4px] flex h-[24px] w-[24px] shrink-0 items-center justify-center'>
+              <IcSvgDelete
+                aria-hidden
+                width={24}
+                height={24}
+                className='text-white'
+              />
+            </button>
+          )}
         </div>
       </label>
 
