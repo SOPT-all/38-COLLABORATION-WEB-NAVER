@@ -20,11 +20,12 @@ export const POINT_MONEY_SECTION_TEXT = {
     priorityUse: '우선사용',
     allUseAmount: '항상 전액사용',
   },
-  deferredPayment: {
-    title: '후불 결제',
-    rewardBadge: '1% 적립',
-    description: '지금 구매, 다음 달 납부 (소득공제 30%)',
-  },
+} as const;
+
+export const DEFERRED_PAYMENT_TEXT = {
+  title: '후불 결제',
+  rewardBadge: '1% 적립',
+  description: '지금 구매, 다음 달 납부 (소득공제 30%)',
 } as const;
 
 export const POINT_USAGE_FIELD_TEXT = {

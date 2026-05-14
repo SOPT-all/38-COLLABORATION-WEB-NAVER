@@ -2,9 +2,7 @@ import {OrderCardLayout} from '@/shared/components';
 import {IcSvgCheckLg} from '@/shared/icons';
 
 import type {PointMoneyData} from '@/pages/order-sheet/api/types/order-sheet';
-import {POINT_MONEY_SECTION_TEXT} from '@/pages/order-sheet/constants/OrderSheetConstants';
-
-const {deferredPayment} = POINT_MONEY_SECTION_TEXT;
+import {DEFERRED_PAYMENT_TEXT} from '@/pages/order-sheet/constants/OrderSheetConstants';
 
 type DeferredPaymentCardProps = Pick<
   PointMoneyData,
@@ -27,15 +25,15 @@ export const DeferredPaymentCard = ({
       />
       <div className='flex flex-col gap-[18px]'>
         <div className='flex gap-[6px]'>
-          <h3 className='text-body-16b'>{deferredPayment.title}</h3>
+          <h3 className='text-body-16b'>{DEFERRED_PAYMENT_TEXT.title}</h3>
           {hasDeferredPaymentAvailable && (
             <span className='text-caption-12sb box-border flex h-[20px] w-[52px] items-center justify-center rounded-[35px] bg-green-400'>
-              {deferredPayment.rewardBadge}
+              {DEFERRED_PAYMENT_TEXT.rewardBadge}
             </span>
           )}
         </div>
         <p className='text-body-14m text-gray-800'>
-          {deferredPayment.description}
+          {DEFERRED_PAYMENT_TEXT.description}
         </p>
       </div>
     </OrderCardLayout>
