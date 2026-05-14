@@ -17,7 +17,7 @@ export const DeferredPaymentCard = ({
   return (
     <OrderCardLayout
       variant='paymentAgreement'
-      className='flex max-w-full gap-[6px] border border-gray-500 pt-[14px] pr-[77px] pb-[24px] pl-[14px]'>
+      className='flex max-w-full gap-[6px] border border-gray-500 px-[14px] pt-[14px] pb-[24px]'>
       <IcSvgCheckLg
         width={24}
         height={24}
