@@ -16,7 +16,8 @@ export const CategoryList = ({
   onExpandChange,
 }: CategoryListProps) => {
   const hasExpandableCategories =
-    categoryData.totalCount > COLLAPSED_CATEGORY_COUNT;
+    categoryData.isExpanded ||
+    categoryData.categories.length === COLLAPSED_CATEGORY_COUNT;
 
   const handleExpandButtonClick = () => {
     onExpandChange?.(!categoryData.isExpanded);
