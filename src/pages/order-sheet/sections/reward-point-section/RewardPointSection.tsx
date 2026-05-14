@@ -62,10 +62,7 @@ export const RewardPointSection = ({
       </header>
 
       {isRewardInfoOpen && (
-        <RewardInfoCard
-          rewardItems={rewardItems}
-          rewardInfo={rewardInfo}
-        />
+        <RewardInfoCard rewardItems={rewardItems} rewardInfo={rewardInfo} />
       )}
     </section>
   );
