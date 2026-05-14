@@ -10,6 +10,7 @@ export {default as IcSvgCheckboxUnChecked} from './ic-checkbox-un-checked';
 export {default as IcSvgCheckLg} from './ic-check-lg';
 export {default as IcSvgCheckSm} from './ic-check-sm';
 export {default as IcSvgCheckSmChecked} from './ic-check-sm-checked';
+export {default as IcSvgChevronDown} from './ic-chevron-down';
 export {default as IcSvgChevronDownSm} from './ic-chevron-down-sm';
 export {default as IcSvgChevronRight} from './ic-chevron-right';
 export {default as IcSvgChevronRightSm} from './ic-chevron-right-sm';
