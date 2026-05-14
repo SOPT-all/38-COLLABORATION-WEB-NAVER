@@ -30,7 +30,7 @@ export const ProductInfo = ({
         alt={imageAlt}
       />
       <div className='flex flex-col gap-[4px]'>
-        <p className='text-caption-12m leading-[16px]'>
+        <p className='text-caption-12m line-clamp-2 leading-[16px] break-all'>
           {payBadge && (
             <img
               className='mr-[2px] inline-block h-[13px] w-[50px]'
