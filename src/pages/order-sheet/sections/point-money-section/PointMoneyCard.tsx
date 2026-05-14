@@ -1,7 +1,7 @@
 import {useState} from 'react';
 
 import {OrderCardLayout} from '@/shared/components';
-import {IcSvgCheckSm, IcSvgQuestion} from '@/shared/icons';
+import {IcSvgCheckSm, IcSvgCheckSmChecked, IcSvgQuestion} from '@/shared/icons';
 import {formatPrice} from '@/shared/utils/format-product';
 
 import type {PointMoneyData} from '@/pages/order-sheet/api/types/order-sheet';
@@ -26,6 +26,7 @@ export const PointMoneyCard = ({
   allUseAmount,
 }: PointMoneyBalanceCardProps) => {
   const [usedPoint, setUsedPoint] = useState(0);
+  const [isAlwaysUseAllChecked, setIsAlwaysUseAllChecked] = useState(false);
 
   const handlePointChange = (point: number) => {
     setUsedPoint(Math.min(point, allUseAmount));
@@ -37,6 +38,10 @@ export const PointMoneyCard = ({
 
   const handleClearPoint = () => {
     setUsedPoint(0);
+  };
+
+  const handleAlwaysUseAllToggle = () => {
+    setIsAlwaysUseAllChecked((prevChecked) => !prevChecked);
   };
 
   const isUseAllDisabled = usedPoint === allUseAmount;
@@ -106,12 +111,22 @@ export const PointMoneyCard = ({
             <button
               type='button'
               aria-label={`${balance.allUseAmount} ${formatPrice(allUseAmount)}`}
+              aria-pressed={isAlwaysUseAllChecked}
+              onClick={handleAlwaysUseAllToggle}
               className='flex h-[24px] w-[24px] items-center justify-center'>
-              <IcSvgCheckSm
-                width={24}
-                height={24}
-                className='text-gray-700'
-              />
+              {isAlwaysUseAllChecked ? (
+                <IcSvgCheckSmChecked
+                  width={24}
+                  height={24}
+                  className='text-white'
+                />
+              ) : (
+                <IcSvgCheckSm
+                  width={24}
+                  height={24}
+                  className='text-gray-700'
+                />
+              )}
             </button>
             <span className='text-body-14m text-navy cursor-pointer'>
               {balance.allUseAmount}
