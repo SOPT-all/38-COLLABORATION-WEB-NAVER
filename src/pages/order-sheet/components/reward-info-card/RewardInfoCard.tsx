@@ -79,7 +79,7 @@ export const RewardInfoCard = ({
 
         <button
           type='button'
-          className='flex w-full items-center justify-center gap-[6px] rounded-[4px] px-[3px]'>
+          className='flex w-full items-center justify-between gap-[6px] rounded-[4px] px-[3px]'>
           <div className='flex items-center gap-[4px]'>
             <IcSvgTagMembershipSm width={47} height={14} />
 

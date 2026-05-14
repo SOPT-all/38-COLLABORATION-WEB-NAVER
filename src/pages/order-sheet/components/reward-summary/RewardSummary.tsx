@@ -37,7 +37,7 @@ export const RewardSummary = ({
       <div className='flex w-full items-center gap-[8px]'>
         <div className='h-[49px] w-[4px] shrink-0 bg-gray-500' />
 
-        <div className='flex w-[303px] flex-col gap-[4px]'>
+        <div className='flex w-full flex-col gap-[4px]'>
           {items.map((item) => (
             <div
               key={item.label}
