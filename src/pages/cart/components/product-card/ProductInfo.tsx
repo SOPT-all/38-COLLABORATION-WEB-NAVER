@@ -1,4 +1,5 @@
 import nPayImage from '@/shared/assets/images/img-Npay.png';
+import {formatPrice} from '@/shared/utils/format-product';
 
 export type ProductInfoProps = {
   imageUrl: string;
@@ -10,8 +11,6 @@ export type ProductInfoProps = {
   originalPrice?: number;
   giftable?: boolean;
 };
-
-const formatPrice = (price: number) => `${price.toLocaleString()}원`;
 
 export const ProductInfo = ({
   imageUrl,

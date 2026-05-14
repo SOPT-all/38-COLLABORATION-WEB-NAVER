@@ -1,15 +1,15 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 import {useState} from 'react';
-import ProductCard from '@/pages/cart/components/product-card/CartProduct';
+import {CardProduct} from '@/pages/cart/components/product-card/CartProduct';
 import productImage from '@/shared/assets/images/img-product.png';
 
 const meta = {
   title: 'Cart/ProductCard',
-  component: ProductCard,
+  component: CardProduct,
   parameters: {
     layout: 'fullscreen',
   },
-} satisfies Meta<typeof ProductCard>;
+} satisfies Meta<typeof CardProduct>;
 
 export default meta;
 
@@ -44,7 +44,7 @@ export const Default: Story = {
     const [checked, setChecked] = useState(args.checked);
 
     return (
-      <ProductCard
+      <CardProduct
         {...args}
         checked={checked}
         onToggle={() => {

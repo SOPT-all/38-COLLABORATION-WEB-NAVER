@@ -1,4 +1,5 @@
 import {IcSvgCloseSm, IcSvgMinus, IcSvgPlus} from '@/shared/icons';
+import {formatPrice} from '@/shared/utils/format-product';
 
 export type ProductOptionProps = {
   optionName: string;
@@ -8,8 +9,6 @@ export type ProductOptionProps = {
   onIncrease: () => void;
   onDelete: () => void;
 };
-const formatPrice = (price: number) => `${price.toLocaleString()}원`;
-
 export const ProductOption = ({
   optionName,
   quantity,
@@ -22,7 +21,9 @@ export const ProductOption = ({
     <article className='flex flex-col gap-[8px] rounded-[4px] bg-blue-800 px-[14px] py-[10px]'>
       <div className='flex justify-between'>
         <p className='text-caption-12m'>{optionName}</p>
-        <IcSvgCloseSm width={24} height={24} onClick={onDelete} />
+        <button type='button' aria-label='옵션 삭제' onClick={onDelete}>
+          <IcSvgCloseSm width={24} height={24} />
+        </button>
       </div>
       <div className='flex items-center justify-between'>
         <div className='flex w-fit items-center gap-[14px] rounded-[4px] border border-gray-500'>
@@ -30,6 +31,7 @@ export const ProductOption = ({
             type='button'
             aria-label='수량 감소'
             onClick={onDecrease}
+            disabled={quantity <= 1}
             className='border-r border-r-gray-500 px-[5px] py-[3px]'>
             <IcSvgMinus width={24} height={24} color='var(--color-gray-700)' />
           </button>

@@ -10,7 +10,7 @@ import {DeliveryBadge} from '@/shared/components';
 import {OptionButton} from '@/shared/components/button/OptionButton';
 import {IcSvgCheckboxChecked, IcSvgCheckboxUnChecked} from '@/shared/icons';
 
-type ProductCardProps = {
+type CardProductProps = {
   product: ProductInfoProps;
   option: ProductOptionProps;
   orderDeadline: string;
@@ -19,20 +19,20 @@ type ProductCardProps = {
   onToggle: () => void;
 };
 
-const ProductCard = ({
+export const CardProduct = ({
   product,
   option,
   orderDeadline,
   deliveryDate,
   checked,
   onToggle,
-}: ProductCardProps) => {
+}: CardProductProps) => {
   return (
     <section className='flex items-start gap-[3px]'>
       <button
         type='button'
         className='flex items-center gap-[1px]'
-        aria-pressed={checked}
+        aria-label={checked ? '상품 선택 해제' : '상품 선택'}
         onClick={onToggle}>
         {checked ? (
           <IcSvgCheckboxChecked
@@ -65,5 +65,3 @@ const ProductCard = ({
     </section>
   );
 };
-
-export default ProductCard;
