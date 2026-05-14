@@ -17,7 +17,7 @@ export const RewardSummary = ({
   className,
 }: RewardSummaryProps) => {
   return (
-    <section className={cn('flex w-[315px] flex-col gap-[6px]', className)}>
+    <section className={cn('flex w-full flex-col gap-[6px]', className)}>
       <div className='flex w-full items-center justify-between'>
         <div className='flex items-center gap-[4px]'>
           <h3 className='text-body-16b text-navy'>구매적립</h3>

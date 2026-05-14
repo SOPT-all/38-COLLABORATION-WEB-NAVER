@@ -1,6 +1,10 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 
 import {RewardSummary} from '@/pages/order-sheet/components/reward-summary/RewardSummary';
+import {
+  MOCK_REWARD_INFO,
+  MOCK_REWARD_ITEMS,
+} from '@/pages/order-sheet/mocks/RewardInfoCardMocks';
 
 const meta = {
   title: 'OrderSheet/RewardSummary',
@@ -14,14 +18,9 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const MOCK_REWARD_ITEMS = [
-  {label: '기본적립', amount: 289},
-  {label: '네이버페이 머니 결제적립', amount: 433},
-];
-
 export const Default: Story = {
   args: {
-    totalAmount: 722,
+    totalAmount: MOCK_REWARD_INFO.purchaseRewardAmount,
     items: MOCK_REWARD_ITEMS,
   },
 };

@@ -7,6 +7,7 @@ import {cn} from '@/shared/utils/cn';
 
 import {RewardSummary} from '@/pages/order-sheet/components/reward-summary/RewardSummary';
 import {REVIEW_REWARD_LIMIT_NOTICE} from '@/pages/order-sheet/constants/OrderSheetConstants';
+import {formatPrice} from '@/shared/utils/format-product';
 
 export type RewardItem = {
   label: string;
@@ -57,7 +58,7 @@ export const RewardInfoCard = ({
                 </div>
 
                 <span className='text-body-16b text-green-600'>
-                  최대 {rewardInfo.reviewRewardAmount.toLocaleString()}원
+                  최대 {formatPrice(rewardInfo.reviewRewardAmount)}
                 </span>
               </div>
 
@@ -84,7 +85,7 @@ export const RewardInfoCard = ({
           </div>
 
           <span className='text-body-14b text-green-600'>
-            +{rewardInfo.membershipBenefitAmount.toLocaleString()}원
+            +{formatPrice(rewardInfo.membershipBenefitAmount)}
           </span>
         </button>
       </div>
