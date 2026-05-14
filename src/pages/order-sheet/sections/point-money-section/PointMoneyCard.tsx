@@ -41,7 +41,14 @@ export const PointMoneyCard = ({
   };
 
   const handleAlwaysUseAllToggle = () => {
-    setIsAlwaysUseAllChecked((prevChecked) => !prevChecked);
+    setIsAlwaysUseAllChecked((prevChecked) => {
+      if (prevChecked) {
+        return false;
+      }
+
+      setUsedPoint(allUseAmount);
+      return true;
+    });
   };
 
   const isUseAllDisabled = usedPoint === allUseAmount;
@@ -107,13 +114,13 @@ export const PointMoneyCard = ({
             onClickUseAll={handleUseAllClick}
           />
 
-          <div className='flex items-center gap-[6px]'>
+          <div className='flex items-center'>
             <button
               type='button'
               aria-label={`${balance.allUseAmount} ${formatPrice(allUseAmount)}`}
               aria-pressed={isAlwaysUseAllChecked}
               onClick={handleAlwaysUseAllToggle}
-              className='flex h-[24px] w-[24px] items-center justify-center'>
+              className='flex items-center gap-[6px]'>
               {isAlwaysUseAllChecked ? (
                 <IcSvgCheckSmChecked
                   width={24}
@@ -127,10 +134,10 @@ export const PointMoneyCard = ({
                   className='text-gray-700'
                 />
               )}
+              <span className='text-body-14m text-navy'>
+                {balance.allUseAmount}
+              </span>
             </button>
-            <span className='text-body-14m text-navy cursor-pointer'>
-              {balance.allUseAmount}
-            </span>
           </div>
         </div>
 
