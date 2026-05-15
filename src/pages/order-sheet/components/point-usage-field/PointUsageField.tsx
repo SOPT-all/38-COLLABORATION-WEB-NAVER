@@ -38,7 +38,7 @@ export const PointUsageField = ({
 
   return (
     <div className={cn('flex w-full items-center gap-[10px]', className)}>
-      <div className='flex h-[42px] flex-1 shrink-0 items-center justify-between rounded-[6px] border border-gray-500 px-[14px] py-[9px]'>
+      <div className='flex h-[42px] min-w-0 flex-1 items-center justify-between rounded-[6px] border border-gray-500 px-[14px] py-[9px]'>
         <label
           htmlFor={inputId}
           className='text-body-14m shrink-0 text-gray-800'>
@@ -56,8 +56,7 @@ export const PointUsageField = ({
             onChange={handlePointChange}
             onClick={moveCaretToAmountEnd}
             onFocus={moveCaretToAmountEnd}
-            className='text-body-14b min-w-[1ch] bg-transparent text-right text-green-600 caret-green-600 outline-none'
-            style={{width: `${Math.max(pointText.length, 1)}ch`}}
+            className='text-body-14b min-w-0 flex-1 bg-transparent text-right text-green-600 caret-green-600 outline-none'
           />
 
           <span aria-hidden='true' className='text-body-14b shrink-0'>
