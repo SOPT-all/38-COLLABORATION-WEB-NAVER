@@ -1,7 +1,8 @@
 import {useState} from 'react';
 
-import {IcSvgChevronDown, IcSvgChevronUp} from '@/shared/icons';
+import {IcSvgChevronDown} from '@/shared/icons';
 import {formatPrice} from '@/shared/utils/format-product';
+import {cn} from '@/shared/utils/cn';
 
 import {
   RewardInfoCard,
@@ -44,19 +45,15 @@ export const RewardPointSection = ({
             }
             aria-expanded={isRewardInfoOpen}
             onClick={handleRewardInfoToggle}>
-            {isRewardInfoOpen ? (
-              <IcSvgChevronUp
-                width={24}
-                height={24}
-                className='text-gray-900'
-              />
-            ) : (
-              <IcSvgChevronDown
-                width={24}
-                height={24}
-                className='text-gray-900'
-              />
-            )}
+            <IcSvgChevronDown
+              aria-hidden
+              width={24}
+              height={24}
+              className={cn(
+                'text-gray-900 transition-transform duration-200',
+                isRewardInfoOpen && 'rotate-180'
+              )}
+            />
           </button>
         </div>
       </header>
