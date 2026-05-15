@@ -28,7 +28,7 @@ export const CardProduct = ({
   onToggle,
 }: CardProductProps) => {
   return (
-    <section className='flex items-start gap-[3px]'>
+    <section className='flex items-start gap-[3px] pb-[6px]'>
       <button
         type='button'
         className='flex items-center gap-[1px]'
