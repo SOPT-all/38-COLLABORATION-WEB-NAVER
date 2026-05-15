@@ -1,11 +1,4 @@
-export type ProductBenefitData = {
-  pointBenefit: {
-    maxPoint: number;
-  };
-  cardBenefits: {
-    title: string;
-  }[];
-};
+import type {ProductBenefitData} from '@/pages/product/api/types/product-benefit';
 
 export const PRODUCT_BENEFIT_MOCK: ProductBenefitData = {
   pointBenefit: {

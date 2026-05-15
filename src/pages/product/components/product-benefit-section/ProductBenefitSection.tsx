@@ -3,8 +3,9 @@ import type {ReactNode} from 'react';
 import membershipTagImage from '@/shared/assets/images/img-tag-membership-lg.png';
 import {IcSvgChevronRight} from '@/shared/icons';
 import {cn} from '@/shared/utils/cn';
+import {formatNumber} from '@/shared/utils/format-number';
 
-import type {ProductBenefitData} from '@/pages/product/mocks/product-benefit-data';
+import type {ProductBenefitData} from '@/pages/product/api/types/product-benefit';
 
 type BenefitRowProps = {
   label?: string;
@@ -16,10 +17,6 @@ type ProductBenefitSectionProps = {
   benefit: ProductBenefitData;
   onPointClick?: () => void;
   onCardBenefitClick?: (index: number) => void;
-};
-
-const formatPoint = (point: number) => {
-  return point.toLocaleString('ko-KR');
 };
 
 const MembershipTag = () => {
@@ -61,7 +58,7 @@ export const ProductBenefitSection = ({
           onClick={onPointClick}>
           <MembershipTag />
           <span className='text-body-14sb text-purple ml-[0.4rem] h-[1.7rem] w-[14.3rem] whitespace-nowrap'>
-            최대 적립 포인트 {formatPoint(pointBenefit.maxPoint)}원
+            최대 적립 포인트 {formatNumber(pointBenefit.maxPoint)}원
           </span>
           <IcSvgChevronRight
             aria-hidden='true'
