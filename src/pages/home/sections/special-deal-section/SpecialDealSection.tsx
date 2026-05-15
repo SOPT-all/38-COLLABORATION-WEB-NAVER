@@ -48,7 +48,7 @@ const SpecialDealContent = () => {
                 originalPrice={product.originalPrice}
                 discountRate={product.discountRate}
                 discountedPrice={product.discountedPrice}
-                badge={product.tag ? TAG_TO_BADGE[product.tag] : undefined}
+                badge={TAG_TO_BADGE[product.tag ?? ''] ?? 'brand-day'}
               />
             </li>
           ))}
