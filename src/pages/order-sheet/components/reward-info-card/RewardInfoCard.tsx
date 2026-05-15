@@ -6,7 +6,10 @@ import {
 import {cn} from '@/shared/utils/cn';
 
 import {RewardSummary} from '@/pages/order-sheet/components/reward-summary/RewardSummary';
-import {REVIEW_REWARD_LIMIT_NOTICE} from '@/pages/order-sheet/constants/OrderSheetConstants';
+import {
+  REVIEW_REWARD_LIMIT_NOTICE,
+  REWARD_INFO_CARD_TEXT,
+} from '@/pages/order-sheet/constants/OrderSheetConstants';
 import {formatPrice} from '@/shared/utils/format-product';
 
 export type RewardItem = {
@@ -48,7 +51,9 @@ export const RewardInfoCard = ({
             <section className='flex w-full flex-col gap-[6px]'>
               <div className='flex w-full items-center justify-between'>
                 <div className='flex items-center gap-[4px]'>
-                  <h3 className='text-body-16b text-navy'>리뷰적립</h3>
+                  <h3 className='text-body-16b text-navy'>
+                    {REWARD_INFO_CARD_TEXT.reviewRewardTitle}
+                  </h3>
                   <IcSvgQuestion
                     aria-hidden
                     width={24}
@@ -58,7 +63,8 @@ export const RewardInfoCard = ({
                 </div>
 
                 <span className='text-body-16b text-green-600'>
-                  최대 {formatPrice(rewardInfo.reviewRewardAmount)}
+                  {REWARD_INFO_CARD_TEXT.maxPrefix}{' '}
+                  {formatPrice(rewardInfo.reviewRewardAmount)}
                 </span>
               </div>
 
@@ -73,12 +79,12 @@ export const RewardInfoCard = ({
 
         <button
           type='button'
-          className='flex w-full items-center justify-center gap-[6px] rounded-[4px] px-[3px]'>
+          className='flex w-full items-center justify-between gap-[6px] rounded-[4px] px-[3px]'>
           <div className='flex items-center gap-[4px]'>
             <IcSvgTagMembershipSm width={47} height={14} />
 
             <span className='text-caption-12m text-navy'>
-              멤버십이 드리는 구매 감사 혜택받기
+              {REWARD_INFO_CARD_TEXT.membershipBenefitButton}
             </span>
 
             <IcSvgChevronRightSm width={24} height={24} />

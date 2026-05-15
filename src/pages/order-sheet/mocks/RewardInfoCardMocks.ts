@@ -2,17 +2,18 @@ import type {
   RewardInfo,
   RewardItem,
 } from '@/pages/order-sheet/components/reward-info-card/RewardInfoCard';
+import type {PointMoneyData} from '@/pages/order-sheet/api/types/order-sheet';
 import {orderSheetResponseDataSchema} from '@/pages/order-sheet/api/types/order-sheet';
 import {PURCHASE_REWARD_LABEL} from '@/pages/order-sheet/constants/OrderSheetConstants';
 
 export const MOCK_ORDER_SHEET_RESPONSE_DATA =
   orderSheetResponseDataSchema.parse({
     orderId: 1,
-    availableAmount: 87,
+    availableAmount: 80,
     availablePoint: 80,
     availableMoney: 0,
-    hiddenPoint: null,
-    allUseAmount: 87,
+    hiddenPoint: 0,
+    allUseAmount: 80,
     deferredPaymentAvailableAmount: 300000,
     expectedPoint: {
       totalPoint: 1472,
@@ -26,8 +27,12 @@ export const MOCK_ORDER_SHEET_RESPONSE_DATA =
     },
   });
 
-const {expectedPoint} = MOCK_ORDER_SHEET_RESPONSE_DATA;
+const {expectedPoint, orderId, ...pointMoneyData} =
+  MOCK_ORDER_SHEET_RESPONSE_DATA;
+void orderId;
 const {purchasePoint} = expectedPoint;
+
+export const MOCK_POINT_MONEY_DATA: PointMoneyData = pointMoneyData;
 
 export const MOCK_REWARD_ITEMS: RewardItem[] = [
   {
