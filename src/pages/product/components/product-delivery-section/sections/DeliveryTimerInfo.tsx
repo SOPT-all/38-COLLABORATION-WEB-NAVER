@@ -44,14 +44,11 @@ export const DeliveryTimerInfo = ({
       setRemainingSeconds((previousSeconds) => {
         if (previousSeconds <= 1) {
           window.clearInterval(timerId);
-
           return 0;
         }
-
         return previousSeconds - 1;
       });
     }, 1000);
-
     return () => window.clearInterval(timerId);
   }, []);
 
