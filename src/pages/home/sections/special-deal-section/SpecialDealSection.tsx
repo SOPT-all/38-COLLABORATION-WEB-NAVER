@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom';
+
 import {usePromotionsQuery} from '@/pages/home/api/promotion';
 import {
   ProductCard,
@@ -6,6 +8,7 @@ import {
 } from '@/pages/home/components';
 
 import {AsyncBoundary} from '@/shared/components';
+import {createPath} from '@/shared/constants/routes';
 
 type BadgeVariant = 'brand-day' | 'plus-sale';
 
@@ -41,15 +44,17 @@ const SpecialDealContent = () => {
         <ul className='grid grid-cols-3 gap-x-2 gap-y-[1.6rem]' role='list'>
           {todayPromotion.items.map((product) => (
             <li key={product.itemId}>
-              <ProductCard
-                imageSrc={product.imageUrl}
-                imageAlt={product.name}
-                name={product.name}
-                originalPrice={product.originalPrice}
-                discountRate={product.discountRate}
-                discountedPrice={product.discountedPrice}
-                badge={TAG_TO_BADGE[product.tag ?? ''] ?? 'brand-day'}
-              />
+              <Link to={createPath.productDetail(product.itemId)}>
+                <ProductCard
+                  imageSrc={product.imageUrl}
+                  imageAlt={product.name}
+                  name={product.name}
+                  originalPrice={product.originalPrice}
+                  discountRate={product.discountRate}
+                  discountedPrice={product.discountedPrice}
+                  badge={TAG_TO_BADGE[product.tag ?? ''] ?? 'brand-day'}
+                />
+              </Link>
             </li>
           ))}
         </ul>
