@@ -1,6 +1,6 @@
 import membershipTagImage from '@/shared/assets/images/img-tag-membership-lg.png';
 import {IcSvgChevronRight} from '@/shared/icons';
-import {formatNumber} from '@/shared/utils/format-number';
+import {formatPrice} from '@/shared/utils/format-product';
 
 import type {ProductBenefitData} from '@/pages/product/api/types/product-benefit';
 
@@ -34,7 +34,7 @@ export const ProductBenefitSection = ({
             className='h-[1.4rem] w-[5.7rem] shrink-0'
           />
           <span className='text-body-14sb text-purple ml-[0.4rem] h-[1.7rem] w-[14.3rem] whitespace-nowrap'>
-            최대 적립 포인트 {formatNumber(pointBenefit.maxPoint)}원
+            최대 적립 포인트 {formatPrice(pointBenefit.maxPoint)}
           </span>
           <IcSvgChevronRight
             aria-hidden='true'
