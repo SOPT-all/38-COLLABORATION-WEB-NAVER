@@ -5,6 +5,9 @@ export const API_ENDPOINTS = {
   PAYMENT: {
     DETAIL: (orderId: number) => `/api/payments/${orderId}`,
   },
+  ORDER: {
+    POINTS: (orderId: number) => `/api/orders/${orderId}/points`,
+  },
   HOME: {
     RECOMMENDATIONS: '/api/home/recommendations',
     CATEGORIES: '/api/home/categories?expand=true',
