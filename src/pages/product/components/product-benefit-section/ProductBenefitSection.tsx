@@ -1,45 +1,13 @@
-import type {ReactNode} from 'react';
-
 import membershipTagImage from '@/shared/assets/images/img-tag-membership-lg.png';
 import {IcSvgChevronRight} from '@/shared/icons';
-import {cn} from '@/shared/utils/cn';
 import {formatNumber} from '@/shared/utils/format-number';
 
 import type {ProductBenefitData} from '@/pages/product/api/types/product-benefit';
-
-type BenefitRowProps = {
-  label?: string;
-  children: ReactNode;
-  className?: string;
-};
 
 type ProductBenefitSectionProps = {
   benefit: ProductBenefitData;
   onPointClick?: () => void;
   onCardBenefitClick?: (index: number) => void;
-};
-
-const MembershipTag = () => {
-  return (
-    <img
-      src={membershipTagImage}
-      alt='N+ 멤버십'
-      className='h-[1.4rem] w-[5.7rem] shrink-0'
-    />
-  );
-};
-
-const BenefitRow = ({label, children, className}: BenefitRowProps) => {
-  return (
-    <div className={cn('flex h-[2.4rem] items-center gap-[3.6rem]', className)}>
-      {label && (
-        <span className='text-body-14m h-[1.7rem] w-[2.5rem] shrink-0 text-gray-800'>
-          {label}
-        </span>
-      )}
-      {children}
-    </div>
-  );
 };
 
 export const ProductBenefitSection = ({
@@ -51,12 +19,20 @@ export const ProductBenefitSection = ({
 
   return (
     <section className='flex h-[8.2rem] w-[33rem] flex-col gap-[0.8rem] bg-white'>
-      <BenefitRow label='적립'>
+      <div className='flex h-[2.4rem] items-center gap-[3.6rem]'>
+        <span className='text-body-14m h-[1.7rem] w-[2.5rem] shrink-0 text-gray-800'>
+          적립
+        </span>
+
         <button
           type='button'
           className='flex h-[2.4rem] w-[23.2rem] items-center'
           onClick={onPointClick}>
-          <MembershipTag />
+          <img
+            src={membershipTagImage}
+            alt='N+ 멤버십'
+            className='h-[1.4rem] w-[5.7rem] shrink-0'
+          />
           <span className='text-body-14sb text-purple ml-[0.4rem] h-[1.7rem] w-[14.3rem] whitespace-nowrap'>
             최대 적립 포인트 {formatNumber(pointBenefit.maxPoint)}원
           </span>
@@ -65,9 +41,13 @@ export const ProductBenefitSection = ({
             className='ml-[0.4rem] size-[2.4rem] shrink-0 text-gray-900'
           />
         </button>
-      </BenefitRow>
+      </div>
 
-      <BenefitRow label='혜택' className='h-[5rem] items-start'>
+      <div className='flex h-[5rem] items-start gap-[3.6rem]'>
+        <span className='text-body-14m h-[1.7rem] w-[2.5rem] shrink-0 text-gray-800'>
+          혜택
+        </span>
+
         <div className='flex h-[5rem] w-[29.3rem] flex-col gap-[0.2rem]'>
           {cardBenefits.map((cardBenefit, index) => (
             <button
@@ -85,7 +65,7 @@ export const ProductBenefitSection = ({
             </button>
           ))}
         </div>
-      </BenefitRow>
+      </div>
     </section>
   );
 };
