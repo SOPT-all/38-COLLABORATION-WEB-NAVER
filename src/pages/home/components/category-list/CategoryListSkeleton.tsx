@@ -1,4 +1,4 @@
-const SKELETON_CATEGORY_COUNT = 10;
+import {COLLAPSED_CATEGORY_COUNT} from '@/pages/home/components/category-list/category-list.constants';
 
 export const CategoryListSkeleton = () => {
   return (
@@ -9,7 +9,7 @@ export const CategoryListSkeleton = () => {
       <ul
         className='grid grid-cols-5 justify-items-center gap-y-[24px]'
         aria-hidden='true'>
-        {Array.from({length: SKELETON_CATEGORY_COUNT}, (_, index) => (
+        {Array.from({length: COLLAPSED_CATEGORY_COUNT}, (_, index) => (
           <li key={index} className='flex min-w-0 justify-center'>
             <div className='flex w-[58px] flex-col items-center gap-[4px]'>
               <div className='h-[38px] w-[38px] rounded-full bg-gray-300' />
