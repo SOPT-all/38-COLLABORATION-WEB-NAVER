@@ -17,10 +17,14 @@ const CategoryContent = ({
   isCategoryExpanded,
   onExpandChange,
 }: CategoryContentProps) => {
-  const {data: categoryData} = useCategoryQuery({expand: isCategoryExpanded});
+  const {data: categoryData} = useCategoryQuery();
 
   return (
-    <CategoryList categoryData={categoryData} onExpandChange={onExpandChange} />
+    <CategoryList
+      categoryData={categoryData}
+      isExpanded={isCategoryExpanded}
+      onExpandChange={onExpandChange}
+    />
   );
 };
 

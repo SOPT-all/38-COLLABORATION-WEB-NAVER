@@ -7,13 +7,7 @@ export const API_ENDPOINTS = {
   },
   HOME: {
     RECOMMENDATIONS: '/api/home/recommendations',
-    CATEGORIES: (expand: boolean) => {
-      const searchParams = new URLSearchParams({
-        expand: String(expand),
-      });
-
-      return `/api/home/categories?${searchParams.toString()}`;
-    },
+    CATEGORIES: '/api/home/categories?expand=true',
     PROMOTIONS: '/api/home/promotions',
   },
 } as const;
