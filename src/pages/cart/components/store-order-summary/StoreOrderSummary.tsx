@@ -11,9 +11,11 @@ type StoreOrderSummaryProps = {
   isExpanded: boolean;
   onToggleExpand: () => void;
 };
+
 const formatDeliveryFee = (deliveryFee: number) => {
   return deliveryFee === 0 ? '무료' : formatPrice(deliveryFee);
 };
+
 export const StoreOrderSummary = ({
   deliveryFee,
   expectedOrderAmount,
