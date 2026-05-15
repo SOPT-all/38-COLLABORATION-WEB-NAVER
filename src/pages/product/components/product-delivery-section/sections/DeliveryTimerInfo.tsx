@@ -41,9 +41,15 @@ export const DeliveryTimerInfo = ({
 
   useEffect(() => {
     const timerId = window.setInterval(() => {
-      setRemainingSeconds((previousSeconds) =>
-        Math.max(previousSeconds - 1, 0)
-      );
+      setRemainingSeconds((previousSeconds) => {
+        if (previousSeconds <= 1) {
+          window.clearInterval(timerId);
+
+          return 0;
+        }
+
+        return previousSeconds - 1;
+      });
     }, 1000);
 
     return () => window.clearInterval(timerId);

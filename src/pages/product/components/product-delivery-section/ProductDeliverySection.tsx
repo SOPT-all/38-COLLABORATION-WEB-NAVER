@@ -12,6 +12,7 @@ type ProductDeliveryData = {
 
 type ProductDeliverySectionProps = {
   delivery: ProductDeliveryData;
+  onDetailClick?: () => void;
 };
 
 const DELIVERY_MEMBERSHIP_TEXT = 'N배송 주문당 1회 무료교환반품';
@@ -19,6 +20,7 @@ const EXCLUDED_DELIVERY_TEXT = '일반배송 전환(선물하기, 합배송 등)
 
 export const ProductDeliverySection = ({
   delivery,
+  onDetailClick,
 }: ProductDeliverySectionProps) => {
   const {isFreeDelivery, arrivalDate, deadlineAt} = delivery;
 
@@ -50,7 +52,7 @@ export const ProductDeliverySection = ({
           {EXCLUDED_DELIVERY_TEXT}
         </p>
 
-        <DeliveryDetailButton />
+        <DeliveryDetailButton onClick={onDetailClick} />
       </div>
     </section>
   );
