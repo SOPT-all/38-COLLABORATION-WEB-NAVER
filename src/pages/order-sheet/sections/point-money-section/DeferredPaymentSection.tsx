@@ -4,14 +4,14 @@ import {IcSvgCheckLg} from '@/shared/icons';
 import type {PointMoneyData} from '@/pages/order-sheet/api/types/order-sheet';
 import {DEFERRED_PAYMENT_TEXT} from '@/pages/order-sheet/constants/OrderSheetConstants';
 
-type DeferredPaymentCardProps = Pick<
+type DeferredPaymentSectionProps = Pick<
   PointMoneyData,
   'deferredPaymentAvailableAmount'
 >;
 
-export const DeferredPaymentCard = ({
+export const DeferredPaymentSection = ({
   deferredPaymentAvailableAmount,
-}: DeferredPaymentCardProps) => {
+}: DeferredPaymentSectionProps) => {
   const hasDeferredPaymentAvailable = deferredPaymentAvailableAmount > 0;
 
   return (

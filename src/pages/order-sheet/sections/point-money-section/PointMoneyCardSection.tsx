@@ -17,7 +17,7 @@ type PointMoneyBalanceCardProps = Pick<
   'availableAmount' | 'availablePoint' | 'availableMoney' | 'allUseAmount'
 >;
 
-export const PointMoneyCard = ({
+export const PointMoneyCardSection = ({
   availableAmount,
   availablePoint,
   availableMoney,
