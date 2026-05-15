@@ -1,5 +1,5 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
-import {OrderPriceSummary} from '@/pages/cart/components/order-price-summary/OrderPriceSummary';
+import {OrderPriceSummary} from '@/pages/cart/components/section/order-price-summary-section/OrderPriceSummarySection';
 
 const meta = {
   title: 'Cart/OrderPriceSummary',
