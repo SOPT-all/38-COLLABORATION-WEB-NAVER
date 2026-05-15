@@ -38,10 +38,12 @@ export const PointUsageField = ({
 
   return (
     <div className={cn('flex w-full items-center gap-[10px]', className)}>
-      <label
-        htmlFor={inputId}
-        className='flex h-[42px] flex-1 shrink-0 items-center justify-between rounded-[6px] border border-gray-500 px-[14px] py-[9px]'>
-        <span className='text-body-14m shrink-0 text-gray-800'>사용</span>
+      <div className='flex h-[42px] flex-1 shrink-0 items-center justify-between rounded-[6px] border border-gray-500 px-[14px] py-[9px]'>
+        <label
+          htmlFor={inputId}
+          className='text-body-14m shrink-0 text-gray-800'>
+          사용
+        </label>
 
         <div className='flex min-w-0 flex-1 items-center justify-end text-green-600'>
           <input
@@ -67,7 +69,7 @@ export const PointUsageField = ({
               type='button'
               aria-label='사용 포인트 삭제'
               onClick={onClearPoint}
-              className='ml-[4px] flex h-[24px] w-[24px] shrink-0 items-center justify-center'>
+              className='ml-[4px] flex size-[24px] shrink-0 items-center justify-center'>
               <IcSvgDelete
                 aria-hidden
                 width={24}
@@ -77,7 +79,7 @@ export const PointUsageField = ({
             </button>
           )}
         </div>
-      </label>
+      </div>
 
       <button
         type='button'
