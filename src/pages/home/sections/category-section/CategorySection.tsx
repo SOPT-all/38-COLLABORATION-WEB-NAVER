@@ -1,11 +1,35 @@
 import {useState} from 'react';
 
-import {getMockCategoryResponse} from '@/pages/home/api/mock';
-import {CategoryList, SearchBar} from '@/pages/home/components';
+import {useCategoryQuery} from '@/pages/home/api/category';
+import {
+  CategoryList,
+  CategoryListSkeleton,
+  SearchBar,
+} from '@/pages/home/components';
+import {AsyncBoundary} from '@/shared/components';
+
+type CategoryContentProps = {
+  isCategoryExpanded: boolean;
+  onExpandChange: (isExpanded: boolean) => void;
+};
+
+const CategoryContent = ({
+  isCategoryExpanded,
+  onExpandChange,
+}: CategoryContentProps) => {
+  const {data: categoryData} = useCategoryQuery();
+
+  return (
+    <CategoryList
+      categoryData={categoryData}
+      isExpanded={isCategoryExpanded}
+      onExpandChange={onExpandChange}
+    />
+  );
+};
 
 export const CategorySection = () => {
   const [isCategoryExpanded, setIsCategoryExpanded] = useState(false);
-  const categoryResponse = getMockCategoryResponse(isCategoryExpanded);
 
   return (
     <section
@@ -14,10 +38,20 @@ export const CategorySection = () => {
       <SearchBar />
 
       <div className='mt-[14px]'>
-        <CategoryList
-          categoryData={categoryResponse.data}
-          onExpandChange={setIsCategoryExpanded}
-        />
+        <AsyncBoundary
+          pendingFallback={<CategoryListSkeleton />}
+          errorFallback={() => (
+            <p
+              role='alert'
+              className='text-caption-12m py-[48px] text-center text-red-900'>
+              카테고리를 불러오지 못했습니다.
+            </p>
+          )}>
+          <CategoryContent
+            isCategoryExpanded={isCategoryExpanded}
+            onExpandChange={setIsCategoryExpanded}
+          />
+        </AsyncBoundary>
       </div>
     </section>
   );

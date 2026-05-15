@@ -20,7 +20,8 @@ const meta = {
     ),
   ],
   args: {
-    categoryData: getMockCategoryResponse(false).data,
+    categoryData: getMockCategoryResponse().data,
+    isExpanded: false,
     onCategoryClick: fn(),
     onExpandChange: fn(),
   },
@@ -30,15 +31,16 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const sampleCategory = getMockCategoryResponse(false).data.categories[0];
+const sampleCategory = getMockCategoryResponse().data.categories[0];
 
 const CategoryListDemo = () => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const categoryResponse = getMockCategoryResponse(isExpanded);
+  const categoryResponse = getMockCategoryResponse();
 
   return (
     <CategoryList
       categoryData={categoryResponse.data}
+      isExpanded={isExpanded}
       onCategoryClick={fn()}
       onExpandChange={setIsExpanded}
     />
@@ -55,13 +57,15 @@ export const Item: Story = {
 
 export const Collapsed: Story = {
   args: {
-    categoryData: getMockCategoryResponse(false).data,
+    categoryData: getMockCategoryResponse().data,
+    isExpanded: false,
   },
 };
 
 export const Expanded: Story = {
   args: {
-    categoryData: getMockCategoryResponse(true).data,
+    categoryData: getMockCategoryResponse().data,
+    isExpanded: true,
   },
 };
 
