@@ -87,7 +87,7 @@ export const PointUsageField = ({
         className={cn(
           'text-body-14b flex h-[42px] w-[76px] shrink-0 items-center justify-center gap-[10px] rounded-[6px] p-[10px]',
           isUseAllDisabled
-            ? 'bg-[#ababac] text-[#dddee0]'
+            ? 'bg-gray-500 text-gray-700'
             : 'text-semi-black bg-green-200'
         )}>
         전액사용
