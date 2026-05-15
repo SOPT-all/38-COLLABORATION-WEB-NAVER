@@ -7,20 +7,27 @@ type RewardSummaryProps = {
   items: {
     label: string;
     amount: number;
+    badge?: string;
   }[];
+  title?: string;
+  amountPrefix?: string;
+  amountClassName?: string;
   className?: string;
 };
 
 export const RewardSummary = ({
   totalAmount,
   items,
+  title = '구매적립',
+  amountPrefix = '총 ',
+  amountClassName = 'text-body-16b text-navy',
   className,
 }: RewardSummaryProps) => {
   return (
     <section className={cn('flex w-full flex-col gap-[6px]', className)}>
       <div className='flex w-full items-center justify-between'>
         <div className='flex items-center gap-[4px]'>
-          <h3 className='text-body-16b text-navy'>구매적립</h3>
+          <h3 className='text-body-16b text-navy'>{title}</h3>
           <IcSvgQuestion
             aria-hidden
             width={24}
@@ -29,8 +36,9 @@ export const RewardSummary = ({
           />
         </div>
 
-        <span className='text-body-16b text-navy'>
-          총 {formatPrice(totalAmount)}
+        <span className={amountClassName}>
+          {amountPrefix}
+          {formatPrice(totalAmount)}
         </span>
       </div>
 
@@ -42,7 +50,17 @@ export const RewardSummary = ({
             <div
               key={item.label}
               className='flex w-full items-start justify-between'>
-              <span className='text-body-14m text-gray-800'>{item.label}</span>
+              <span className='flex items-center gap-[4px]'>
+                <span className='text-body-14m text-gray-800'>
+                  {item.label}
+                </span>
+
+                {item.badge && (
+                  <span className='text-caption-12m flex h-[22px] w-[60px] items-center justify-center rounded-[25px] border border-gray-500 text-gray-800'>
+                    {item.badge}
+                  </span>
+                )}
+              </span>
 
               <span className='text-body-14m text-gray-800'>
                 {formatPrice(item.amount)}

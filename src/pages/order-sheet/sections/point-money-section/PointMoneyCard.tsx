@@ -1,13 +1,14 @@
 import {useState} from 'react';
 
 import {OrderCardLayout} from '@/shared/components';
-import {IcSvgCheckSm, IcSvgCheckSmChecked, IcSvgQuestion} from '@/shared/icons';
+import {IcSvgCheckSm, IcSvgCheckSmChecked} from '@/shared/icons';
 import {formatPrice} from '@/shared/utils/format-product';
 
 import type {PointMoneyData} from '@/pages/order-sheet/api/types/order-sheet';
 import {POINT_MONEY_SECTION_TEXT} from '@/pages/order-sheet/constants/OrderSheetConstants';
 import {HiddenPointButton} from '@/pages/order-sheet/components/hidden-point-button/HiddenPointButton';
 import {PointUsageField} from '@/pages/order-sheet/components/point-usage-field/PointUsageField';
+import {RewardSummary} from '@/pages/order-sheet/components/reward-summary/RewardSummary';
 
 const {balance, validationMessage} = POINT_MONEY_SECTION_TEXT;
 
@@ -60,49 +61,20 @@ export const PointMoneyCard = ({
       className='max-w-full border border-gray-500 px-[14px] py-[19px]'>
       <div className='flex w-full flex-col gap-[16px]'>
         <div className='flex w-full flex-col items-end gap-[12px]'>
-          <dl className='flex w-full flex-col gap-[6px]'>
-            <div className='flex w-full items-center justify-between'>
-              <div className='flex items-center gap-[4px]'>
-                <dt className='text-body-16b text-navy'>
-                  {balance.availableAmount}
-                </dt>
-                <IcSvgQuestion
-                  aria-hidden
-                  width={24}
-                  height={24}
-                  className='text-gray-700'
-                />
-              </div>
-              <dd className='text-title-18b text-navy'>
-                {formatPrice(availableAmount)}
-              </dd>
-            </div>
-
-            <div className='flex w-full items-center gap-[8px]'>
-              <div aria-hidden className='h-[4.9rem] w-[0.4rem] bg-gray-500' />
-
-              <dl className='flex w-full flex-col gap-[4px]'>
-                <div className='flex w-full items-center justify-between'>
-                  <div className='flex items-center gap-[4px]'>
-                    <dt className='text-body-14m text-gray-800'>
-                      {balance.point}
-                    </dt>
-                    <span className='text-caption-12m flex h-[22px] w-[60px] items-center justify-center rounded-[25px] border border-gray-500 text-gray-800'>
-                      {balance.priorityUse}
-                    </span>
-                  </div>
-                  <dd className='text-body-14m text-gray-800'>
-                    {formatPrice(availablePoint)}
-                  </dd>
-                </div>
-
-                <div className='text-body-14m flex w-full items-center justify-between text-gray-800'>
-                  <dt>{balance.money}</dt>
-                  <dd>{formatPrice(availableMoney)}</dd>
-                </div>
-              </dl>
-            </div>
-          </dl>
+          <RewardSummary
+            title={balance.availableAmount}
+            totalAmount={availableAmount}
+            amountPrefix=''
+            amountClassName='text-title-18b text-navy'
+            items={[
+              {
+                label: balance.point,
+                amount: availablePoint,
+                badge: balance.priorityUse,
+              },
+              {label: balance.money, amount: availableMoney},
+            ]}
+          />
 
           <PointUsageField
             point={usedPoint}
