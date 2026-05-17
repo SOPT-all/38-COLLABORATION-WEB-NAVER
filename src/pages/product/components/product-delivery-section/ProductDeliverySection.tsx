@@ -12,8 +12,11 @@ type ProductDeliverySectionProps = {
 const DELIVERY_MEMBERSHIP_TEXT = 'N배송 주문당 1회 무료교환반품';
 const EXCLUDED_DELIVERY_TEXT = '일반배송 전환(선물하기, 합배송 등) 제외';
 
-export const ProductDeliverySection = ({onDetailClick}: ProductDeliverySectionProps) => {
-  const {isFreeDelivery, arrivalDate, deadlineAt} = PRODUCT_DELIVERY_MOCK.data.delivery;
+export const ProductDeliverySection = ({
+  onDetailClick,
+}: ProductDeliverySectionProps) => {
+  const {isFreeDelivery, arrivalDate, deadlineAt} =
+    PRODUCT_DELIVERY_MOCK.data.delivery;
 
   return (
     <section className='flex w-full gap-[3.6rem] bg-white p-[1.6rem]'>
