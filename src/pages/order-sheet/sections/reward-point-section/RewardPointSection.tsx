@@ -4,9 +4,7 @@ import {IcSvgChevronDown} from '@/shared/icons';
 import {formatPrice} from '@/shared/utils/format-product';
 import {cn} from '@/shared/utils/cn';
 
-import {
-  RewardInfoCard,
-} from '@/pages/order-sheet/components/reward-info-card/RewardInfoCard';
+import {RewardInfoCard} from '@/pages/order-sheet/components/reward-info-card/RewardInfoCard';
 import {POINT_SECTION_TEXT} from '@/pages/order-sheet/constants/OrderSheetConstants';
 import {useRewardPointData} from '@/pages/order-sheet/hooks/use-order-sheet-data';
 

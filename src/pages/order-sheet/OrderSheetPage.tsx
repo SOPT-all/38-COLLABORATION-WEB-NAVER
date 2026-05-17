@@ -28,4 +28,4 @@ export const OrderSheetPage = () => {
       </main>
     </div>
   );
-}
+};
