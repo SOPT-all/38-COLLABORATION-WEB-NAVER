@@ -11,15 +11,13 @@ import {RewardPointSection} from '@/pages/order-sheet/sections/reward-point-sect
 export const OrderSheetPage = () => {
   const navigate = useNavigate();
 
-  const handleCloseClick = () => {
-    navigate(ROUTES.CART);
-  };
-
   return (
     <div className='flex min-h-screen flex-col gap-[31px] bg-gray-300'>
       <OrderSheetHeader
         className='pt-[72px] pr-[16px] pb-[12px] pl-[16px]'
-        onCloseClick={handleCloseClick}
+        onCloseClick={() => {
+          navigate(ROUTES.CART);
+        }}
       />
 
       <main className='flex flex-col gap-[40px] px-[16px] pb-[16px]'>
