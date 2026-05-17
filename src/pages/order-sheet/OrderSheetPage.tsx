@@ -14,7 +14,7 @@ import {PaymentButtonSection} from '@/pages/order-sheet/sections/payment-button-
 import {PointMoneySection} from '@/pages/order-sheet/sections/point-money-section/PointMoneySection';
 import {RewardPointSection} from '@/pages/order-sheet/sections/reward-point-section/RewardPointSection';
 
-export function OrderSheetPage() {
+export const OrderSheetPage = () => {
   const navigate = useNavigate();
 
   const handleCloseClick = () => {
