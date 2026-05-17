@@ -2,20 +2,18 @@ import membershipTagImage from '@/shared/assets/images/img-tag-membership-lg.png
 import {IcSvgChevronRight} from '@/shared/icons';
 import {formatPrice} from '@/shared/utils/format-product';
 
-import type {ProductBenefitData} from '@/pages/product/api/types/product-benefit';
+import {PRODUCT_BENEFIT_MOCK} from '@/pages/product/mocks/product-benefit-data';
 
 type ProductBenefitSectionProps = {
-  benefit: ProductBenefitData;
   onPointClick?: () => void;
   onCardBenefitClick?: (index: number) => void;
 };
 
 export const ProductBenefitSection = ({
-  benefit,
   onPointClick,
   onCardBenefitClick,
 }: ProductBenefitSectionProps) => {
-  const {pointBenefit, cardBenefits} = benefit;
+  const {pointBenefit, cardBenefits} = PRODUCT_BENEFIT_MOCK;
 
   return (
     <section className='flex h-[8.2rem] w-[33rem] flex-col gap-[0.8rem] bg-white'>

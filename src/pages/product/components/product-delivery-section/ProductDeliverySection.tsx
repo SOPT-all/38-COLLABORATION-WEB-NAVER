@@ -3,26 +3,17 @@ import {DeliveryBadge} from '@/shared/components/badges/DeliveryBadge';
 import {DeliveryDetailButton} from '@/pages/product/components/product-delivery-section/sections/DeliveryDetailButton';
 import {DeliveryMembershipInfo} from '@/pages/product/components/product-delivery-section/sections/DeliveryMembershipInfo';
 import {DeliveryTimerInfo} from '@/pages/product/components/product-delivery-section/sections/DeliveryTimerInfo';
-
-type ProductDeliveryData = {
-  isFreeDelivery: boolean;
-  arrivalDate: string;
-  deadlineAt: string;
-};
+import {PRODUCT_DELIVERY_MOCK} from '@/pages/product/mocks/product-delivery-data';
 
 type ProductDeliverySectionProps = {
-  delivery: ProductDeliveryData;
   onDetailClick?: () => void;
 };
 
 const DELIVERY_MEMBERSHIP_TEXT = 'N배송 주문당 1회 무료교환반품';
 const EXCLUDED_DELIVERY_TEXT = '일반배송 전환(선물하기, 합배송 등) 제외';
 
-export const ProductDeliverySection = ({
-  delivery,
-  onDetailClick,
-}: ProductDeliverySectionProps) => {
-  const {isFreeDelivery, arrivalDate, deadlineAt} = delivery;
+export const ProductDeliverySection = ({onDetailClick}: ProductDeliverySectionProps) => {
+  const {isFreeDelivery, arrivalDate, deadlineAt} = PRODUCT_DELIVERY_MOCK.data.delivery;
 
   return (
     <section className='flex w-full gap-[3.6rem] bg-white p-[1.6rem]'>
