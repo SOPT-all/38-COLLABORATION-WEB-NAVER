@@ -1,12 +1,6 @@
 import {useNavigate} from 'react-router-dom';
 
 import {OrderSheetHeader} from '@/pages/order-sheet/components/order-sheet-header/OrderSheetHeader';
-import {
-  MOCK_ORDER_SHEET_RESPONSE_DATA,
-  MOCK_POINT_MONEY_DATA,
-  MOCK_REWARD_INFO,
-  MOCK_REWARD_ITEMS,
-} from '@/pages/order-sheet/mocks/RewardInfoCardMocks';
 import {ROUTES} from '@/shared/constants/routes';
 
 import {AgreementSection} from '@/pages/order-sheet/sections/agreement-section/AgreementSection';
@@ -29,12 +23,8 @@ export const OrderSheetPage = () => {
       />
 
       <main className='flex flex-col gap-[40px] px-[16px] pb-[16px]'>
-        <PointMoneySection {...MOCK_POINT_MONEY_DATA} />
-        <RewardPointSection
-          totalPoint={MOCK_ORDER_SHEET_RESPONSE_DATA.expectedPoint.totalPoint}
-          rewardItems={MOCK_REWARD_ITEMS}
-          rewardInfo={MOCK_REWARD_INFO}
-        />
+        <PointMoneySection />
+        <RewardPointSection />
         <AgreementSection />
         <PaymentButtonSection />
       </main>

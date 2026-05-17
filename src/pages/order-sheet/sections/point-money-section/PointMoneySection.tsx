@@ -1,20 +1,20 @@
 import {Header} from '@/shared/components/header';
 
-import type {PointMoneyData} from '@/pages/order-sheet/api/types/order-sheet';
 import {POINT_MONEY_SECTION_TEXT} from '@/pages/order-sheet/constants/OrderSheetConstants';
+import {usePointMoneyData} from '@/pages/order-sheet/hooks/use-order-sheet-data';
 
 import {DeferredPaymentSection} from '@/pages/order-sheet/sections/point-money-section/DeferredPaymentSection';
 import {PointMoneyCardSection} from '@/pages/order-sheet/sections/point-money-section/PointMoneyCardSection';
 
-type PointMoneySectionProps = PointMoneyData;
+export const PointMoneySection = () => {
+  const {
+    availableAmount,
+    availablePoint,
+    availableMoney,
+    allUseAmount,
+    deferredPaymentAvailableAmount,
+  } = usePointMoneyData();
 
-export const PointMoneySection = ({
-  availableAmount,
-  availablePoint,
-  availableMoney,
-  allUseAmount,
-  deferredPaymentAvailableAmount,
-}: PointMoneySectionProps) => {
   return (
     <section className='flex flex-col gap-[12px]'>
       <h2 className='flex items-center gap-[4px]'>
