@@ -1,3 +1,4 @@
+import {useEffect, useState} from 'react';
 import {
   ProductInfo,
   type ProductInfoProps,
@@ -9,6 +10,7 @@ import {
 import {DeliveryBadge} from '@/shared/components';
 import {OptionButton} from '@/shared/components/button/OptionButton';
 import {IcSvgCheckboxChecked, IcSvgCheckboxUnChecked} from '@/shared/icons';
+import {cn} from '@/shared/utils/cn';
 
 type CardProductProps = {
   product: ProductInfoProps;
@@ -19,6 +21,24 @@ type CardProductProps = {
   onToggle: () => void;
 };
 
+const URGENT_DEADLINE_SECONDS = 30 * 60;
+
+const getDeadlineSeconds = (deadline: string) => {
+  const [hours = 0, minutes = 0, seconds = 0] = deadline.split(':').map(Number);
+
+  return hours * 60 * 60 + minutes * 60 + seconds;
+};
+
+const formatDeadline = (totalSeconds: number) => {
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  return [hours, minutes, seconds]
+    .map((time) => String(time).padStart(2, '0'))
+    .join(':');
+};
+
 export const CardProduct = ({
   product,
   option,
@@ -27,6 +47,24 @@ export const CardProduct = ({
   checked,
   onToggle,
 }: CardProductProps) => {
+  const initialDeadlineSeconds = getDeadlineSeconds(orderDeadline);
+  const [remainingSeconds, setRemainingSeconds] = useState(
+    () => initialDeadlineSeconds
+  );
+  const isUrgentDeadline = remainingSeconds <= URGENT_DEADLINE_SECONDS;
+
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setRemainingSeconds((prevSeconds) =>
+        prevSeconds <= 0 ? initialDeadlineSeconds : prevSeconds - 1
+      );
+    }, 1000);
+
+    return () => {
+      window.clearInterval(intervalId);
+    };
+  }, [initialDeadlineSeconds]);
+
   return (
     <section className='flex items-start gap-[3px] pb-[6px]'>
       <button
@@ -53,8 +91,10 @@ export const CardProduct = ({
       <div className='flex flex-col gap-[6px]'>
         <DeliveryBadge />
         <p>
-          {orderDeadline} 내 주문 시{' '}
-          <span className='text-green-600'>{deliveryDate} 도착</span>
+          <span className={cn(isUrgentDeadline && 'text-red-900')}>
+            {formatDeadline(remainingSeconds)}
+          </span>{' '}
+          내 주문 시 <span className='text-green-600'>{deliveryDate} 도착</span>
         </p>
         <ProductInfo {...product} />
         <ProductOption {...option} />
