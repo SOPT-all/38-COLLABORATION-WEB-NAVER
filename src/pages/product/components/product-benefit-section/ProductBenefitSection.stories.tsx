@@ -1,7 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 
 import {ProductBenefitSection} from '@/pages/product/components/product-benefit-section/ProductBenefitSection';
-import {PRODUCT_BENEFIT_MOCK} from '@/pages/product/mocks/product-benefit-data';
 
 const meta = {
   title: 'PRODUCT/ProductBenefitSection',
@@ -16,9 +15,6 @@ const meta = {
       </div>
     ),
   ],
-  args: {
-    benefit: PRODUCT_BENEFIT_MOCK,
-  },
 } satisfies Meta<typeof ProductBenefitSection>;
 
 export default meta;

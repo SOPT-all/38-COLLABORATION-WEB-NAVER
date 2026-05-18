@@ -6,39 +6,20 @@ import {
 } from '@/shared/icons';
 
 import {ProductCouponButton} from '@/pages/product/components/product-info-section/ProductCouponButton';
-
-type ProductDetailData = {
-  productName: string;
-  reviewScore: number;
-  recentReviewScore: number;
-  reviewCount: number;
-  discountRate: number;
-  originalPrice: number;
-  salePrice: number;
-  memberPrice: number;
-  couponAvailable: boolean;
-  couponDday: number;
-  unitPrice: number;
-  unitQuantity: number;
-  unit: string;
-  delivery: {
-    isFreeDelivery: boolean;
-  };
-};
+import {PRODUCT_INFO_MOCK} from '@/pages/product/mocks/product-info-data';
 
 type ProductInfoSectionProps = {
-  product: ProductDetailData;
   onReviewClick?: () => void;
   onMemberPriceClick?: () => void;
   onCouponClick?: () => void;
 };
 
 export const ProductInfoSection = ({
-  product,
   onReviewClick,
   onMemberPriceClick,
   onCouponClick,
 }: ProductInfoSectionProps) => {
+  const product = PRODUCT_INFO_MOCK.data;
   const deliveryFeeText = product.delivery.isFreeDelivery
     ? '무료배송'
     : '배송비 별도';
