@@ -2,6 +2,7 @@ import {useNavigate} from 'react-router-dom';
 
 import {OrderSheetContent} from '@/pages/order-sheet/components/order-sheet-content/OrderSheetContent';
 import {OrderSheetHeader} from '@/pages/order-sheet/components/order-sheet-header/OrderSheetHeader';
+import {OrderSheetSkeleton} from '@/pages/order-sheet/components/order-sheet-skeleton/OrderSheetSkeleton';
 import {useOrderId} from '@/pages/order-sheet/hooks/use-order-id';
 import {AsyncBoundary} from '@/shared/components';
 import {ROUTES} from '@/shared/constants/routes';
@@ -20,7 +21,7 @@ export const OrderSheetPage = () => {
       />
 
       <main className='flex flex-col gap-[40px] px-[16px] pb-[16px]'>
-        <AsyncBoundary>
+        <AsyncBoundary pendingFallback={<OrderSheetSkeleton />}>
           <OrderSheetContent orderId={orderId} />
         </AsyncBoundary>
       </main>
