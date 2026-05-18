@@ -16,14 +16,6 @@ const dirname =
 
 // https://vite.dev/config/
 export default defineConfig({
-  server: {
-    proxy: {
-      '/api': {
-        target: 'https://sopt-naver2.p-e.kr',
-        changeOrigin: true,
-      },
-    },
-  },
   plugins: [
     tailwindcss(),
     react(),

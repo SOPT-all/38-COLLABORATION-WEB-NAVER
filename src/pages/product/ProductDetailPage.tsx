@@ -17,10 +17,20 @@ type ProductDetailContentProps = {
 };
 
 const ProductDetailContent = ({productId}: ProductDetailContentProps) => {
+  const navigate = useNavigate();
   const {data} = useProductDetailQuery(productId);
 
   return (
     <>
+      <div className='sticky top-0 z-10'>
+        <ProductHeader
+          storeName={data.brandName}
+          cartCount={1}
+          onBackClick={() => navigate(-1)}
+          onCartClick={() => navigate(ROUTES.CART)}
+        />
+      </div>
+
       <ProductImageSection
         imageUrl={data.thumbnailImageUrl}
         productName={data.productName}
@@ -50,17 +60,13 @@ export const ProductDetailPage = () => {
   const {id} = useParams<{id: string}>();
   const productId = Number(id);
 
+  if (!Number.isFinite(productId)) {
+    navigate(ROUTES.HOME, {replace: true});
+    return null;
+  }
+
   return (
     <main className='min-h-screen w-full bg-white'>
-      <div className='sticky top-0 z-10'>
-        <ProductHeader
-          storeName='광동제약 직영스토어'
-          cartCount={1}
-          onBackClick={() => navigate(ROUTES.HOME)}
-          onCartClick={() => navigate(ROUTES.CART)}
-        />
-      </div>
-
       <AsyncBoundary
         pendingFallback={<ProductDetailSkeleton />}
         errorFallback={() => (
