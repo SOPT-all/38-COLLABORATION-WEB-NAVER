@@ -1,13 +1,18 @@
 import {Header} from '@/shared/components/header';
 import {IcSvgClose} from '@/shared/icons';
+import {cn} from '@/shared/utils/cn';
 
 interface OrderSheetHeaderProps {
+  className?: string;
   onCloseClick?: () => void;
 }
 
-export const OrderSheetHeader = ({onCloseClick}: OrderSheetHeaderProps) => {
+export const OrderSheetHeader = ({
+  className,
+  onCloseClick,
+}: OrderSheetHeaderProps) => {
   return (
-    <Header className='h-[108px]'>
+    <Header className={cn('h-[108px]', className)}>
       <Header.Left>
         <Header.NPayLogo />
       </Header.Left>

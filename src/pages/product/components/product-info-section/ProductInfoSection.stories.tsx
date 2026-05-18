@@ -1,14 +1,10 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 
 import {ProductInfoSection} from '@/pages/product/components/product-info-section/ProductInfoSection';
-import {PRODUCT_INFO_MOCK} from '@/pages/product/mocks/product-info-data';
 
 const meta = {
   title: 'Product/ProductInfoSection',
   component: ProductInfoSection,
-  args: {
-    product: PRODUCT_INFO_MOCK.data,
-  },
   parameters: {
     layout: 'centered',
   },

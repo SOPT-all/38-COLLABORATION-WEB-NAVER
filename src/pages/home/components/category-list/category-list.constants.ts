@@ -1,0 +1,1 @@
+export const COLLAPSED_CATEGORY_COUNT = 10;

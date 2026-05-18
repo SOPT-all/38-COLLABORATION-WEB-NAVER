@@ -2,16 +2,11 @@ import {IcSvgChevronRightSm} from '@/shared/icons';
 import {cn} from '@/shared/utils/cn';
 
 type HiddenPointButtonProps = {
-  point: number | null;
   className?: string;
   onClick?: () => void;
 };
 
-const formatPoint = (point: number | null) =>
-  point === null ? '?원' : `${point.toLocaleString()}원`;
-
 export const HiddenPointButton = ({
-  point,
   className,
   onClick,
 }: HiddenPointButtonProps) => {
@@ -26,7 +21,7 @@ export const HiddenPointButton = ({
       <span className='text-body-14m text-navy'>내 숨은 포인트 찾기</span>
 
       <div className='text-body-14m text-navy flex items-center'>
-        <span>{formatPoint(point)}</span>
+        <span>?원</span>
         <IcSvgChevronRightSm width={24} height={24} />
       </div>
     </button>

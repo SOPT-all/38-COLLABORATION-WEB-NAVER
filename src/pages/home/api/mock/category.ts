@@ -129,15 +129,15 @@ const MOCK_CATEGORIES: Category[] = [
   },
 ];
 
-export const getMockCategoryResponse = (expand = false): CategoryResponse => {
+export const getMockCategoryResponse = (): CategoryResponse => {
   return {
     success: true,
     status: 200,
     message: '요청이 성공했습니다.',
     data: {
-      categories: expand ? MOCK_CATEGORIES : MOCK_CATEGORIES.slice(0, 10),
+      categories: MOCK_CATEGORIES,
       totalCount: MOCK_CATEGORIES.length,
-      isExpanded: expand,
+      isExpanded: true,
     },
   };
 };

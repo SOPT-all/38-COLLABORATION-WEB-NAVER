@@ -3,19 +3,21 @@
 
 export {default as IcSvgArrowLeft} from './ic-arrow-left';
 export {default as IcSvgCart} from './ic-cart';
-export {default as IcSvgCheckLg} from './ic-check-lg';
-export {default as IcSvgCheckSm} from './ic-check-sm';
 export {default as IcSvgCheckboxChecked} from './ic-checkbox-checked';
 export {default as IcSvgCheckboxOff} from './ic-checkbox-off';
 export {default as IcSvgCheckboxOn} from './ic-checkbox-on';
 export {default as IcSvgCheckboxUnChecked} from './ic-checkbox-un-checked';
+export {default as IcSvgCheckLg} from './ic-check-lg';
+export {default as IcSvgCheckSm} from './ic-check-sm';
+export {default as IcSvgCheckSmChecked} from './ic-check-sm-checked';
+export {default as IcSvgChevronDown} from './ic-chevron-down';
 export {default as IcSvgChevronDownSm} from './ic-chevron-down-sm';
 export {default as IcSvgChevronRight} from './ic-chevron-right';
 export {default as IcSvgChevronRightSm} from './ic-chevron-right-sm';
-export {default as IcSvgChevronUp} from './ic-chevron-up';
 export {default as IcSvgClose} from './ic-close';
 export {default as IcSvgCloseSm} from './ic-close-sm';
 export {default as IcSvgCoupon} from './ic-coupon';
+export {default as IcSvgDelete} from './ic-delete';
 export {default as IcSvgDelivery} from './ic-delivery';
 export {default as IcSvgMap} from './ic-map';
 export {default as IcSvgMenu} from './ic-menu';
