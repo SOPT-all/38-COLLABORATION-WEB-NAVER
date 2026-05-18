@@ -6,11 +6,8 @@ const MS_PER_SECOND = 1000;
 const MS_PER_MINUTE = MS_PER_SECOND * 60;
 const MS_PER_HOUR = MS_PER_MINUTE * 60;
 
-const getRemainingTime = (currentTime: Date) => {
-  const endOfDay = new Date(currentTime);
-  endOfDay.setHours(23, 59, 59, 999);
-
-  const diffMs = endOfDay.getTime() - currentTime.getTime() + 1;
+const getRemainingTime = (endsAt: string, now: number) => {
+  const diffMs = Math.max(new Date(endsAt).getTime() - now, 0);
 
   return {
     hours: Math.floor(diffMs / MS_PER_HOUR),
@@ -27,18 +24,27 @@ const NumberBox = ({value}: {value: string}) => (
   </div>
 );
 
-export const SpecialDealTimer = () => {
-  const [currentTime, setCurrentTime] = useState(() => new Date());
+// TODO: 임시 고정 날짜 — 실제 배포 시 제거
+const TEMP_ENDS_AT = '2026-05-23T23:59:59';
+
+type SpecialDealTimerProps = {
+  endsAt?: string;
+};
+
+export const SpecialDealTimer = ({
+  endsAt = TEMP_ENDS_AT,
+}: SpecialDealTimerProps) => {
+  const [now, setNow] = useState(() => Date.now());
 
   useEffect(() => {
     const id = setInterval(() => {
-      setCurrentTime(new Date());
+      setNow(Date.now());
     }, MS_PER_SECOND);
 
     return () => clearInterval(id);
   }, []);
 
-  const remaining = getRemainingTime(currentTime);
+  const remaining = getRemainingTime(endsAt, now);
 
   return (
     <section
@@ -53,7 +59,7 @@ export const SpecialDealTimer = () => {
               보장 특가
             </h2>
             <p className='text-semi-black order-1'>
-              {getFormattedDate(currentTime)}
+              {getFormattedDate(new Date(endsAt))}
             </p>
           </div>
           <p className='text-body-14m text-semi-black'>
