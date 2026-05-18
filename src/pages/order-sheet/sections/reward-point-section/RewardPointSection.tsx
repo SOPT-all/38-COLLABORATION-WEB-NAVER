@@ -28,7 +28,7 @@ export const RewardPointSection = () => {
             type='button'
             aria-label={
               isRewardInfoOpen
-                ? '적립 포인트 상세 접기'
+                ? '적립 포인트 상세 닫기'
                 : '적립 포인트 상세 펼치기'
             }
             aria-expanded={isRewardInfoOpen}
