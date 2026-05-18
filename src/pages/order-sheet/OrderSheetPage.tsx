@@ -21,7 +21,15 @@ export const OrderSheetPage = () => {
       />
 
       <main className='flex flex-col gap-[40px] px-[16px] pb-[16px]'>
-        <AsyncBoundary pendingFallback={<OrderSheetSkeleton />}>
+        <AsyncBoundary
+          pendingFallback={<OrderSheetSkeleton />}
+          errorFallback={() => (
+            <p
+              role='alert'
+              className='text-caption-12m py-[48px] text-center text-red-900'>
+              주문 포인트 정보를 불러오지 못했습니다.
+            </p>
+          )}>
           <OrderSheetContent orderId={orderId} />
         </AsyncBoundary>
       </main>
