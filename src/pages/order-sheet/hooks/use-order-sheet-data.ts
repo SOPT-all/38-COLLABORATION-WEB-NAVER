@@ -14,15 +14,18 @@ export type RewardPointData = {
   rewardInfo: RewardInfo;
 };
 
-export const getPointMoneyData = ({
-  expectedPoint,
-  orderId,
-  ...pointMoneyData
-}: OrderSheetResponseData): PointMoneyData => {
-  void expectedPoint;
-  void orderId;
-
-  return pointMoneyData;
+export const getPointMoneyData = (
+  orderSheetData: OrderSheetResponseData
+): PointMoneyData => {
+  return {
+    availableAmount: orderSheetData.availableAmount,
+    availablePoint: orderSheetData.availablePoint,
+    availableMoney: orderSheetData.availableMoney,
+    hiddenPoint: orderSheetData.hiddenPoint,
+    allUseAmount: orderSheetData.allUseAmount,
+    deferredPaymentAvailableAmount:
+      orderSheetData.deferredPaymentAvailableAmount,
+  };
 };
 
 export const getRewardPointData = ({
