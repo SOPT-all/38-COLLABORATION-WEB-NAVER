@@ -30,3 +30,15 @@ export type {
   SpecialDealResponseData,
   SpecialProductBadge,
 } from './special-deal';
+export {
+  promotionItemSchema,
+  promotionSchema,
+  promotionResponseDataSchema,
+  promotionResponseSchema,
+} from './promotion';
+export type {
+  PromotionItem,
+  Promotion,
+  PromotionResponseData,
+  PromotionResponse,
+} from './promotion';

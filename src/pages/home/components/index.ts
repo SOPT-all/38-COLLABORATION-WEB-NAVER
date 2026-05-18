@@ -2,6 +2,7 @@ export {HomeBanner} from './banner/HomeBanner';
 export {CategoryList} from './category-list/CategoryList';
 export {CategoryListSkeleton} from './category-list/CategoryListSkeleton';
 export {DeliveryBanner} from './delivery-banner/DeliveryBanner';
+export {SpecialDealSectionSkeleton} from './deal-timer/SpecialDealSectionSkeleton';
 export {SpecialDealTimer} from './deal-timer/SpecialDealTimer';
 export {HomeHeader} from './home-header/HomeHeader';
 export {Location} from './location/Location';
