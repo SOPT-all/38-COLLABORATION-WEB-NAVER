@@ -6,10 +6,9 @@ export const recommendationItemSchema = z.object({
   itemId: z.number(),
   name: z.string(),
   imageUrl: z.string(),
-  imageAlt: z.string(),
   originalPrice: z.number(),
   discountRate: z.number(),
-  discountedPrice: z.number(),
+  discountedPrice: z.number().nullable(),
   isTomorrowDelivery: z.boolean(),
 });
 

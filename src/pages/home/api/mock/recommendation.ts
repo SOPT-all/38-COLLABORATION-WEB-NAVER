@@ -10,7 +10,6 @@ const MOCK_RECOMMENDATION_ITEMS: RecommendationItem[] = [
   {
     itemId: 10023,
     imageUrl: mochiImage,
-    imageAlt: '생크림 과일 모찌 찹쌀떡',
     name: '생크림 과일 모찌 찹쌀 떡 딸기 모찌...',
     originalPrice: 15900,
     discountRate: 25,
@@ -20,7 +19,6 @@ const MOCK_RECOMMENDATION_ITEMS: RecommendationItem[] = [
   {
     itemId: 10024,
     imageUrl: cookieImage,
-    imageAlt: '널담 두바이 쫀득 쿠키',
     name: '널담 두바이 쫀득 쿠키 4개 두쫀쿠 카다이프...',
     originalPrice: 42700,
     discountRate: 45,
@@ -30,7 +28,6 @@ const MOCK_RECOMMENDATION_ITEMS: RecommendationItem[] = [
   {
     itemId: 10025,
     imageUrl: samdasooImage,
-    imageAlt: '제주 삼다수 그린 무라벨',
     name: '(광동 직영) 제주 삼다수 그린 (무라벨)...',
     originalPrice: 19700,
     discountRate: 5,
