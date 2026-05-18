@@ -30,7 +30,7 @@ export const Default: Story = {
   },
   render: (args) => {
     const [selectedTab, setSelectedTab] = useState<'normal' | 'kurly'>(
-      args.selectedTab
+      args.selectedTab ?? 'normal'
     );
 
     return (
@@ -39,7 +39,7 @@ export const Default: Story = {
         selectedTab={selectedTab}
         onChange={(tab) => {
           setSelectedTab(tab);
-          args.onChange(tab);
+          args.onChange?.(tab);
         }}
       />
     );

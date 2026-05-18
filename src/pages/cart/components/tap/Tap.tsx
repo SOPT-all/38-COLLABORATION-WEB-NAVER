@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import {cn} from '@/shared/utils/cn';
 
 type DeliveryTab = 'normal' | 'kurly';
@@ -10,8 +11,9 @@ type TabItem = {
 
 type TapProps = {
   items: TabItem[];
-  selectedTab: DeliveryTab;
-  onChange: (tab: DeliveryTab) => void;
+  selectedTab?: DeliveryTab;
+  defaultSelectedTab?: DeliveryTab;
+  onChange?: (tab: DeliveryTab) => void;
 };
 
 const variantStyles = {
@@ -20,7 +22,24 @@ const variantStyles = {
   unselected: 'border-b-2 border-gray-500 text-gray-900',
 };
 
-export const Tap = ({items, selectedTab, onChange}: TapProps) => {
+export const Tap = ({
+  items,
+  selectedTab,
+  defaultSelectedTab = 'normal',
+  onChange,
+}: TapProps) => {
+  const [internalSelectedTab, setInternalSelectedTab] =
+    useState<DeliveryTab>(defaultSelectedTab);
+  const currentSelectedTab = selectedTab ?? internalSelectedTab;
+
+  const handleTabClick = (tab: DeliveryTab) => {
+    if (selectedTab === undefined) {
+      setInternalSelectedTab(tab);
+    }
+
+    onChange?.(tab);
+  };
+
   return (
     <div className='text-body-14b flex' role='tablist'>
       {items.map((item) => (
@@ -28,14 +47,14 @@ export const Tap = ({items, selectedTab, onChange}: TapProps) => {
           key={item.value}
           className={cn(
             variantStyles.base,
-            selectedTab === item.value
+            currentSelectedTab === item.value
               ? variantStyles.selected
               : variantStyles.unselected
           )}
           type='button'
           role='tab'
-          aria-selected={selectedTab === item.value}
-          onClick={() => onChange(item.value)}>
+          aria-selected={currentSelectedTab === item.value}
+          onClick={() => handleTabClick(item.value)}>
           {item.label} {item.count}
         </button>
       ))}

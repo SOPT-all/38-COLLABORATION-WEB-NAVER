@@ -25,12 +25,10 @@ const DELIVERY_TAB_ITEMS = [
 const DELIVERY_ADDRESS = '서울 마포구 백범로31길';
 
 export function CartPage() {
-  const [selectedTab, setSelectedTab] = useState<DeliveryTab>('normal');
   const [isAllSelected, setIsAllSelected] = useState(true);
   const [isStoreChecked, setIsStoreChecked] = useState(true);
   const [isProductChecked, setIsProductChecked] = useState(true);
   const [quantity, setQuantity] = useState<number>(MOCK_STORE.option.quantity);
-  const [isSummaryExpanded, setIsSummaryExpanded] = useState(false);
 
   const selectedQuantity = isProductChecked ? quantity : 0;
   const selectedProductsAmount =
@@ -51,6 +49,15 @@ export function CartPage() {
   const handleToggleStore = () => {
     const nextIsSelected = !isStoreChecked;
 
+    setIsAllSelected(nextIsSelected);
+    setIsStoreChecked(nextIsSelected);
+    setIsProductChecked(nextIsSelected);
+  };
+
+  const handleToggleProduct = () => {
+    const nextIsSelected = !isProductChecked;
+
+    setIsAllSelected(nextIsSelected);
     setIsStoreChecked(nextIsSelected);
     setIsProductChecked(nextIsSelected);
   };
@@ -62,11 +69,7 @@ export function CartPage() {
   return (
     <div className='min-h-screen bg-white'>
       <CartHeader />
-      <Tap
-        items={DELIVERY_TAB_ITEMS}
-        selectedTab={selectedTab}
-        onChange={setSelectedTab}
-      />
+      <Tap items={DELIVERY_TAB_ITEMS} />
       <AddressBox
         address={DELIVERY_ADDRESS}
         onChangeAddress={() => undefined}
@@ -82,21 +85,13 @@ export function CartPage() {
           productChecked={isProductChecked}
           quantity={quantity}
           expectedOrderAmount={expectedOrderAmount}
-          isSummaryExpanded={isSummaryExpanded}
           onToggleStore={handleToggleStore}
-          onToggleProduct={() =>
-            setIsProductChecked((prevIsProductChecked) => !prevIsProductChecked)
-          }
+          onToggleProduct={handleToggleProduct}
           onDecreaseQuantity={handleDecreaseQuantity}
           onIncreaseQuantity={() =>
             setQuantity((prevQuantity) => prevQuantity + 1)
           }
           onDeleteProduct={() => {}}
-          onToggleSummary={() =>
-            setIsSummaryExpanded(
-              (prevIsSummaryExpanded) => !prevIsSummaryExpanded
-            )
-          }
         />
         <OrderPriceSummary
           selectedProductsAmount={selectedProductsAmount}

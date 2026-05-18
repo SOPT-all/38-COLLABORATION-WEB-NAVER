@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import {CardProduct} from '@/pages/cart/components/product-card/CartProduct';
 import {StoreHeader} from '@/pages/cart/components/store-header/StoreHeader';
 import {StoreOrderSummary} from '@/pages/cart/components/store-order-summary/StoreOrderSummary';
@@ -9,13 +10,11 @@ type StoreSectionProps = {
   productChecked: boolean;
   quantity: number;
   expectedOrderAmount: number;
-  isSummaryExpanded: boolean;
   onToggleStore: () => void;
   onToggleProduct: () => void;
   onDecreaseQuantity: () => void;
   onIncreaseQuantity: () => void;
   onDeleteProduct: () => void;
-  onToggleSummary: () => void;
 };
 
 export const StoreSection = ({
@@ -23,14 +22,14 @@ export const StoreSection = ({
   productChecked,
   quantity,
   expectedOrderAmount,
-  isSummaryExpanded,
   onToggleStore,
   onToggleProduct,
   onDecreaseQuantity,
   onIncreaseQuantity,
   onDeleteProduct,
-  onToggleSummary,
 }: StoreSectionProps) => {
+  const [isSummaryExpanded, setIsSummaryExpanded] = useState(false);
+
   return (
     <OrderCardLayout variant='cartStore' className='flex flex-col gap-[12px]'>
       <StoreHeader
@@ -58,7 +57,9 @@ export const StoreSection = ({
         deliveryFee={MOCK_STORE.deliveryFee}
         expectedOrderAmount={expectedOrderAmount}
         isExpanded={isSummaryExpanded}
-        onToggleExpand={onToggleSummary}
+        onToggleExpand={() =>
+          setIsSummaryExpanded((prevIsExpanded) => !prevIsExpanded)
+        }
       />
     </OrderCardLayout>
   );

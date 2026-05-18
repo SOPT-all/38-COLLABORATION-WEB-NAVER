@@ -19,12 +19,10 @@ export const Default: Story = {
     productChecked: true,
     quantity: 1,
     expectedOrderAmount: 17200,
-    isSummaryExpanded: false,
     onToggleStore: () => undefined,
     onToggleProduct: () => undefined,
     onDecreaseQuantity: () => undefined,
     onIncreaseQuantity: () => undefined,
     onDeleteProduct: () => undefined,
-    onToggleSummary: () => undefined,
   },
 };
