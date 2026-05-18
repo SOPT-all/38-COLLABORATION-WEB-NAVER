@@ -6,7 +6,7 @@ import {cn} from '@/shared/utils/cn';
 
 import {RewardInfoCard} from '@/pages/order-sheet/components/reward-info-card/RewardInfoCard';
 import {POINT_SECTION_TEXT} from '@/pages/order-sheet/constants/OrderSheetConstants';
-import type {RewardPointData} from '@/pages/order-sheet/hooks/use-order-sheet-data';
+import type {RewardPointData} from '@/pages/order-sheet/utils/order-sheet-data';
 
 type RewardPointSectionProps = {
   rewardPointData: RewardPointData;

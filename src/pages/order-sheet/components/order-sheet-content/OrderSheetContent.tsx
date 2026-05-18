@@ -2,7 +2,7 @@ import {useOrderPointsQuery} from '@/pages/order-sheet/api';
 import {
   getPointMoneyData,
   getRewardPointData,
-} from '@/pages/order-sheet/hooks/use-order-sheet-data';
+} from '@/pages/order-sheet/utils/order-sheet-data';
 import {AgreementSection} from '@/pages/order-sheet/sections/agreement-section/AgreementSection';
 import {PaymentButtonSection} from '@/pages/order-sheet/sections/payment-button-section/PaymentButtonSection';
 import {PointMoneySection} from '@/pages/order-sheet/sections/point-money-section/PointMoneySection';
