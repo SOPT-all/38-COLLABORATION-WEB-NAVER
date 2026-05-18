@@ -7,4 +7,5 @@ export {SpecialDealTimer} from './deal-timer/SpecialDealTimer';
 export {HomeHeader} from './home-header/HomeHeader';
 export {Location} from './location/Location';
 export {ProductCard} from './product-card/ProductCard';
+export {RecommendListSkeleton} from './recommend-list/RecommendListSkeleton';
 export {SearchBar} from './search-bar/SearchBar';
