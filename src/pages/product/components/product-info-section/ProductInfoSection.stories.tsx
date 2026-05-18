@@ -1,6 +1,7 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 
 import {ProductInfoSection} from '@/pages/product/components/product-info-section/ProductInfoSection';
+import {PRODUCT_DETAIL_MOCK} from '@/pages/product/mocks/product-detail-mock';
 
 const meta = {
   title: 'Product/ProductInfoSection',
@@ -15,6 +16,9 @@ const meta = {
       </div>
     ),
   ],
+  args: {
+    product: PRODUCT_DETAIL_MOCK,
+  },
 } satisfies Meta<typeof ProductInfoSection>;
 
 export default meta;

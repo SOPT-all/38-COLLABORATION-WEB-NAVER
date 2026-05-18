@@ -19,3 +19,7 @@ export const getTomorrowDate = () => {
 export const getTomorrowDeliveryDate = () => {
   return formatKoreanDate(getTomorrowDate());
 };
+
+export const formatArrivalDate = (dateString: string): string => {
+  return formatKoreanDate(new Date(dateString));
+};

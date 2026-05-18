@@ -19,6 +19,8 @@ const getRemainingSeconds = (deadlineAt: string) => {
   return Math.max(Math.floor(remainingMilliseconds / 1000), 0);
 };
 
+const RESTART_SECONDS = 45 * 60 + 27;
+
 const formatCountdownText = (totalSeconds: number) => {
   const hours = Math.floor(totalSeconds / 3600);
   const minutes = Math.floor((totalSeconds % 3600) / 60);
@@ -43,8 +45,7 @@ export const DeliveryTimerInfo = ({
     const timerId = window.setInterval(() => {
       setRemainingSeconds((previousSeconds) => {
         if (previousSeconds <= 1) {
-          window.clearInterval(timerId);
-          return 0;
+          return RESTART_SECONDS;
         }
         return previousSeconds - 1;
       });
