@@ -1,5 +1,5 @@
 import {useRecommendItemQuery} from '@/pages/home/api/recommend-item/use-recommend-item-query';
-import {ProductCard} from '@/pages/home/components';
+import {ProductCard, RecommendListSkeleton} from '@/pages/home/components';
 import {AsyncBoundary} from '@/shared/components';
 import {CTAButton} from '@/shared/components/button/CTAButton';
 
@@ -42,6 +42,7 @@ export const RecommendationSection = () => {
       aria-labelledby='recommended-products-heading'
       className='px-[16px] pt-[20px]'>
       <AsyncBoundary
+        pendingFallback={<RecommendListSkeleton />}
         errorFallback={() => (
           <p
             role='alert'
