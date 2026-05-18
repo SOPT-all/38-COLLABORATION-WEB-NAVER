@@ -1,18 +1,51 @@
-import {
-  MOCK_ORDER_SHEET_RESPONSE_DATA,
-  MOCK_POINT_MONEY_DATA,
-  MOCK_REWARD_INFO,
-  MOCK_REWARD_ITEMS,
-} from '@/pages/order-sheet/mocks/RewardInfoCardMocks';
+import type {
+  OrderSheetResponseData,
+  PointMoneyData,
+} from '@/pages/order-sheet/api/types/order-sheet';
+import type {
+  RewardInfo,
+  RewardItem,
+} from '@/pages/order-sheet/components/reward-info-card/RewardInfoCard';
+import {PURCHASE_REWARD_LABEL} from '@/pages/order-sheet/constants/OrderSheetConstants';
 
-export const usePointMoneyData = () => {
-  return MOCK_POINT_MONEY_DATA;
+export type RewardPointData = {
+  totalPoint: number;
+  rewardItems: RewardItem[];
+  rewardInfo: RewardInfo;
 };
 
-export const useRewardPointData = () => {
+export const getPointMoneyData = ({
+  expectedPoint,
+  orderId,
+  ...pointMoneyData
+}: OrderSheetResponseData): PointMoneyData => {
+  void expectedPoint;
+  void orderId;
+
+  return pointMoneyData;
+};
+
+export const getRewardPointData = ({
+  expectedPoint,
+}: OrderSheetResponseData): RewardPointData => {
+  const {purchasePoint} = expectedPoint;
+
   return {
-    totalPoint: MOCK_ORDER_SHEET_RESPONSE_DATA.expectedPoint.totalPoint,
-    rewardItems: MOCK_REWARD_ITEMS,
-    rewardInfo: MOCK_REWARD_INFO,
+    totalPoint: expectedPoint.totalPoint,
+    rewardItems: [
+      {
+        label: PURCHASE_REWARD_LABEL.basicPoint,
+        amount: purchasePoint.basicPoint,
+      },
+      {
+        label: PURCHASE_REWARD_LABEL.npayMoneyPoint,
+        amount: purchasePoint.npayMoneyPoint,
+      },
+    ],
+    rewardInfo: {
+      purchaseRewardAmount: purchasePoint.total,
+      reviewRewardAmount: expectedPoint.reviewPoint,
+      membershipBenefitAmount: expectedPoint.membershipPoint,
+    },
   };
 };

@@ -1,15 +1,14 @@
 import {useNavigate} from 'react-router-dom';
 
+import {OrderSheetContent} from '@/pages/order-sheet/components/order-sheet-content/OrderSheetContent';
 import {OrderSheetHeader} from '@/pages/order-sheet/components/order-sheet-header/OrderSheetHeader';
+import {useOrderId} from '@/pages/order-sheet/hooks/use-order-id';
+import {AsyncBoundary} from '@/shared/components';
 import {ROUTES} from '@/shared/constants/routes';
-
-import {AgreementSection} from '@/pages/order-sheet/sections/agreement-section/AgreementSection';
-import {PaymentButtonSection} from '@/pages/order-sheet/sections/payment-button-section/PaymentButtonSection';
-import {PointMoneySection} from '@/pages/order-sheet/sections/point-money-section/PointMoneySection';
-import {RewardPointSection} from '@/pages/order-sheet/sections/reward-point-section/RewardPointSection';
 
 export const OrderSheetPage = () => {
   const navigate = useNavigate();
+  const orderId = useOrderId();
 
   return (
     <div className='flex min-h-screen flex-col gap-[31px] bg-gray-300'>
@@ -21,10 +20,9 @@ export const OrderSheetPage = () => {
       />
 
       <main className='flex flex-col gap-[40px] px-[16px] pb-[16px]'>
-        <PointMoneySection />
-        <RewardPointSection />
-        <AgreementSection />
-        <PaymentButtonSection />
+        <AsyncBoundary>
+          <OrderSheetContent orderId={orderId} />
+        </AsyncBoundary>
       </main>
     </div>
   );
