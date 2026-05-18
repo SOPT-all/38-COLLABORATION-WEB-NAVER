@@ -17,7 +17,7 @@ export const RecommendListSkeleton = () => {
             {length: RECOMMEND_PRODUCT_SKELETON_COUNT},
             (_, index) => (
               <li key={index}>
-                <article className='flex w-[119px] flex-col gap-[8px]'>
+                <div className='flex w-[119px] flex-col gap-[8px]'>
                   <div className='h-[119px] w-full rounded-[3px] bg-gray-300' />
 
                   <div className='flex w-full flex-col items-start gap-[4px]'>
@@ -39,7 +39,7 @@ export const RecommendListSkeleton = () => {
 
                     <div className='h-[16px] w-[76px] rounded-[3px] bg-gray-300' />
                   </div>
-                </article>
+                </div>
               </li>
             )
           )}
