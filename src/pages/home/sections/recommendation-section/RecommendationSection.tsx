@@ -1,6 +1,9 @@
+import {Link} from 'react-router-dom';
+
 import {getMockRecommendationResponse} from '@/pages/home/api/mock';
 import {ProductCard} from '@/pages/home/components';
 import {CTAButton} from '@/shared/components/button/CTAButton';
+import {createPath} from '@/shared/constants/routes';
 
 export const RecommendationSection = () => {
   const recommendationResponse = getMockRecommendationResponse();
@@ -19,14 +22,19 @@ export const RecommendationSection = () => {
         <ul className='flex w-max gap-[8px]'>
           {recommendationResponse.data.items.map((product) => (
             <li key={product.itemId}>
-              <ProductCard
-                imageSrc={product.imageUrl}
-                imageAlt={product.imageAlt}
-                name={product.name}
-                originalPrice={product.originalPrice}
-                discountRate={product.discountRate}
-                discountedPrice={product.discountedPrice}
-              />
+              <Link
+                to={createPath.productDetail(product.itemId)}
+                aria-label={`${product.name} 상세 페이지로 이동`}
+                className='block no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900'>
+                <ProductCard
+                  imageSrc={product.imageUrl}
+                  imageAlt={product.imageAlt}
+                  name={product.name}
+                  originalPrice={product.originalPrice}
+                  discountRate={product.discountRate}
+                  discountedPrice={product.discountedPrice}
+                />
+              </Link>
             </li>
           ))}
         </ul>

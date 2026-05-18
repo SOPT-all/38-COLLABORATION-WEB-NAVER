@@ -1,3 +1,5 @@
+import {useNavigate} from 'react-router-dom';
+
 import {
   DeliveryBanner,
   HomeBanner,
@@ -9,11 +11,14 @@ import {
   RecommendationSection,
   SpecialDealSection,
 } from '@/pages/home/sections';
+import {ROUTES} from '@/shared/constants/routes';
 
 export const HomePage = () => {
+  const navigate = useNavigate();
+
   return (
     <div className='min-h-screen bg-white'>
-      <HomeHeader />
+      <HomeHeader onCartClick={() => navigate(ROUTES.CART)} />
 
       <main>
         <Location className='h-[40px] px-[16px]' />
