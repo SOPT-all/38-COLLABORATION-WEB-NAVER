@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 import {AddressBox} from '@/pages/cart/components/address-box/AddressBox';
 import {CartHeader} from '@/pages/cart/components/cart-header/CartHeader';
 import {OrderPriceSummary} from '@/pages/cart/components/section/order-price-summary-section/OrderPriceSummarySection';
@@ -25,6 +26,7 @@ const DELIVERY_TAB_ITEMS = [
 const DELIVERY_ADDRESS = '서울 마포구 백범로31길';
 
 export function CartPage() {
+  const navigate = useNavigate();
   const [isAllSelected, setIsAllSelected] = useState(true);
   const [isStoreChecked, setIsStoreChecked] = useState(true);
   const [isProductChecked, setIsProductChecked] = useState(true);
@@ -68,7 +70,7 @@ export function CartPage() {
 
   return (
     <div className='min-h-screen bg-white'>
-      <CartHeader />
+      <CartHeader onBackClick={() => navigate(-1)} />
       <Tap items={DELIVERY_TAB_ITEMS} />
       <AddressBox
         address={DELIVERY_ADDRESS}
