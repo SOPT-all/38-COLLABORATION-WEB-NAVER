@@ -27,7 +27,7 @@ export const ProductBenefitSection = ({
           적립
         </span>
 
-        {hasPointBenefit ? (
+        {hasPointBenefit && (
           <button
             type='button'
             className='flex h-[2.4rem] items-center'
@@ -45,7 +45,7 @@ export const ProductBenefitSection = ({
               className='ml-[0.4rem] size-[2.4rem] shrink-0 text-gray-900'
             />
           </button>
-        ) : null}
+        )}
       </div>
 
       {hasCardBenefits && (
