@@ -2,7 +2,7 @@ import {z} from 'zod';
 
 const apiErrorMetaSchema = z.object({
   path: z.string(),
-  timestamp: z.string(),
+  timestamp: z.number(),
 });
 
 export const apiErrorSchema = z.object({

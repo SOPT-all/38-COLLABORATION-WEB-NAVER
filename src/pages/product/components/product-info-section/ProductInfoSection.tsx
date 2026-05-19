@@ -5,21 +5,22 @@ import {
   IcSvgStar,
 } from '@/shared/icons';
 
+import type {ProductDetail} from '@/pages/product/api/types/product-detail';
 import {ProductCouponButton} from '@/pages/product/components/product-info-section/ProductCouponButton';
-import {PRODUCT_INFO_MOCK} from '@/pages/product/mocks/product-info-data';
 
 type ProductInfoSectionProps = {
+  product: ProductDetail;
   onReviewClick?: () => void;
   onMemberPriceClick?: () => void;
   onCouponClick?: () => void;
 };
 
 export const ProductInfoSection = ({
+  product,
   onReviewClick,
   onMemberPriceClick,
   onCouponClick,
 }: ProductInfoSectionProps) => {
-  const product = PRODUCT_INFO_MOCK.data;
   const deliveryFeeText = product.delivery.isFreeDelivery
     ? '무료배송'
     : '배송비 별도';
@@ -27,9 +28,9 @@ export const ProductInfoSection = ({
 
   return (
     <section className='w-full bg-white px-[1.6rem]'>
-      <div className='flex h-[18.9rem] w-full flex-col gap-[0.8rem]'>
+      <div className='flex w-full flex-col gap-[0.8rem]'>
         {/* 상품명 */}
-        <p className='text-body-16m line-clamp-2 h-[4.6rem] leading-[160%] tracking-[0px] text-black'>
+        <p className='text-body-16m line-clamp-2 leading-[160%] tracking-[0px] text-black'>
           {product.productName}
         </p>
 
@@ -57,50 +58,56 @@ export const ProductInfoSection = ({
             type='button'
             className='text-caption-12m h-[1.4rem] w-[8rem] shrink-0 leading-[100%] tracking-[0px] whitespace-nowrap text-gray-900'
             onClick={onReviewClick}>
-            {product.reviewCount.toLocaleString()}건 리뷰
+            {(product.reviewCount ?? 0).toLocaleString()}건 리뷰
           </button>
         </div>
 
         {/* 가격 및 쿠폰 정보 */}
-        <div className='flex min-h-[7.1rem] w-full items-end justify-between'>
+        <div className='flex w-full items-end justify-between'>
           <div className='flex flex-col'>
-            <div className='flex h-[1.9rem] w-[8.4rem] items-center gap-[0.2rem] whitespace-nowrap'>
-              <span className='text-body-16b h-[1.9rem] w-[2.6rem] leading-[100%] tracking-[0px] text-gray-800'>
-                {product.discountRate}%
-              </span>
-              <span className='text-body-14m h-[1.9rem] leading-[100%] tracking-[0px] text-gray-700'>
-                {product.originalPrice.toLocaleString()}원
-              </span>
-            </div>
-            <span className='text-display-22b h-[2.6rem] w-[7.3rem] leading-[100%] tracking-[0px] whitespace-nowrap text-black'>
-              {product.salePrice.toLocaleString()}
-              <span className='text-body-16r leading-[100%] tracking-[0px] text-black'>
-                원
-              </span>
-            </span>
-            <div className='flex h-[2.3rem] items-center whitespace-nowrap'>
-              <span className='text-display-22b h-[2.6rem] leading-[100%] tracking-[0px] text-red-900'>
-                {product.memberPrice.toLocaleString()}
-              </span>
-              <span className='text-body-16m mr-[0.8rem] h-[1.9rem] leading-[100%] tracking-[0px] text-red-900'>
-                원
-              </span>
-              <button
-                type='button'
-                className='flex h-[2.4rem] items-center'
-                aria-label='나의 할인가 자세히 보기'
-                onClick={onMemberPriceClick}>
-                <span className='text-body-16m h-[1.9rem] leading-[100%] tracking-[0px] text-red-900'>
-                  나의 할인가
+            {!!product.discountRate && product.originalPrice !== null && (
+              <div className='flex h-[1.9rem] items-center gap-[0.2rem] whitespace-nowrap'>
+                <span className='text-body-16b h-[1.9rem] leading-[100%] tracking-[0px] text-gray-800'>
+                  {product.discountRate}%
                 </span>
-                <IcSvgChevronDownSm
-                  aria-hidden='true'
-                  className='h-[2.4rem] w-[2.4rem]'
-                />
-              </button>
-            </div>
+                <span className='text-body-14m h-[1.9rem] leading-[100%] tracking-[0px] text-gray-700'>
+                  {product.originalPrice.toLocaleString()}원
+                </span>
+              </div>
+            )}
+            {(product.salePrice ?? product.originalPrice) !== null && (
+              <span className='text-display-22b h-[2.6rem] leading-[100%] tracking-[0px] whitespace-nowrap text-black'>
+                {(product.salePrice ?? product.originalPrice)!.toLocaleString()}
+                <span className='text-body-16r leading-[100%] tracking-[0px] text-black'>
+                  원
+                </span>
+              </span>
+            )}
+            {product.memberPrice !== null && (
+              <div className='flex h-[2.3rem] items-center whitespace-nowrap'>
+                <span className='text-display-22b h-[2.6rem] leading-[100%] tracking-[0px] text-red-900'>
+                  {product.memberPrice.toLocaleString()}
+                </span>
+                <span className='text-body-16m mr-[0.8rem] h-[1.9rem] leading-[100%] tracking-[0px] text-red-900'>
+                  원
+                </span>
+                <button
+                  type='button'
+                  className='flex h-[2.4rem] items-center'
+                  aria-label='나의 할인가 자세히 보기'
+                  onClick={onMemberPriceClick}>
+                  <span className='text-body-16m h-[1.9rem] leading-[100%] tracking-[0px] text-red-900'>
+                    나의 할인가
+                  </span>
+                  <IcSvgChevronDownSm
+                    aria-hidden='true'
+                    className='h-[2.4rem] w-[2.4rem]'
+                  />
+                </button>
+              </div>
+            )}
           </div>
-          {product.couponAvailable && (
+          {product.couponAvailable && product.couponDday !== null && (
             <ProductCouponButton
               dDay={`D-${product.couponDday}`}
               label='쿠폰 받기'
@@ -112,11 +119,11 @@ export const ProductInfoSection = ({
         {/* 배송 정보 */}
         <div className='flex h-[2.4rem] items-center gap-[0.4rem]'>
           <IcSvgDelivery aria-hidden='true' className='h-[2.4rem] w-[2.4rem]' />
-          <span className='text-caption-12m h-[1.4rem] w-[4.2rem] leading-[100%] tracking-[0px] text-gray-900'>
+          <span className='text-caption-12m h-[1.4rem] leading-[100%] tracking-[0px] whitespace-nowrap text-gray-900'>
             {deliveryFeeText}
           </span>
           <span className='h-[1.2rem] w-px bg-gray-500' />
-          <span className='text-caption-12m h-[1.4rem] w-[7.2rem] leading-[100%] tracking-[0px] text-gray-900'>
+          <span className='text-caption-12m h-[1.4rem] leading-[100%] tracking-[0px] whitespace-nowrap text-gray-900'>
             {unitPriceText}
           </span>
         </div>
