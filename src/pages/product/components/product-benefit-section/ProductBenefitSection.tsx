@@ -22,12 +22,12 @@ export const ProductBenefitSection = ({
 
   return (
     <section className='flex w-[33rem] flex-col gap-[0.8rem] bg-white'>
-      <div className='flex items-center gap-[3.6rem]'>
-        <span className='text-body-14m h-[1.7rem] w-[2.5rem] shrink-0 text-gray-800'>
-          적립
-        </span>
+      {hasPointBenefit && (
+        <div className='flex items-center gap-[3.6rem]'>
+          <span className='text-body-14m h-[1.7rem] w-[2.5rem] shrink-0 text-gray-800'>
+            적립
+          </span>
 
-        {hasPointBenefit && (
           <button
             type='button'
             className='flex h-[2.4rem] items-center'
@@ -45,8 +45,8 @@ export const ProductBenefitSection = ({
               className='ml-[0.4rem] size-[2.4rem] shrink-0 text-gray-900'
             />
           </button>
-        )}
-      </div>
+        </div>
+      )}
 
       {hasCardBenefits && (
         <div className='flex items-start gap-[3.6rem]'>

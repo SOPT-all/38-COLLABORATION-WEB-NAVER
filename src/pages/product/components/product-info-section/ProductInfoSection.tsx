@@ -65,17 +65,19 @@ export const ProductInfoSection = ({
         {/* 가격 및 쿠폰 정보 */}
         <div className='flex w-full items-end justify-between'>
           <div className='flex flex-col'>
-            <div className='flex h-[1.9rem] items-center gap-[0.2rem] whitespace-nowrap'>
-              <span className='text-body-16b h-[1.9rem] leading-[100%] tracking-[0px] text-gray-800'>
-                {product.discountRate}%
-              </span>
-              <span className='text-body-14m h-[1.9rem] leading-[100%] tracking-[0px] text-gray-700'>
-                {(product.originalPrice ?? 0).toLocaleString()}원
-              </span>
-            </div>
-            {product.salePrice !== null && (
+            {!!product.discountRate && product.originalPrice !== null && (
+              <div className='flex h-[1.9rem] items-center gap-[0.2rem] whitespace-nowrap'>
+                <span className='text-body-16b h-[1.9rem] leading-[100%] tracking-[0px] text-gray-800'>
+                  {product.discountRate}%
+                </span>
+                <span className='text-body-14m h-[1.9rem] leading-[100%] tracking-[0px] text-gray-700'>
+                  {product.originalPrice.toLocaleString()}원
+                </span>
+              </div>
+            )}
+            {(product.salePrice ?? product.originalPrice) !== null && (
               <span className='text-display-22b h-[2.6rem] leading-[100%] tracking-[0px] whitespace-nowrap text-black'>
-                {product.salePrice.toLocaleString()}
+                {(product.salePrice ?? product.originalPrice)!.toLocaleString()}
                 <span className='text-body-16r leading-[100%] tracking-[0px] text-black'>
                   원
                 </span>
