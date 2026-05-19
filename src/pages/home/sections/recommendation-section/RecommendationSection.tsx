@@ -1,7 +1,10 @@
+import {Link} from 'react-router-dom';
+
 import {useRecommendItemQuery} from '@/pages/home/api/recommend-item/use-recommend-item-query';
 import {ProductCard, RecommendListSkeleton} from '@/pages/home/components';
 import {AsyncBoundary} from '@/shared/components';
 import {CTAButton} from '@/shared/components/button/CTAButton';
+import {createPath} from '@/shared/constants/routes';
 
 const RecommendationContent = () => {
   const {data: recommendation} = useRecommendItemQuery();
@@ -18,16 +21,21 @@ const RecommendationContent = () => {
         <ul className='flex w-max gap-[8px]'>
           {recommendation.items.map((product) => (
             <li key={product.itemId}>
-              <ProductCard
-                imageSrc={product.imageUrl}
-                imageAlt={product.name}
-                name={product.name}
-                originalPrice={product.originalPrice}
-                discountRate={product.discountRate}
-                discountedPrice={
-                  product.discountedPrice ?? product.originalPrice
-                }
-              />
+              <Link
+                to={createPath.productDetail(product.itemId)}
+                aria-label={`${product.name} 상세 페이지로 이동`}
+                className='block no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900'>
+                <ProductCard
+                  imageSrc={product.imageUrl}
+                  imageAlt={product.name}
+                  name={product.name}
+                  originalPrice={product.originalPrice}
+                  discountRate={product.discountRate}
+                  discountedPrice={
+                    product.discountedPrice ?? product.originalPrice
+                  }
+                />
+              </Link>
             </li>
           ))}
         </ul>
