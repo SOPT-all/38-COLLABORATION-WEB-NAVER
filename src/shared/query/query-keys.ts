@@ -5,6 +5,9 @@ export const QUERY_KEYS = {
   PAYMENT: {
     DETAIL: (orderId: number) => ['payment', 'detail', orderId] as const,
   },
+  ORDER: {
+    POINTS: (orderId: number) => ['order', 'points', orderId] as const,
+  },
   HOME: {
     RECOMMENDATIONS: ['home', 'recommendations'] as const,
     CATEGORIES: ['home', 'categories'] as const,

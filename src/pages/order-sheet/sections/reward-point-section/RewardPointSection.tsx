@@ -6,11 +6,17 @@ import {cn} from '@/shared/utils/cn';
 
 import {RewardInfoCard} from '@/pages/order-sheet/components/reward-info-card/RewardInfoCard';
 import {POINT_SECTION_TEXT} from '@/pages/order-sheet/constants/OrderSheetConstants';
-import {useRewardPointData} from '@/pages/order-sheet/hooks/use-order-sheet-data';
+import type {RewardPointData} from '@/pages/order-sheet/utils/order-sheet-data';
 
-export const RewardPointSection = () => {
+type RewardPointSectionProps = {
+  rewardPointData: RewardPointData;
+};
+
+export const RewardPointSection = ({
+  rewardPointData,
+}: RewardPointSectionProps) => {
   const [isRewardInfoOpen, setIsRewardInfoOpen] = useState(true);
-  const {totalPoint, rewardItems, rewardInfo} = useRewardPointData();
+  const {totalPoint, rewardItems, rewardInfo} = rewardPointData;
 
   const handleRewardInfoToggle = () => {
     setIsRewardInfoOpen((prevIsOpen) => !prevIsOpen);

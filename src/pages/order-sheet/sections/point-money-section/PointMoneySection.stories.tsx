@@ -1,5 +1,6 @@
 import type {Meta} from '@storybook/react-vite';
 
+import {MOCK_POINT_MONEY_DATA} from '@/pages/order-sheet/mocks/RewardInfoCardMocks';
 import {PointMoneySection} from '@/pages/order-sheet/sections/point-money-section/PointMoneySection';
 
 const meta = {
@@ -14,7 +15,7 @@ const meta = {
       </div>
     ),
   ],
-  render: () => <PointMoneySection />,
+  render: () => <PointMoneySection pointMoneyData={MOCK_POINT_MONEY_DATA} />,
 } satisfies Meta<typeof PointMoneySection>;
 
 export default meta;
