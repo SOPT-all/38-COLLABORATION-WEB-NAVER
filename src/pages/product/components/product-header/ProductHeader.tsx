@@ -5,6 +5,7 @@ interface ProductHeaderProps {
   storeName: string;
   cartCount?: number;
   onBackClick?: () => void;
+  onStoreNameClick?: () => void;
   onSearchClick?: () => void;
   onCartClick?: () => void;
   onMenuClick?: () => void;
@@ -14,6 +15,7 @@ export const ProductHeader = ({
   storeName,
   cartCount,
   onBackClick,
+  onStoreNameClick,
   onSearchClick,
   onCartClick,
   onMenuClick,
@@ -22,7 +24,14 @@ export const ProductHeader = ({
     <Header>
       <Header.Left className='flex-1'>
         <Header.BackButton onClick={onBackClick} />
-        <Header.StoreTitle prefix='N배송'>{storeName}</Header.StoreTitle>
+        <Header.StoreTitle prefix='N배송'>
+          <button
+            type='button'
+            className='cursor-pointer truncate bg-transparent text-inherit'
+            onClick={onStoreNameClick}>
+            {storeName}
+          </button>
+        </Header.StoreTitle>
       </Header.Left>
 
       <Header.Right>
