@@ -10,6 +10,14 @@
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c819f573-1ec0-402e-a8b2-18a2a2f56c30" />
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0435cb7c-bfdf-4085-8bb9-084a5cf9d514" />
 
+## ✂ 역할 분담
+<img width="8000" height="4500" alt="합동세미나 발표자료-이미지-0" src="https://github.com/user-attachments/assets/29bb8d51-7a05-42c2-90aa-ef23382f44ac" />
+<img width="8000" height="4500" alt="합동세미나 발표자료-이미지-1" src="https://github.com/user-attachments/assets/60c82aa7-7e84-4a55-b44c-7f5bdf39f340" />
+<img width="8000" height="4500" alt="합동세미나 발표자료-이미지-2" src="https://github.com/user-attachments/assets/97378dd1-0d0e-48bc-a509-eaddba7fd8b8" />
+<img width="8000" height="4500" alt="합동세미나 발표자료-이미지-3 (1)" src="https://github.com/user-attachments/assets/4cbb292a-d3fa-4e3f-889a-3bb5fe43c14f" />
+<img width="8000" height="4500" alt="합동세미나 발표자료-이미지-4" src="https://github.com/user-attachments/assets/3679f3cd-6319-46c0-bd9c-d8470dbfc9d1" />
+<img width="8000" height="4500" alt="합동세미나 발표자료-이미지-5" src="https://github.com/user-attachments/assets/94c7115f-3f5f-4148-8121-8c8086858f9a" />
+<img width="8000" height="4500" alt="합동세미나 발표자료-이미지-6" src="https://github.com/user-attachments/assets/3ddeb9f2-edc3-4cb2-b0e0-f0e9f56944a6" />
 
 
 <br />
