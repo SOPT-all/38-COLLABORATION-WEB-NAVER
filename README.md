@@ -79,6 +79,7 @@
 | Package Manager      | ![PNPM](https://img.shields.io/badge/PNPM-F69220?style=for-the-badge&logo=pnpm&logoColor=white)                                                                                                                   |
 | Formatting & Linting | ![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white) ![Prettier](https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=white) |
 | Version Control      | ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)                |
+| UI Document     |     ![Storybook](https://img.shields.io/badge/storybook-FF4785?style=for-the-badge&logo=Storybook&logoColor=white)   |
 
 <br />
 <br />
@@ -195,3 +196,96 @@
 - Props 타입은 접미사 `Props` (예: `HeaderProps`)
 - `type` 이름에는 접미사 `Types` 사용
 
+## 폴더 구조 
+
+```
+📦src
+ ┣ 📂app
+ ┃ ┣ 📂providers
+ ┃ ┣ 📂router
+ ┃ ┃ ┗ 📜router.tsx
+ ┃ ┗ 📜App.tsx
+ ┣ 📂pages
+ ┃ ┣ 📂cart
+ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┃ ┣ 📂address-box
+ ┃ ┃ ┃ ┣ 📂cart-header
+ ┃ ┃ ┃ ┣ 📂order-price-summary
+ ┃ ┃ ┃ ┣ 📂product-card
+ ┃ ┃ ┃ ┣ 📂section
+ ┃ ┃ ┃ ┃ ┗ 📂store-section
+ ┃ ┃ ┃ ┣ 📂select-control
+ ┃ ┃ ┃ ┣ 📂store-header
+ ┃ ┃ ┃ ┣ 📂store-order-summary
+ ┃ ┃ ┃ ┗ 📂tap
+ ┃ ┃ ┣ 📂constants
+ ┃ ┃ ┗ 📜CartPage.tsx
+ ┃ ┣ 📂home
+ ┃ ┃ ┣ 📂api
+ ┃ ┃ ┃ ┣ 📂category
+ ┃ ┃ ┃ ┣ 📂promotion
+ ┃ ┃ ┃ ┣ 📂recommend-item
+ ┃ ┃ ┃ ┗ 📂types
+ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┃ ┣ 📂banner
+ ┃ ┃ ┃ ┣ 📂category-list
+ ┃ ┃ ┃ ┣ 📂deal-timer
+ ┃ ┃ ┃ ┣ 📂delivery-banner
+ ┃ ┃ ┃ ┣ 📂home-header
+ ┃ ┃ ┃ ┣ 📂location
+ ┃ ┃ ┃ ┣ 📂product-card
+ ┃ ┃ ┃ ┣ 📂recommend-list
+ ┃ ┃ ┃ ┣ 📂search-bar
+ ┃ ┃ ┃ ┗ 📜index.ts
+ ┃ ┃ ┣ 📂sections
+ ┃ ┃ ┃ ┣ 📂category-section
+ ┃ ┃ ┃ ┣ 📂recommendation-section
+ ┃ ┃ ┃ ┣ 📂special-deal-section
+ ┃ ┃ ┣ 📂utils
+ ┃ ┃ ┗ 📜HomePage.tsx
+ ┃ ┣ 📂order-sheet
+ ┃ ┃ ┣ 📂api
+ ┃ ┃ ┃ ┣ 📂types
+ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┃ ┣ 📂hidden-point-button
+ ┃ ┃ ┃ ┣ 📂order-sheet-content
+ ┃ ┃ ┃ ┣ 📂order-sheet-header
+ ┃ ┃ ┃ ┣ 📂order-sheet-skeleton
+ ┃ ┃ ┃ ┣ 📂point-usage-field
+ ┃ ┃ ┃ ┣ 📂reward-info-card
+ ┃ ┃ ┃ ┗ 📂reward-summary
+ ┃ ┃ ┣ 📂constants
+ ┃ ┃ ┣ 📂hooks
+ ┃ ┃ ┣ 📂sections
+ ┃ ┃ ┃ ┣ 📂agreement-section
+ ┃ ┃ ┃ ┣ 📂payment-button-section
+ ┃ ┃ ┃ ┣ 📂point-money-section
+ ┃ ┃ ┃ ┗ 📂reward-point-section
+ ┃ ┃ ┗ 📜OrderSheetPage.tsx
+ ┃ ┗ 📂product
+ ┃ ┃ ┣ 📂api
+ ┃ ┃ ┃ ┣ 📂types
+ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┃ ┣ 📂product-benefit-section
+ ┃ ┃ ┃ ┣ 📂product-delivery-section
+ ┃ ┃ ┃ ┃ ┣ 📂sections
+ ┃ ┃ ┃ ┣ 📂product-header
+ ┃ ┃ ┃ ┣ 📂product-image-section
+ ┃ ┃ ┃ ┗ 📂product-info-section
+ ┃ ┃ ┗ 📜ProductDetailPage.tsx
+ ┣ 📂shared
+ ┃ ┣ 📂api
+ ┃ ┣ 📂assets
+ ┃ ┣ 📂components
+ ┃ ┃ ┣ 📂badges
+ ┃ ┃ ┣ 📂boundary
+ ┃ ┃ ┣ 📂button
+ ┃ ┃ ┣ 📂cards
+ ┃ ┃ ┣ 📂header
+ ┃ ┣ 📂constants
+ ┃ ┣ 📂icons
+ ┃ ┣ 📂query
+ ┃ ┣ 📂styles
+ ┃ ┗ 📂utils
+ ┣ 📜main.tsx
+```
