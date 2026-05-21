@@ -22,6 +22,8 @@ export const HomeBanner = ({href, className, ...props}: HomeBannerProps) => {
         alt='빠른 배송이 필요할 땐 오늘 구매하면 내일배송'
         width={375}
         height={100}
+        loading='eager'
+        fetchPriority='high'
         className='h-full w-full object-cover'
       />
     </a>
