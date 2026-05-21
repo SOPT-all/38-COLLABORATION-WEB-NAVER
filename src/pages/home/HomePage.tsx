@@ -6,11 +6,9 @@ import {
   HomeHeader,
   Location,
 } from '@/pages/home/components';
-import {
-  CategorySection,
-  RecommendationSection,
-  SpecialDealSection,
-} from '@/pages/home/sections';
+import {CategorySection} from '@/pages/home/sections/category-section/CategorySection';
+import {DeferredPromotionSection} from '@/pages/home/sections/promotion-section/DeferredPromotionSection';
+import {RecommendationSection} from '@/pages/home/sections/recommendation-section/RecommendationSection';
 import {ROUTES} from '@/shared/constants/routes';
 
 export const HomePage = () => {
@@ -29,8 +27,7 @@ export const HomePage = () => {
         <CategorySection />
 
         <DeliveryBanner />
-
-        <SpecialDealSection />
+        <DeferredPromotionSection />
       </main>
     </div>
   );

@@ -1,11 +1,5 @@
 import {useSuspenseQuery} from '@tanstack/react-query';
-import {QUERY_KEYS} from '@/shared/query/query-keys';
-import {getPromotions} from '@/pages/home/api/promotion/promotion-api';
+import {promotionsQueryOptions} from '@/pages/home/api/promotion/promotion-query-options';
 
 export const usePromotionsQuery = () =>
-  useSuspenseQuery({
-    queryKey: QUERY_KEYS.HOME.PROMOTIONS,
-    queryFn: getPromotions,
-    staleTime: 1000 * 60,
-    gcTime: 1000 * 60 * 5,
-  });
+  useSuspenseQuery(promotionsQueryOptions());
