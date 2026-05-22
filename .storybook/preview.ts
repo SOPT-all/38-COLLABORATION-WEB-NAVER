@@ -9,7 +9,7 @@ const installStableTime = (freezeTime: string) => {
   const originalSetInterval = window.setInterval;
 
   Date.now = () => fixedTime;
-  window.setInterval = ((() => 0) as unknown) as typeof window.setInterval;
+  window.setInterval = (() => 0) as unknown as typeof window.setInterval;
 
   return () => {
     Date.now = originalDateNow;
@@ -53,13 +53,10 @@ const preview: Preview = {
 
       restoreStableTime = installStableTime(freezeTime);
 
-      return createElement(
-        StableTimeBoundary,
-        {
-          restore: restoreStableTime,
-          children: createElement(Story),
-        }
-      );
+      return createElement(StableTimeBoundary, {
+        restore: restoreStableTime,
+        children: createElement(Story),
+      });
     },
     (Story) => createElement(QueryProvider, null, createElement(Story)),
   ],
