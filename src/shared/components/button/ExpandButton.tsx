@@ -1,5 +1,5 @@
 import type {ComponentPropsWithoutRef} from 'react';
-import {IcSvgChevronDownSm} from '@/shared/icons';
+import {IcSvgChevronDown} from '@/shared/icons';
 import {cn} from '@/shared/utils/cn';
 
 type ExpandButtonProps = ComponentPropsWithoutRef<'button'> & {
@@ -22,7 +22,7 @@ export const ExpandButton = ({
       )}
       {...props}>
       {children}
-      <IcSvgChevronDownSm
+      <IcSvgChevronDown
         width={24}
         height={24}
         color='var(--color-gray-900)'
