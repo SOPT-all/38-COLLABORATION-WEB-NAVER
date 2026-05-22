@@ -25,4 +25,7 @@ export const Default: Story = {
     onIncreaseQuantity: () => undefined,
     onDeleteProduct: () => undefined,
   },
+  parameters: {
+    freezeTime: '2026-05-23T18:14:32',
+  },
 };

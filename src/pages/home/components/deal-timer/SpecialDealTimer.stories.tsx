@@ -6,8 +6,12 @@ const meta = {
   component: SpecialDealTimer,
   parameters: {
     layout: 'centered',
+    freezeTime: '2026-05-23T18:14:32',
   },
   decorators: [(Story) => <Story />],
+  args: {
+    endsAt: '2026-05-23T23:59:59',
+  },
 } satisfies Meta<typeof SpecialDealTimer>;
 
 export default meta;
