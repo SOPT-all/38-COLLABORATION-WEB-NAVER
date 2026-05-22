@@ -40,6 +40,9 @@ export const Default: Story = {
       onDelete: () => undefined,
     },
   },
+  parameters: {
+    freezeTime: '2026-05-23T18:14:32',
+  },
   render: (args) => {
     const [checked, setChecked] = useState(args.checked);
 

@@ -8,6 +8,7 @@ const meta = {
   component: ProductDeliverySection,
   parameters: {
     layout: 'centered',
+    freezeTime: '2026-04-24T23:14:32',
   },
   decorators: [
     (Story) => (

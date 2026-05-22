@@ -1,4 +1,5 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
+import {MemoryRouter} from 'react-router-dom';
 import {CartPage} from '@/pages/cart/CartPage';
 
 const meta = {
@@ -6,7 +7,15 @@ const meta = {
   component: CartPage,
   parameters: {
     layout: 'fullscreen',
+    freezeTime: '2026-05-23T18:14:32',
   },
+  decorators: [
+    (Story) => (
+      <MemoryRouter>
+        <Story />
+      </MemoryRouter>
+    ),
+  ],
 } satisfies Meta<typeof CartPage>;
 
 export default meta;
